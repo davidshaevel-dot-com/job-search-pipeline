@@ -1,0 +1,66 @@
+name: Job Search - Manual Trigger
+
+on:
+  workflow_dispatch:
+    inputs:
+      board:
+        description: 'Specific board to search (optional, leave empty for all)'
+        required: false
+        type: choice
+        options:
+          - ''
+          - linkedin
+          - indeed
+          - builtin
+          - angellist
+          - remoteok
+      config:
+        description: 'Config file to use'
+        required: false
+        default: 'config/search-criteria.yaml'
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run Job Search Pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LINKEDIN_API_KEY: ${{ secrets.LINKEDIN_API_KEY }}
+          INDEED_API_KEY: ${{ secrets.INDEED_API_KEY }}
+          ANGELIST_API_KEY: ${{ secrets.ANGELIST_API_KEY }}
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          LOG_LEVEL: INFO
+        run: |
+          if [ -n "${{ inputs.board }}" ]; then
+            python src/main.py --board ${{ inputs.board }} --config ${{ inputs.config }}
+          else
+            python src/main.py --config ${{ inputs.config }}
+          fi
+      
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: logs/
+          retention-days: 7
+

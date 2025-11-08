@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  job-search-pipeline:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: job-search-pipeline
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - LINKEDIN_API_KEY=${LINKEDIN_API_KEY}
+      - INDEED_API_KEY=${INDEED_API_KEY}
+      - ANGELIST_API_KEY=${ANGELIST_API_KEY}
+      - LINEAR_API_KEY=${LINEAR_API_KEY}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
+      - LOG_LEVEL=INFO
+    volumes:
+      - ../data:/app/data
+      - ../logs:/app/logs
+      - ../config:/app/config
+    restart: unless-stopped
+
