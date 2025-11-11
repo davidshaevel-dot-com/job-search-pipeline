@@ -136,6 +136,84 @@ Uses 8-factor weighted rubric (see `docs/evaluation_rubric.md`):
 
 ## Development Workflow
 
+### Git Commit Message Format
+
+We use **Conventional Commit** format for all commit messages:
+
+```
+<type>: <brief description>
+
+<optional detailed explanation>
+
+related-issues: TT-XX, TT-YY, TT-ZZ
+```
+
+**Commit Types:**
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `refactor`: Code refactoring
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks, dependency updates
+- `style`: Code style changes (formatting, whitespace)
+- `perf`: Performance improvements
+
+**Examples:**
+```
+feat: implement configuration system with YAML loader
+
+- Create actual config files from examples
+- Implement config loader module with environment variable substitution
+- Add Config class for easy config access with dot notation
+
+related-issues: TT-45
+```
+
+```
+fix: handle missing optional config files gracefully
+
+related-issues: TT-45
+```
+
+**Important:**
+- Always include `related-issues:` at the end with Linear issue identifiers
+- Use present tense ("add" not "added")
+- Keep first line under 72 characters
+- Provide detailed explanation for complex changes
+
+### Pull Request Management
+
+**PR Size Guidelines:**
+- Keep PRs focused and reviewable (typically 200-500 lines changed)
+- Aim for 1-3 logical components per PR
+- Avoid mixing unrelated changes
+
+**When to Create a PR:**
+- After completing 1-2 major components or features
+- After implementing a logical unit of work (e.g., config system + file writer)
+- Before starting a new major component that will add significant code
+- When reaching ~300-500 lines of changes
+
+**PR Creation Process:**
+1. **Pause Implementation** - After completing logical units of work
+2. **Check with User** - Ask if we should create a PR for review
+3. **Create PR** - If approved, create PR with comprehensive overview
+4. **Wait for Review** - Use gemini-code-assist for code review
+5. **Address Feedback** - Make changes based on review comments
+6. **Continue** - Resume implementation after PR is merged or approved
+
+**PR Description Template:**
+- Overview of changes
+- What's included (components, files changed)
+- Testing considerations
+- Dependencies
+- Next steps (not in this PR)
+- Review checklist
+- Questions for reviewers
+
+**Example Checkpoint:**
+> "We've completed the config system and file writer (2 major components, ~560 lines). Should we pause here for a PR review, or continue with the job board adapter?"
+
 ### Local Development
 ```bash
 # Set up environment
@@ -336,7 +414,8 @@ When working on this project, consider:
 
 ---
 
-**Last Updated:** November 8, 2025  
-**Status:** Planning Complete - Ready for Implementation  
-**Next Phase:** Phase 1 - Foundation and single board integration
+**Last Updated:** November 11, 2025  
+**Status:** Phase 1 Implementation In Progress  
+**Current PR:** [#1 - Phase 1: Configuration System and File Writer](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/1)  
+**Next Phase:** Complete Phase 1 - Job board adapter and search orchestrator
 
