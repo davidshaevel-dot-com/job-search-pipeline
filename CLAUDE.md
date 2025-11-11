@@ -214,6 +214,75 @@ related-issues: TT-45
 **Example Checkpoint:**
 > "We've completed the config system and file writer (2 major components, ~560 lines). Should we pause here for a PR review, or continue with the job board adapter?"
 
+### Working with gemini-code-assist Reviews
+
+**Review Feedback Analysis:**
+1. **Read All Comments** - Carefully review all feedback from gemini-code-assist
+2. **Categorize Feedback** - Identify priority levels (HIGH, MEDIUM, LOW)
+3. **Evaluate Each Comment** - Think critically about whether feedback is valid
+4. **Create Resolution Plan** - For each piece of feedback:
+   - **If Agree:** Create implementation plan with specific changes
+   - **If Disagree:** Provide detailed explanation why (with technical reasoning)
+   - **If Partially Agree:** Explain what we'll change and what we'll keep
+
+**Addressing Feedback:**
+1. **Prioritize Fixes** - Address HIGH priority issues first (bugs, data loss, security)
+2. **Implement Changes** - Make code changes following conventional commit format
+3. **Test Changes** - Verify fixes work correctly
+4. **Commit Changes** - Use `fix:` commit type with clear description
+5. **Create Response Comment** - Explain how feedback was addressed
+
+**PR Comment Response Format:**
+- **Mention Reviewer:** Always `@gemini-code-assist` to notify them
+- **Address Each Comment:** Reference specific comment numbers or issues
+- **Show Before/After:** Include code snippets showing changes
+- **Explain Reasoning:** For disagreements, provide technical justification
+- **Confirm Completion:** State that changes are committed and pushed
+
+**Example Response Structure:**
+```
+@gemini-code-assist Thank you for the thorough code review! I've addressed all feedback:
+
+## ✅ Comment 1 (HIGH): [Issue Title]
+**Issue:** [Brief description]
+**Resolution:** [What was changed]
+**Code Change:**
+```python
+# Before
+[old code]
+
+# After  
+[new code]
+```
+
+## ✅ Comment 2 (MEDIUM): [Issue Title]
+[Similar format]
+
+## ⚠️ Comment 3 (MEDIUM): [Issue Title]
+**Issue:** [Brief description]
+**Decision:** [Agree/Partially Agree/Disagree]
+**Reasoning:** [Detailed explanation]
+**Action Taken:** [What was done]
+```
+
+**Feedback Evaluation Guidelines:**
+- **HIGH Priority (Bugs, Data Loss, Security):** Always fix immediately
+- **MEDIUM Priority (Code Quality, Type Hints, Architecture):** Fix if valid, document if deferring
+- **LOW Priority (Style, Naming, Future Improvements):** Document for future consideration
+
+**When to Disagree:**
+- Provide detailed technical reasoning
+- Explain trade-offs considered
+- Show alternative approaches evaluated
+- Document decision for future reference
+- Be respectful and constructive
+
+**After Addressing Feedback:**
+1. Push changes to PR branch
+2. Create response comment with `@gemini-code-assist`
+3. Wait for re-review or approval
+4. Continue implementation after PR is approved/merged
+
 ### Local Development
 ```bash
 # Set up environment
@@ -415,7 +484,8 @@ When working on this project, consider:
 ---
 
 **Last Updated:** November 11, 2025  
-**Status:** Phase 1 Implementation In Progress  
+**Status:** Phase 1 Implementation In Progress - PR #1 Under Review  
 **Current PR:** [#1 - Phase 1: Configuration System and File Writer](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/1)  
+**PR Status:** Code review feedback addressed, awaiting re-review  
 **Next Phase:** Complete Phase 1 - Job board adapter and search orchestrator
 
