@@ -182,29 +182,37 @@ class FileWriter:
         output_dir.mkdir(parents=True, exist_ok=True)
         
         written_files = []
+        # For efficiency, read existing filenames from the directory once
+        # This reduces I/O operations and also handles filename collisions within
+        # the same batch of jobs
+        existing_filenames = {p.name for p in output_dir.glob("*.txt")}
         
         for job in jobs:
             # Generate base filename
             base_filename = get_job_filename(job)
-            filename = base_filename
-            file_path = output_dir / f"{filename}.txt"
+            filename_stem = base_filename
+            filename = f"{filename_stem}.txt"
             
-            # Check filesystem for existing files and ensure unique filename
+            # Check for unique filename against in-memory set
             # Note: This approach has a potential race condition if multiple processes
             # run concurrently. For Phase 1 (single-process execution), this is acceptable.
             # In Phase 6 (concurrent execution), this should be replaced with atomic
             # file creation using exclusive file creation mode ('x' flag) or similar.
             counter = 1
-            while file_path.exists():
-                filename = f"{base_filename}_{counter}"
-                file_path = output_dir / f"{filename}.txt"
+            while filename in existing_filenames:
+                filename_stem = f"{base_filename}_{counter}"
+                filename = f"{filename_stem}.txt"
                 counter += 1
+            
+            file_path = output_dir / filename
             
             # Write file
             content = format_job_content(job)
             file_path.write_text(content, encoding="utf-8")
             
             written_files.append(file_path)
+            # Add to set to handle duplicates within the same batch of jobs
+            existing_filenames.add(filename)
         
         return written_files
     

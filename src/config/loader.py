@@ -52,6 +52,10 @@ def _substitute_env_vars(value: Any) -> Any:
     Supports ${VAR_NAME} syntax. Raises ValueError if a required environment
     variable is not set, ensuring fail-fast behavior for configuration errors.
     
+    Note: Future enhancement could support default values using ${VAR_NAME:default}
+    syntax (similar to Docker Compose) for optional/non-sensitive configuration
+    values. This would allow fallback values directly in YAML files.
+    
     Raises:
         ValueError: If an environment variable referenced in config is not set
     """
