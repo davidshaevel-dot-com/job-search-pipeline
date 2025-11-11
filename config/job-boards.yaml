@@ -1,0 +1,56 @@
+# Job Board Configuration
+
+boards:
+  - name: "LinkedIn"
+    enabled: true
+    adapter: "linkedin"
+    api_key: "${LINKEDIN_API_KEY}"
+    rate_limit:
+      requests_per_minute: 30
+    search_params:
+      sort_by: "date"
+      experience_level: ["3", "4", "5"]  # Senior, Director, Executive
+  
+  - name: "Indeed"
+    enabled: true
+    adapter: "indeed"
+    api_key: "${INDEED_API_KEY}"
+    rate_limit:
+      requests_per_minute: 20
+  
+  - name: "Built In Austin"
+    enabled: true
+    adapter: "builtin"
+    rate_limit:
+      requests_per_minute: 10
+  
+  - name: "AngelList"
+    enabled: true
+    adapter: "angellist"
+    api_key: "${ANGELIST_API_KEY}"
+    rate_limit:
+      requests_per_minute: 15
+  
+  - name: "RemoteOK"
+    enabled: true
+    adapter: "remoteok"
+    rate_limit:
+      requests_per_minute: 10
+
+# Slack Configuration
+slack:
+  enabled: true
+  webhook_url: "${SLACK_WEBHOOK_URL}"
+  channel: "#job-search"
+  notifications:
+    pipeline_start: true
+    pipeline_complete: true
+    high_score_opportunities: true
+    errors: true
+  triggers:
+    enabled: true
+    slash_commands:
+      - "/trigger-job-search"
+      - "/job-search-status"
+      - "/job-search-summary"
+

@@ -1,0 +1,26 @@
+# Deduplication and Filtering Configuration
+
+deduplication:
+  enabled: true
+  methods:
+    - "title_similarity"  # Fuzzy match on job titles
+    - "company_name"     # Exact match on company
+    - "job_id"           # Board-specific job IDs
+  
+  similarity_threshold: 0.85  # 85% similarity = duplicate
+
+blacklist:
+  companies:
+    - "Current Employer Name"
+    - "Companies Already Evaluated"
+  
+  titles:
+    - "Intern"
+    - "Junior"
+    - "Entry Level"
+  
+  keywords:
+    - "Contract Only"
+    - "No Benefits"
+    - "Commission Only"
+

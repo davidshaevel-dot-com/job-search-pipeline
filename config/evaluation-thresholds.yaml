@@ -1,0 +1,18 @@
+# Evaluation Thresholds Configuration
+
+evaluation:
+  minimum_score: 70  # C grade minimum to pursue
+  
+  auto_pursue_threshold: 85  # B+ or higher - auto-create Linear issue
+  
+  require_manual_review:
+    - score_below: 80
+    - score_above: 90  # High scores still need human review
+    - missing_compensation: true
+    - missing_location: true
+  
+  scoring:
+    use_ai_evaluation: true
+    ai_model: "claude-sonnet-4-5"
+    fallback_to_manual: true
+
