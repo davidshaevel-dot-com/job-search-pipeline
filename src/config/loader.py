@@ -109,6 +109,11 @@ def load_config(
     """
     Load all configuration files and return Config object.
     
+    Note: This implementation uses explicit handling for each config file.
+    If the number of config files grows significantly, consider refactoring
+    to a more generic, data-driven approach where each file is loaded into
+    a dictionary key derived from its filename.
+    
     Args:
         config_dir: Directory containing config files (defaults to project config/)
         search_criteria_file: Name of search criteria config file
@@ -138,6 +143,7 @@ def load_config(
     config_data["search"] = load_yaml_file(search_criteria_path).get("search", {})
     
     # Job boards (required)
+    # Note: job-boards.yaml contains both 'boards' and 'slack' configs
     job_boards_path = config_dir / job_boards_file
     boards_data = load_yaml_file(job_boards_path)
     config_data["boards"] = boards_data.get("boards", [])

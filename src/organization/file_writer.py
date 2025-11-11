@@ -7,7 +7,7 @@ Creates date-based directories and writes job descriptions to files.
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from ..adapters.base import JobPosting
 
@@ -105,7 +105,7 @@ def format_job_content(job: JobPosting) -> str:
     return "\n".join(lines)
 
 
-def get_output_directory(base_path: Path, date: datetime = None) -> Path:
+def get_output_directory(base_path: Path, date: Optional[datetime] = None) -> Path:
     """
     Get output directory path for date-based organization.
     
@@ -123,7 +123,7 @@ def get_output_directory(base_path: Path, date: datetime = None) -> Path:
     return base_path / date_str
 
 
-def get_job_filename(job: JobPosting, counter: int = None) -> str:
+def get_job_filename(job: JobPosting, counter: Optional[int] = None) -> str:
     """
     Generate filename for job posting.
     
@@ -148,7 +148,7 @@ def get_job_filename(job: JobPosting, counter: int = None) -> str:
 class FileWriter:
     """Handles writing job postings to organized file structure."""
     
-    def __init__(self, base_path: Path = None):
+    def __init__(self, base_path: Optional[Path] = None):
         """
         Initialize file writer.
         
@@ -163,7 +163,7 @@ class FileWriter:
         self.base_path = Path(base_path)
         self.base_path.mkdir(parents=True, exist_ok=True)
     
-    def write_jobs(self, jobs: List[JobPosting], date: datetime = None) -> List[Path]:
+    def write_jobs(self, jobs: List[JobPosting], date: Optional[datetime] = None) -> List[Path]:
         """
         Write multiple job postings to files.
         
@@ -181,22 +181,19 @@ class FileWriter:
         output_dir.mkdir(parents=True, exist_ok=True)
         
         written_files = []
-        filename_counters = {}
         
         for job in jobs:
-            # Generate filename
+            # Generate base filename
             base_filename = get_job_filename(job)
-            
-            # Handle duplicates
-            if base_filename in filename_counters:
-                filename_counters[base_filename] += 1
-                counter = filename_counters[base_filename]
-            else:
-                filename_counters[base_filename] = 0
-                counter = None
-            
-            filename = get_job_filename(job, counter)
+            filename = base_filename
             file_path = output_dir / f"{filename}.txt"
+            
+            # Check filesystem for existing files and ensure unique filename
+            counter = 1
+            while file_path.exists():
+                filename = f"{base_filename}_{counter}"
+                file_path = output_dir / f"{filename}.txt"
+                counter += 1
             
             # Write file
             content = format_job_content(job)
@@ -206,7 +203,7 @@ class FileWriter:
         
         return written_files
     
-    def write_job(self, job: JobPosting, date: datetime = None) -> Path:
+    def write_job(self, job: JobPosting, date: Optional[datetime] = None) -> Optional[Path]:
         """
         Write single job posting to file.
         
