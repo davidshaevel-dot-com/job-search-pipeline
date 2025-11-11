@@ -49,8 +49,11 @@ def _substitute_env_vars(value: Any) -> Any:
     """
     Recursively substitute environment variables in configuration values.
     
-    Supports ${VAR_NAME} syntax. If variable is not found, returns the
-    original string with ${} intact.
+    Supports ${VAR_NAME} syntax. Raises ValueError if a required environment
+    variable is not set, ensuring fail-fast behavior for configuration errors.
+    
+    Raises:
+        ValueError: If an environment variable referenced in config is not set
     """
     if isinstance(value, str):
         # Match ${VAR_NAME} pattern
@@ -61,8 +64,11 @@ def _substitute_env_vars(value: Any) -> Any:
             env_value = os.getenv(var_name)
             if env_value is not None:
                 return env_value
-            # Return original if not found (don't fail silently)
-            return match.group(0)
+            # Fail fast if an environment variable is not set
+            raise ValueError(
+                f"Environment variable '{var_name}' is not set but is required "
+                f"in the configuration."
+            )
         
         return re.sub(pattern, replace, value)
     elif isinstance(value, dict):
@@ -103,21 +109,23 @@ def load_config(
     config_dir: Optional[Path] = None,
     search_criteria_file: str = "search-criteria.yaml",
     job_boards_file: str = "job-boards.yaml",
+    slack_file: str = "slack.yaml",
     filters_file: str = "filters.yaml",
     evaluation_thresholds_file: str = "evaluation-thresholds.yaml",
 ) -> Config:
     """
     Load all configuration files and return Config object.
     
-    Note: This implementation uses explicit handling for each config file.
-    If the number of config files grows significantly, consider refactoring
-    to a more generic, data-driven approach where each file is loaded into
-    a dictionary key derived from its filename.
+    All configuration files follow a consistent schema where each file has a single
+    top-level key matching its purpose (e.g., 'search', 'boards', 'slack', 'filters',
+    'evaluation'). This consistency simplifies loading logic and makes the system
+    easier to maintain and extend.
     
     Args:
         config_dir: Directory containing config files (defaults to project config/)
         search_criteria_file: Name of search criteria config file
         job_boards_file: Name of job boards config file
+        slack_file: Name of slack config file
         filters_file: Name of filters config file
         evaluation_thresholds_file: Name of evaluation thresholds config file
         
@@ -127,6 +135,7 @@ def load_config(
     Raises:
         FileNotFoundError: If required config files don't exist
         yaml.YAMLError: If config files are invalid YAML
+        ValueError: If required environment variables are not set
     """
     if config_dir is None:
         # Default to config/ directory relative to project root
@@ -135,7 +144,8 @@ def load_config(
     
     config_dir = Path(config_dir)
     
-    # Load all config files
+    # Load all config files with consistent schema
+    # Each file has a single top-level key matching its purpose
     config_data = {}
     
     # Search criteria (required)
@@ -143,29 +153,31 @@ def load_config(
     config_data["search"] = load_yaml_file(search_criteria_path).get("search", {})
     
     # Job boards (required)
-    # Note: job-boards.yaml contains both 'boards' and 'slack' configs
     job_boards_path = config_dir / job_boards_file
-    boards_data = load_yaml_file(job_boards_path)
-    config_data["boards"] = boards_data.get("boards", [])
-    config_data["slack"] = boards_data.get("slack", {})
+    config_data["boards"] = load_yaml_file(job_boards_path).get("boards", [])
+    
+    # Slack configuration (required)
+    slack_path = config_dir / slack_file
+    if slack_path.exists():
+        config_data["slack"] = load_yaml_file(slack_path).get("slack", {})
+    else:
+        config_data["slack"] = {}
     
     # Filters (optional for Phase 1, but good to have structure)
     filters_path = config_dir / filters_file
     if filters_path.exists():
-        filters_data = load_yaml_file(filters_path)
-        config_data["filters"] = filters_data
+        config_data["filters"] = load_yaml_file(filters_path).get("filters", {})
     else:
         config_data["filters"] = {}
     
     # Evaluation thresholds (optional for Phase 1, but good to have structure)
     eval_path = config_dir / evaluation_thresholds_file
     if eval_path.exists():
-        eval_data = load_yaml_file(eval_path)
-        config_data["evaluation"] = eval_data.get("evaluation", {})
+        config_data["evaluation"] = load_yaml_file(eval_path).get("evaluation", {})
     else:
         config_data["evaluation"] = {}
     
-    # Substitute environment variables
+    # Substitute environment variables (will raise ValueError if missing)
     config_data = _substitute_env_vars(config_data)
     
     return Config(config_data)

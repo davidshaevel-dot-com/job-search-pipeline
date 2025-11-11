@@ -189,6 +189,10 @@ class FileWriter:
             file_path = output_dir / f"{filename}.txt"
             
             # Check filesystem for existing files and ensure unique filename
+            # Note: This approach has a potential race condition if multiple processes
+            # run concurrently. For Phase 1 (single-process execution), this is acceptable.
+            # In Phase 6 (concurrent execution), this should be replaced with atomic
+            # file creation using exclusive file creation mode ('x' flag) or similar.
             counter = 1
             while file_path.exists():
                 filename = f"{base_filename}_{counter}"
