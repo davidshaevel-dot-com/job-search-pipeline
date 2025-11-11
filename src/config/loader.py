@@ -156,26 +156,19 @@ def load_config(
     job_boards_path = config_dir / job_boards_file
     config_data["boards"] = load_yaml_file(job_boards_path).get("boards", [])
     
-    # Slack configuration (required)
-    slack_path = config_dir / slack_file
-    if slack_path.exists():
-        config_data["slack"] = load_yaml_file(slack_path).get("slack", {})
-    else:
-        config_data["slack"] = {}
+    # Optional configurations
+    optional_configs = {
+        "slack": slack_file,
+        "filters": filters_file,
+        "evaluation": evaluation_thresholds_file,
+    }
     
-    # Filters (optional for Phase 1, but good to have structure)
-    filters_path = config_dir / filters_file
-    if filters_path.exists():
-        config_data["filters"] = load_yaml_file(filters_path).get("filters", {})
-    else:
-        config_data["filters"] = {}
-    
-    # Evaluation thresholds (optional for Phase 1, but good to have structure)
-    eval_path = config_dir / evaluation_thresholds_file
-    if eval_path.exists():
-        config_data["evaluation"] = load_yaml_file(eval_path).get("evaluation", {})
-    else:
-        config_data["evaluation"] = {}
+    for key, filename in optional_configs.items():
+        path = config_dir / filename
+        if path.exists():
+            config_data[key] = load_yaml_file(path).get(key, {})
+        else:
+            config_data[key] = {}
     
     # Substitute environment variables (will raise ValueError if missing)
     config_data = _substitute_env_vars(config_data)

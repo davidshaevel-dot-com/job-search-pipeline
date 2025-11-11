@@ -21,7 +21,7 @@ def sanitize_filename(text: str, max_length: int = 100) -> str:
         max_length: Maximum length of filename
         
     Returns:
-        Sanitized filename-safe string
+        Sanitized filename-safe string, or "unnamed" if sanitization results in empty string
     """
     # Remove or replace invalid filename characters
     # Keep alphanumeric, spaces, hyphens, underscores
@@ -36,7 +36,8 @@ def sanitize_filename(text: str, max_length: int = 100) -> str:
     if len(sanitized) > max_length:
         sanitized = sanitized[:max_length].rstrip('_')
     
-    return sanitized
+    # Return fallback if sanitization resulted in empty string
+    return sanitized or "unnamed"
 
 
 def format_job_content(job: JobPosting) -> str:
@@ -66,9 +67,9 @@ def format_job_content(job: JobPosting) -> str:
         salary_str = ""
         if job.salary_min:
             salary_str = f"${job.salary_min:,}"
-        if job.salary_min and job.salary_max:
-            salary_str += " - "
         if job.salary_max:
+            if salary_str:
+                salary_str += " - "
             salary_str += f"${job.salary_max:,}"
         lines.append(f"Salary: {salary_str}")
     
