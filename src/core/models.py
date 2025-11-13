@@ -2,9 +2,9 @@
 Core data models for job search pipeline.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -17,16 +17,10 @@ class JobPosting:
     salary_min: Optional[int] = None
     salary_max: Optional[int] = None
     description: str = ""
-    requirements: List[str] = None
+    requirements: List[str] = field(default_factory=list)
     posted_date: Optional[datetime] = None
     job_url: str = ""
     board_name: str = ""
     board_job_id: str = ""
-    raw_data: dict = None
-    
-    def __post_init__(self):
-        if self.requirements is None:
-            self.requirements = []
-        if self.raw_data is None:
-            self.raw_data = {}
+    raw_data: Dict[str, Any] = field(default_factory=dict)
 

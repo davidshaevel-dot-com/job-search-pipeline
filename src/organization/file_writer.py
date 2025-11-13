@@ -26,10 +26,9 @@ def sanitize_filename(text: str, max_length: int = 100) -> str:
     # Remove or replace invalid filename characters
     # Keep alphanumeric, spaces, hyphens, underscores
     sanitized = re.sub(r'[^\w\s-]', '', text)
-    # Replace spaces with underscores
-    sanitized = re.sub(r'\s+', '_', sanitized)
-    # Remove multiple underscores
-    sanitized = re.sub(r'_+', '_', sanitized)
+    # Replace spaces and underscores with single underscore
+    # This combines the previous two operations for efficiency
+    sanitized = re.sub(r'[\s_]+', '_', sanitized)
     # Remove leading/trailing underscores
     sanitized = sanitized.strip('_')
     # Truncate if too long
@@ -98,6 +97,9 @@ def format_job_content(job: JobPosting) -> str:
     
     # Footer
     lines.append("=" * 80)
+    # Note: Using datetime.now() introduces non-determinism, making unit testing harder.
+    # For Phase 7 (Testing & Refinement), consider injecting the timestamp as a parameter
+    # to format_job_content() for better testability.
     lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     lines.append("=" * 80)
     
