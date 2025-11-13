@@ -1,0 +1,18 @@
+# Slack Configuration
+
+slack:
+  enabled: true
+  webhook_url: "${SLACK_WEBHOOK_URL}"
+  channel: "#job-search"
+  notifications:
+    pipeline_start: true
+    pipeline_complete: true
+    high_score_opportunities: true
+    errors: true
+  triggers:
+    enabled: true
+    slash_commands:
+      - "/trigger-job-search"
+      - "/job-search-status"
+      - "/job-search-summary"
+

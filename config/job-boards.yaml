@@ -1,5 +1,4 @@
 # Job Board Configuration
-# Copy this file to job-boards.yaml and customize
 
 boards:
   - name: "LinkedIn"
