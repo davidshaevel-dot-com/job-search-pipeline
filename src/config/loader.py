@@ -152,11 +152,13 @@ def load_config(
     # Each file has a single top-level key matching its purpose
     config_data = {}
     
-    # Search criteria (required)
+    # Required configurations
+    # Note: Currently only 2 required configs, so explicit handling is clear.
+    # If more required configs are added, consider refactoring to a loop similar
+    # to optional_configs below for consistency.
     search_criteria_path = config_dir / search_criteria_file
     config_data["search"] = load_yaml_file(search_criteria_path).get("search", {})
     
-    # Job boards (required)
     job_boards_path = config_dir / job_boards_file
     config_data["boards"] = load_yaml_file(job_boards_path).get("boards", [])
     

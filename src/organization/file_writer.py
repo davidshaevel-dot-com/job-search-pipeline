@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 
-from ..adapters.base import JobPosting
+from ..core.models import JobPosting
 
 
 def sanitize_filename(text: str, max_length: int = 100) -> str:
@@ -64,14 +64,12 @@ def format_job_content(job: JobPosting) -> str:
     lines.append(f"Remote Type: {job.remote_type.title()}")
     
     if job.salary_min or job.salary_max:
-        salary_str = ""
+        salary_parts = []
         if job.salary_min:
-            salary_str = f"${job.salary_min:,}"
+            salary_parts.append(f"${job.salary_min:,}")
         if job.salary_max:
-            if salary_str:
-                salary_str += " - "
-            salary_str += f"${job.salary_max:,}"
-        lines.append(f"Salary: {salary_str}")
+            salary_parts.append(f"${job.salary_max:,}")
+        lines.append(f"Salary: {' - '.join(salary_parts)}")
     
     if job.posted_date:
         lines.append(f"Posted Date: {job.posted_date.strftime('%Y-%m-%d')}")
@@ -188,10 +186,8 @@ class FileWriter:
         existing_filenames = {p.name for p in output_dir.glob("*.txt")}
         
         for job in jobs:
-            # Generate base filename
-            base_filename = get_job_filename(job)
-            filename_stem = base_filename
-            filename = f"{filename_stem}.txt"
+            # Generate unique filename
+            filename = f"{get_job_filename(job)}.txt"
             
             # Check for unique filename against in-memory set
             # Note: This approach has a potential race condition if multiple processes
@@ -200,8 +196,7 @@ class FileWriter:
             # file creation using exclusive file creation mode ('x' flag) or similar.
             counter = 1
             while filename in existing_filenames:
-                filename_stem = f"{base_filename}_{counter}"
-                filename = f"{filename_stem}.txt"
+                filename = f"{get_job_filename(job, counter=counter)}.txt"
                 counter += 1
             
             file_path = output_dir / filename
