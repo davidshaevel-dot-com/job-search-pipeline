@@ -1,8 +1,9 @@
 # AI Agent Handoff - Job Search Pipeline
 
-**Last Updated:** November 13, 2025  
-**Project Status:** Phase 1 In Progress - Configuration System and File Writer Complete  
+**Last Updated:** November 19, 2025
+**Project Status:** Phase 1 In Progress - JSearch Adapter Implementation
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
+**Current Branch:** `david/tt-45-jsearch-adapter-implementation`
 
 ---
 
@@ -11,12 +12,14 @@
 This is an automated job search pipeline that discovers and evaluates job opportunities from multiple job boards. It uses AI-powered evaluation, integrates with Linear for tracking, and supports multiple deployment options including GitHub Actions and GCP Cloud Run.
 
 **Key Features:**
-- Multi-board job search (LinkedIn, Indeed, Built In Austin, RemoteOK, etc.)
+- Multi-board job search (JSearch, Adzuna, RemoteOK, Remotive, The Muse, USAJobs)
 - AI-powered evaluation using Claude API and 8-factor rubric
 - Automated Linear issue creation for promising opportunities
 - Slack integration for notifications and manual triggers
 - GitHub Actions workflows for scheduled and manual execution
 - GCP Cloud Run deployment support
+
+**Note:** LinkedIn, Indeed, Glassdoor, and Wellfound APIs are deprecated or unavailable for job search
 
 **Project Management:**
 - **Issue Tracking:** Linear (Team Tacocat)
@@ -67,20 +70,34 @@ job-search-pipeline/
 
 ## Current Status
 
-**Phase:** Phase 1 In Progress - Configuration System and File Writer Complete ✅
+**Phase:** Phase 1 In Progress - JSearch Adapter Implementation ⏳
 
 **Completed:**
 - ✅ **PR #1 Merged** - Configuration System and File Writer Implementation
   - Configuration loader with YAML support and environment variable substitution
   - File writer with date-based directory structure and filename sanitization
   - Core models (`JobPosting` dataclass in `src/core/models.py`)
-  - All code review feedback addressed and merged
+  - All code review feedback addressed and merged (18 review comments resolved)
+- ✅ **API Research Complete** (Nov 19, 2025)
+  - Comprehensive analysis documented in `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`
+  - Identified JSearch as best option for Phase 1
+  - Documented that Indeed API is deprecated (2020), LinkedIn has no public job search API
 
 **In Progress:**
-- ⏳ **Phase 1 Remaining Tasks:**
-  - Job board adapter (Indeed or LinkedIn)
-  - Search orchestrator
-  - Main entry point wiring
+- ⏳ **JSearch Adapter Implementation** (Current Branch: `david/tt-45-jsearch-adapter-implementation`)
+  - Implementing JSearch via RapidAPI instead of Indeed API (deprecated)
+  - 40+ data points per job including explicit remote designation
+  - Google for Jobs aggregator (sources from LinkedIn, Indeed, Glassdoor, ZipRecruiter, Monster, Dice, etc.)
+- ⏳ **Search Orchestrator**
+- ⏳ **Main Entry Point Wiring**
+
+**API Selection Update (Nov 19, 2025):**
+After comprehensive research, we're implementing **JSearch via RapidAPI** for Phase 1:
+- **Why:** Indeed API deprecated (2020), LinkedIn has no public job search API
+- **JSearch Benefits:** Google for Jobs aggregator, 40+ data points per job, explicit remote designation
+- **Authentication:** Simple RapidAPI key (X-RapidAPI-Key header)
+- **Pricing:** Free tier (50 requests/7 days for testing), Paid ($10-50/month for 10K-50K requests)
+- **Future:** Architecture supports adding Adzuna, RemoteOK, Remotive in Phase 2
 
 **Implementation Phases:**
 1. **Phase 1:** Foundation - Core infrastructure and single board integration ⏳ (In Progress)
@@ -358,9 +375,12 @@ gcloud run deploy job-search-pipeline \
 - **Location:** `src/evaluation/ai_evaluator.py`
 
 ### Job Boards
-- **Supported:** LinkedIn, Indeed, Built In Austin, RemoteOK, AngelList
+- **Phase 1 (Current):** JSearch via RapidAPI
+- **Phase 2 (Planned):** Adzuna, RemoteOK, Remotive, The Muse, USAJobs
 - **Location:** `src/adapters/`
 - **Interface:** `src/adapters/base.py`
+- **Note:** LinkedIn, Indeed, Glassdoor, and Wellfound APIs are deprecated or unavailable for job search
+- **Research:** See `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md` for comprehensive analysis
 
 ---
 
@@ -496,8 +516,12 @@ When working on this project, consider:
 
 ---
 
-**Last Updated:** November 13, 2025  
-**Status:** Phase 1 In Progress - Configuration System and File Writer Complete ✅  
-**Last Merged PR:** [#1 - Phase 1: Configuration System and File Writer](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/1) - Merged ✅  
-**Next Steps:** Continue Phase 1 - Implement job board adapter, search orchestrator, and main.py wiring
+**Last Updated:** November 19, 2025
+**Status:** Phase 1 In Progress - JSearch Adapter Implementation ⏳
+**Last Merged PR:** [#1 - Phase 1: Configuration System and File Writer](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/1) - Merged ✅
+**Current Branch:** `david/tt-45-jsearch-adapter-implementation`
+**Next Steps:** Implement JSearch adapter via RapidAPI, search orchestrator, and main.py wiring
+
+**API Research Complete (Nov 19, 2025):**
+Comprehensive research documented in `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md` identified JSearch as the best option for Phase 1, with Adzuna, RemoteOK, and Remotive as excellent free additions for Phase 2.
 
