@@ -1,58 +1,16 @@
-# Search Criteria Configuration
+# Simplified Search Criteria for Phase 1 Testing
+#
+# The complex nested structure in search-criteria.yaml will be used in Phase 3
+# For now, we use a simple flat structure that works with the current JSearch adapter
 
 search:
   keywords:
-    primary:
-      - "DevOps Engineer"
-      - "Platform Engineer"
-      - "Infrastructure Engineer"
-      - "Site Reliability Engineer"
-    secondary:
-      - "Cloud Engineer"
-      - "Backend Engineer"
-      - "Software Engineer Infrastructure"
-  
-  location:
-    preferred:
-      - "Austin, TX"
-      - "Remote"
-      - "United States"
-    acceptable:
-      - "Texas"
-      - "Hybrid"
-  
-  salary_range:
-    min: 140000
-    max: 200000
-  
-  experience_level:
-    - "Senior"
-    - "Staff"
-    - "Lead"
-    - "Principal"
-  
-  company_stage:
-    exclude:
-      - "Pre-seed"
-      - "Idea stage"
-    prefer:
-      - "Series A+"
-      - "Profitable"
-      - "Established"
-  
-  tech_stack:
-    required:
-      - "AWS"
-      - "Terraform"
-    preferred:
-      - "Python"
-      - "Kubernetes"
-      - "CI/CD"
-  
-  exclude_companies:
-    - "Current Employer"
-    - "Companies Already Evaluated"
-  
-  date_range:
-    posted_within_days: 7  # Only new postings
+    - "DevOps"
 
+  location: ""
+
+  # Optional: remote filter (not yet implemented in JSearch adapter)
+  # remote: true
+
+  # Optional: employment type (not yet implemented in JSearch adapter)
+  # employment_type: "FULLTIME"

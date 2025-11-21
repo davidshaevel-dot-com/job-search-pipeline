@@ -9,9 +9,9 @@ comprehensive error handling and logging.
 import logging
 from typing import Dict, List
 
-from ..adapters import JSearchAdapter
-from ..config.loader import Config
-from ..core.models import JobPosting
+from adapters import JSearchAdapter
+from config.loader import Config
+from core.models import JobPosting
 
 logger = logging.getLogger(__name__)
 

@@ -14,8 +14,8 @@ from typing import List, Optional
 
 import requests
 
-from .base import BaseAdapter
-from ..core.models import JobPosting
+from adapters.base import BaseAdapter
+from core.models import JobPosting
 
 logger = logging.getLogger(__name__)
 
