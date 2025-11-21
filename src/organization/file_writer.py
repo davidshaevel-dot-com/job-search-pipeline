@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 
-from ..core.models import JobPosting
+from core.models import JobPosting
 
 
 def sanitize_filename(text: str, max_length: int = 100) -> str:

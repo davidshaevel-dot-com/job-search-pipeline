@@ -179,7 +179,7 @@ Examples:
         print("=" * 60)
         print(f"Total jobs found:     {len(jobs)}")
         print(f"Files created:        {len(output_files)}")
-        print(f"Output directory:     {writer.output_dir}")
+        print(f"Output directory:     {writer.base_path}")
         print("=" * 60)
 
         # Print output file paths
