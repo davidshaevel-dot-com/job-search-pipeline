@@ -6,15 +6,16 @@ This script tests the JSearch adapter implementation with a minimal search
 to verify the integration is working correctly.
 
 Usage:
-    # Set your RapidAPI key first:
-    export RAPIDAPI_KEY="your-rapidapi-key-here"
+    # Ensure .env file exists with RAPIDAPI_KEY:
+    cp .env.example .env
+    # Edit .env and add your RAPIDAPI_KEY
 
     # Run the test:
     python scripts/test_jsearch_adapter.py
 
 Requirements:
     - RapidAPI account with JSearch API subscription
-    - RAPIDAPI_KEY environment variable set
+    - .env file with RAPIDAPI_KEY set (copy from .env.example)
     - Free tier provides 50 requests over 7 days for testing
 """
 
@@ -23,6 +24,10 @@ from pathlib import Path
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
 
 import logging
 from config.loader import load_config

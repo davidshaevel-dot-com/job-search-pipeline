@@ -31,6 +31,10 @@ from pathlib import Path
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
 from config.loader import load_config
 from organization.file_writer import FileWriter
 from search.orchestrator import SearchOrchestrator
