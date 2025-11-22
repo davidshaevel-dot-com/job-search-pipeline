@@ -101,8 +101,8 @@ After comprehensive research, we're implementing **JSearch via RapidAPI** for Ph
 
 **Implementation Phases:**
 1. **Phase 1:** Foundation - Core infrastructure and single board integration ⏳ (In Progress)
-2. **Phase 2:** Multi-Board Support - Rate limiting and parallel execution
-3. **Phase 3:** Deduplication & Filtering - Remove duplicates and filter unwanted
+2. **Phase 2:** Deduplication & Filtering - Remove duplicates and filter unwanted
+3. **Phase 3:** Multi-Board Support - Rate limiting and parallel execution
 4. **Phase 4:** AI Evaluation - Automated evaluation using Claude API
 5. **Phase 5:** Organization & Linear Integration - Folder structure and auto-issues
 6. **Phase 6:** Scheduling & Automation - GitHub Actions, GCP, Slack
@@ -112,8 +112,8 @@ After comprehensive research, we're implementing **JSearch via RapidAPI** for Ph
 
 **Linear Issues:**
 - [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation (In Progress)
-- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Multi-Board Support
-- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Deduplication & Filtering
+- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering
+- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Multi-Board Support
 - [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 4: AI Evaluation
 - [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 5: Organization & Linear Integration
 - [TT-50](https://linear.app/davidshaevel-dot-com/issue/TT-50) - Phase 6: Scheduling & Automation

@@ -208,12 +208,12 @@ See `docs/deployment.md` for detailed instructions.
 
 ## 📈 Implementation Status
 
-**Phase 1:** Foundation - Core infrastructure and single board integration  
-**Phase 2:** Multi-Board Support - Rate limiting and parallel execution  
-**Phase 3:** Deduplication & Filtering - Remove duplicates and filter unwanted  
-**Phase 4:** AI Evaluation - Automated evaluation using Claude API  
-**Phase 5:** Organization & Linear Integration - Folder structure and auto-issues  
-**Phase 6:** Scheduling & Automation - GitHub Actions, GCP, Slack  
+**Phase 1:** Foundation - Core infrastructure and single board integration
+**Phase 2:** Deduplication & Filtering - Remove duplicates and filter unwanted
+**Phase 3:** Multi-Board Support - Rate limiting and parallel execution
+**Phase 4:** AI Evaluation - Automated evaluation using Claude API
+**Phase 5:** Organization & Linear Integration - Folder structure and auto-issues
+**Phase 6:** Scheduling & Automation - GitHub Actions, GCP, Slack
 **Phase 7:** Testing & Refinement - Test suite, performance, documentation
 
 See `PLAN.md` for detailed phase breakdowns and Linear issues.
@@ -224,8 +224,8 @@ See `PLAN.md` for detailed phase breakdowns and Linear issues.
 
 **Issues:**
 - [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation
-- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Multi-Board Support
-- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Deduplication & Filtering
+- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering
+- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Multi-Board Support
 - [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 4: AI Evaluation
 - [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 5: Organization & Linear Integration
 - [TT-50](https://linear.app/davidshaevel-dot-com/issue/TT-50) - Phase 6: Scheduling & Automation
