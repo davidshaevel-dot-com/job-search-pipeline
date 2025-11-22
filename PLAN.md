@@ -599,7 +599,24 @@ After comprehensive research (see `docs/best-job-search-apis-for-automated-pipel
 **Linear Issue:** [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45)
 **Current Branch:** `david/tt-45-jsearch-adapter-implementation`
 
-### Phase 2: Multi-Board Support (Week 2)
+### Phase 2: Deduplication & Filtering (Week 2)
+**Goal:** Remove duplicates and filter unwanted opportunities
+
+**Tasks:**
+1. ⏳ Implement deduplication logic
+2. ⏳ Company blacklist filtering
+3. ⏳ Title/keyword filtering
+4. ⏳ Similarity matching (fuzzy)
+5. ⏳ Track processed jobs to avoid re-processing
+
+**Deliverables:**
+- Deduplication system
+- Filtering rules engine
+- Processed jobs database/cache
+
+**Linear Issue:** [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46)
+
+### Phase 3: Multi-Board Support (Week 2-3)
 **Goal:** Support multiple job boards with rate limiting
 
 **Updated Plan (Nov 19, 2025):**
@@ -628,23 +645,6 @@ Based on API research, focusing on **viable APIs** (LinkedIn, Indeed, Glassdoor 
 - Parallel search execution
 - Error handling and logging
 - Unified data normalization across different API schemas
-
-**Linear Issue:** [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46)
-
-### Phase 3: Deduplication & Filtering (Week 2-3)
-**Goal:** Remove duplicates and filter unwanted opportunities
-
-**Tasks:**
-1. ✅ Implement deduplication logic
-2. ✅ Company blacklist filtering
-3. ✅ Title/keyword filtering
-4. ✅ Similarity matching (fuzzy)
-5. ✅ Track processed jobs to avoid re-processing
-
-**Deliverables:**
-- Deduplication system
-- Filtering rules engine
-- Processed jobs database/cache
 
 **Linear Issue:** [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47)
 
