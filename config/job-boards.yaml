@@ -1,39 +1,111 @@
 # Job Board Configuration
+#
+# Updated Nov 19, 2025 to reflect viable APIs based on comprehensive research
+# See docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md for details
+#
+# Note: LinkedIn, Indeed, Glassdoor, and Wellfound APIs are deprecated or unavailable for job search
 
 boards:
-  - name: "LinkedIn"
+  # Phase 1: JSearch via RapidAPI (ACTIVE)
+  - name: "JSearch"
     enabled: true
-    adapter: "linkedin"
-    api_key: "${LINKEDIN_API_KEY}"
+    adapter: "jsearch"
+    api_key: "${RAPIDAPI_KEY}"  # RapidAPI key for JSearch
+    api_host: "jsearch.p.rapidapi.com"
     rate_limit:
-      requests_per_minute: 30
+      # IMPORTANT: Adjust based on your RapidAPI subscription tier:
+      #   Free tier (50 req/7 days):  0.5 req/sec (1 request every 2 seconds)
+      #   Basic ($10, 10K/month):     1.0 req/sec (1 request per second)
+      #   Pro ($50, 50K/month):       5.0 req/sec (5 requests per second)
+      #   Ultra (custom, unlimited):  20 req/sec or higher
+      #
+      # Default below is CONSERVATIVE for free tier testing.
+      # You WILL exhaust your free tier quota quickly even at this rate.
+      requests_per_second: 0.5  # Safe for free tier (will still exhaust quota quickly)
     search_params:
+      num_pages: 1  # CRITICAL: Keep at 1 for free tier (each page = 1 request)
+      date_posted: "week"  # all, today, 3days, week, month
+      remote_jobs_only: false  # Set to true for remote-only
+      employment_types: "FULLTIME"  # FULLTIME, CONTRACTOR, PARTTIME, INTERN
+    pricing:
+      free_tier: "50 requests over 7 days (0.00008 req/sec average - VERY LIMITED)"
+      basic_tier: "$10/month - 10,000 requests (0.0038 req/sec average)"
+      pro_tier: "$50/month - 50,000 requests (0.019 req/sec average)"
+      ultra_tier: "Custom pricing - Unlimited requests"
+    notes: "Google for Jobs aggregator, 40+ data points per job. FREE TIER EXHAUSTS QUICKLY!"
+
+  # Phase 2: Adzuna (PLANNED - best free alternative)
+  - name: "Adzuna"
+    enabled: false  # Enable in Phase 2
+    adapter: "adzuna"
+    app_id: "${ADZUNA_APP_ID}"
+    app_key: "${ADZUNA_APP_KEY}"
+    rate_limit:
+      requests_per_minute: 60  # Conservative limit, can be increased
+    search_params:
+      results_per_page: 50
       sort_by: "date"
-      experience_level: ["3", "4", "5"]  # Senior, Director, Executive
-  
-  - name: "Indeed"
-    enabled: true
-    adapter: "indeed"
-    api_key: "${INDEED_API_KEY}"
-    rate_limit:
-      requests_per_minute: 20
-  
-  - name: "Built In Austin"
-    enabled: true
-    adapter: "builtin"
-    rate_limit:
-      requests_per_minute: 10
-  
-  - name: "AngelList"
-    enabled: true
-    adapter: "angellist"
-    api_key: "${ANGELIST_API_KEY}"
-    rate_limit:
-      requests_per_minute: 15
-  
+    pricing:
+      free_tier: "14-day trial, then negotiate commercial terms"
+    notes: "Comprehensive US coverage, salary data included"
+
+  # Phase 2: RemoteOK (PLANNED - 50K+ remote jobs, free)
   - name: "RemoteOK"
-    enabled: true
+    enabled: false  # Enable in Phase 2
     adapter: "remoteok"
+    # No API key required
     rate_limit:
-      requests_per_minute: 10
+      requests_per_day: 4  # No strict limit, but 4/day recommended
+    search_params:
+      api_param: 1  # Add ?api=1 to force JSON
+    pricing:
+      free_tier: "Completely free, no authentication"
+    notes: "50K+ remote jobs, 24-hour data delay, must link back to RemoteOK"
+
+  # Phase 2: Remotive (PLANNED - 2K+ curated remote jobs, free)
+  - name: "Remotive"
+    enabled: false  # Enable in Phase 2
+    adapter: "remotive"
+    # No API key required for public API
+    rate_limit:
+      requests_per_minute: 2  # Strict 2 req/min limit
+    search_params:
+      limit: 100  # Number of results
+    pricing:
+      free_tier: "Free public API with 24-hour delay"
+      paid_tier: "Contact hello@remotive.com for real-time data"
+    notes: "Curated remote jobs, 24-hour delay, must link back to Remotive"
+
+  # Phase 2: The Muse (PLANNED - curated quality jobs, free)
+  - name: "The Muse"
+    enabled: false  # Enable in Phase 2
+    adapter: "themuse"
+    api_key: "${THEMUSE_API_KEY}"  # Optional, increases rate limit
+    rate_limit:
+      requests_per_hour: 3600  # With API key, 500 without
+    search_params:
+      page_size: 20  # Results per page
+    pricing:
+      free_tier: "Completely free with API key registration"
+    notes: "Curated quality jobs, no salary data in API"
+
+  # Phase 2: USAJobs (PLANNED - federal jobs, free)
+  - name: "USAJobs"
+    enabled: false  # Enable in Phase 2
+    adapter: "usajobs"
+    api_key: "${USAJOBS_API_KEY}"
+    user_agent: "${USAJOBS_USER_AGENT}"  # Required: your email
+    rate_limit:
+      requests_per_minute: 60  # Conservative estimate
+    search_params:
+      results_per_page: 250  # Max 250
+    pricing:
+      free_tier: "Completely free"
+    notes: "Federal government jobs only, excludes private sector"
+
+  # DEPRECATED APIS (do not enable)
+  # LinkedIn - No public job search API exists
+  # Indeed - API deprecated since 2020
+  # Glassdoor - API deprecated since 2021
+  # Wellfound/AngelList - No public API
 

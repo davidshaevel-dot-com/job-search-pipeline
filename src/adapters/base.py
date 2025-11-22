@@ -5,7 +5,7 @@ Base Adapter - Abstract base class for job board adapters.
 from abc import ABC, abstractmethod
 from typing import List
 
-from ..core.models import JobPosting
+from core.models import JobPosting
 
 
 class BaseAdapter(ABC):

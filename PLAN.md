@@ -314,6 +314,25 @@ evaluation:
 
 **Location:** `src/adapters/`
 
+**Updated API Strategy (Nov 19, 2025):**
+Based on comprehensive research (`docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`):
+
+**Phase 1 (Current):**
+- **JSearch via RapidAPI** - Google for Jobs aggregator, 40+ fields, $10-50/month
+
+**Phase 2 (Planned):**
+- **Adzuna** - Best free alternative, comprehensive US coverage
+- **RemoteOK** - 50,000+ remote jobs, completely free
+- **Remotive** - 2,000+ curated remote jobs, free
+- **The Muse** - Curated quality jobs, free
+- **USAJobs** - Federal jobs, free
+
+**APIs Not Available:**
+- ❌ Indeed API - Deprecated since 2020
+- ❌ LinkedIn API - No public job search API exists
+- ❌ Glassdoor API - Deprecated since 2021
+- ❌ Wellfound/AngelList API - No public API
+
 **Standardized Job Data Format:**
 ```python
 @dataclass
@@ -551,39 +570,64 @@ gcloud scheduler jobs create http job-search-daily \
 ### Phase 1: Foundation (Week 1)
 **Goal:** Core infrastructure and single board integration
 
+**Status:** In Progress (Updated Nov 19, 2025)
+- ✅ PR #1 Merged - Configuration system and file writer complete
+- ⏳ JSearch adapter implementation in progress
+
 **Tasks:**
 1. ✅ Create repository structure
 2. ✅ Set up configuration system (YAML files)
 3. ✅ Implement base adapter interface
-4. ✅ Integrate one job board (LinkedIn or Indeed API)
+4. ⏳ Integrate JSearch API via RapidAPI (Updated: was LinkedIn/Indeed)
 5. ✅ Create standardized job data format
-6. ✅ Basic search execution
-7. ✅ Simple file output
+6. ⏳ Basic search execution (orchestrator)
+7. ⏳ Simple file output to `jobs/pipeline/YYYY-MM-DD/`
+
+**API Selection Update (Nov 19, 2025):**
+After comprehensive research (see `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`), implementing **JSearch via RapidAPI** instead of Indeed/LinkedIn:
+- **Why:** Indeed API deprecated (2020), LinkedIn has no public job search API
+- **JSearch Benefits:** Google for Jobs aggregator, 40+ data points, explicit remote designation
+- **Authentication:** Simple RapidAPI key (X-RapidAPI-Key header)
+- **Pricing:** Free tier (50 requests/7 days), Paid ($10-50/month for 10K-50K requests)
 
 **Deliverables:**
-- Working config system
-- One functional job board adapter
-- Basic search execution script
-- Job descriptions saved to files
+- ✅ Working config system with environment variable substitution
+- ⏳ JSearch adapter via RapidAPI
+- ⏳ Basic search execution script (orchestrator)
+- ⏳ Job descriptions saved to date-based folders
 
 **Linear Issue:** [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45)
+**Current Branch:** `david/tt-45-jsearch-adapter-implementation`
 
 ### Phase 2: Multi-Board Support (Week 2)
 **Goal:** Support multiple job boards with rate limiting
 
+**Updated Plan (Nov 19, 2025):**
+Based on API research, focusing on **viable APIs** (LinkedIn, Indeed, Glassdoor APIs are deprecated/unavailable):
+
+**Priority Adapters to Add:**
+1. **Adzuna** - Best free alternative, 14-day trial, comprehensive US coverage
+2. **RemoteOK** - 50,000+ remote jobs, completely free, no auth required
+3. **Remotive** - 2,000+ curated remote jobs, free public API (24hr delay)
+4. **The Muse** - Curated quality jobs, 3,600 requests/hour free
+5. **USAJobs** - Federal government jobs, completely free
+
 **Tasks:**
-1. ✅ Implement rate limiter
-2. ✅ Add retry logic with exponential backoff
-3. ✅ Integrate 3-5 additional job boards
-4. ✅ Parallel search execution
-5. ✅ Comprehensive error handling
-6. ✅ Logging and progress tracking
+1. ⏳ Implement rate limiter with per-API configuration
+2. ⏳ Add retry logic with exponential backoff
+3. ⏳ Integrate Adzuna adapter (app_id + app_key auth)
+4. ⏳ Integrate RemoteOK adapter (no auth, JSON endpoint)
+5. ⏳ Integrate Remotive adapter (no auth, 2 req/min limit)
+6. ⏳ Parallel search execution across multiple boards
+7. ⏳ Comprehensive error handling per adapter
+8. ⏳ Logging and progress tracking
 
 **Deliverables:**
-- 3-5 functional job board adapters
-- Rate limiting and retry logic
+- 4-5 functional job board adapters (JSearch + Adzuna + RemoteOK + Remotive + optional The Muse)
+- Per-API rate limiting (JSearch: 20/sec, Remotive: 2/min, others: generous)
 - Parallel search execution
 - Error handling and logging
+- Unified data normalization across different API schemas
 
 **Linear Issue:** [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46)
 

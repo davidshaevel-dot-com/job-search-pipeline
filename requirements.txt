@@ -3,6 +3,7 @@ requests>=2.31.0
 pyyaml>=6.0.1
 python-dateutil>=2.8.2
 pydantic>=2.5.0
+python-dotenv>=1.0.0
 
 # Web Scraping
 beautifulsoup4>=4.12.2
@@ -18,7 +19,7 @@ python-Levenshtein>=0.23.0
 
 # Integrations
 slack-sdk>=3.23.0
-linear-sdk>=0.1.0
+# linear-sdk>=0.1.0  # Note: No official Linear Python SDK; use GraphQL API directly (Phase 5)
 
 # Logging
 structlog>=23.2.0
