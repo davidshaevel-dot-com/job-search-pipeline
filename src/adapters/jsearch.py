@@ -8,6 +8,7 @@ API Documentation: https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch
 """
 
 import logging
+import threading
 import time
 from datetime import datetime
 from typing import List, Optional
@@ -51,6 +52,16 @@ class JSearchAdapter(BaseAdapter):
         # Rate limiting
         self.requests_per_second = self.rate_limit.get("requests_per_second", 1)
         self.last_request_time = 0.0
+        self._rate_limit_lock = threading.Lock()  # Thread-safe rate limiting
+
+        # Warn if rate limit seems too high for typical RapidAPI tiers
+        if self.requests_per_second > 5:
+            logger.warning(
+                f"JSearch rate limit set to {self.requests_per_second} req/sec. "
+                f"This is only safe for RapidAPI Pro tier ($50/mo) or higher. "
+                f"Free tier: 50 req/7 days. Basic ($10): 10K req/month. Pro ($50): 50K req/month. "
+                f"Verify your subscription at https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch/pricing"
+            )
 
         logger.info(f"Initialized JSearch adapter for board '{self.board_name}'")
 
@@ -67,19 +78,27 @@ class JSearchAdapter(BaseAdapter):
         }
 
     def _enforce_rate_limit(self):
-        """Enforce rate limiting between requests."""
+        """
+        Enforce rate limiting between requests (thread-safe).
+
+        Uses a lock to prevent race conditions when multiple threads
+        make concurrent requests. This ensures rate limits are respected
+        even during parallel execution in Phase 2+.
+        """
         if self.requests_per_second <= 0:
             return
 
         min_interval = 1.0 / self.requests_per_second
-        elapsed = time.time() - self.last_request_time
 
-        if elapsed < min_interval:
-            sleep_time = min_interval - elapsed
-            logger.debug(f"Rate limiting: sleeping {sleep_time:.2f}s")
-            time.sleep(sleep_time)
+        with self._rate_limit_lock:
+            elapsed = time.time() - self.last_request_time
 
-        self.last_request_time = time.time()
+            if elapsed < min_interval:
+                sleep_time = min_interval - elapsed
+                logger.debug(f"Rate limiting: sleeping {sleep_time:.2f}s")
+                time.sleep(sleep_time)
+
+            self.last_request_time = time.time()
 
     def _build_query_string(self, criteria: dict) -> str:
         """

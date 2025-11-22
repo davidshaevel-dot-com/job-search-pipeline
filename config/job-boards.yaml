@@ -13,16 +13,26 @@ boards:
     api_key: "${RAPIDAPI_KEY}"  # RapidAPI key for JSearch
     api_host: "jsearch.p.rapidapi.com"
     rate_limit:
-      requests_per_second: 20  # 20 req/sec on paid tiers, lower on free
+      # IMPORTANT: Adjust based on your RapidAPI subscription tier:
+      #   Free tier (50 req/7 days):  0.5 req/sec (1 request every 2 seconds)
+      #   Basic ($10, 10K/month):     1.0 req/sec (1 request per second)
+      #   Pro ($50, 50K/month):       5.0 req/sec (5 requests per second)
+      #   Ultra (custom, unlimited):  20 req/sec or higher
+      #
+      # Default below is CONSERVATIVE for free tier testing.
+      # You WILL exhaust your free tier quota quickly even at this rate.
+      requests_per_second: 0.5  # Safe for free tier (will still exhaust quota quickly)
     search_params:
-      num_pages: 1  # Number of pages to fetch (1-20)
+      num_pages: 1  # CRITICAL: Keep at 1 for free tier (each page = 1 request)
       date_posted: "week"  # all, today, 3days, week, month
       remote_jobs_only: false  # Set to true for remote-only
       employment_types: "FULLTIME"  # FULLTIME, CONTRACTOR, PARTTIME, INTERN
     pricing:
-      free_tier: "50 requests over 7 days"
-      paid_tier: "$10-50/month for 10K-50K requests"
-    notes: "Google for Jobs aggregator, 40+ data points per job"
+      free_tier: "50 requests over 7 days (0.00008 req/sec average - VERY LIMITED)"
+      basic_tier: "$10/month - 10,000 requests (0.0038 req/sec average)"
+      pro_tier: "$50/month - 50,000 requests (0.019 req/sec average)"
+      ultra_tier: "Custom pricing - Unlimited requests"
+    notes: "Google for Jobs aggregator, 40+ data points per job. FREE TIER EXHAUSTS QUICKLY!"
 
   # Phase 2: Adzuna (PLANNED - best free alternative)
   - name: "Adzuna"

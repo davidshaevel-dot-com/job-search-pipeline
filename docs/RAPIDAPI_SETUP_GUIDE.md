@@ -315,6 +315,59 @@ curl --request GET \
 
 ---
 
+## Understanding Rate Limits and Subscription Tiers
+
+**CRITICAL:** JSearch via RapidAPI has strict rate limits. Choose your tier carefully:
+
+### Free Tier ($0/month)
+- **Quota:** 50 requests over 7 days
+- **Max searches:** ~7 searches per week (assuming 7 pages × 1 request/page)
+- **Recommended rate:** 0.5 req/sec (1 request every 2 seconds)
+- **Reality:** You'll exhaust this in minutes of testing
+
+### Basic Tier ($10/month)
+- **Quota:** 10,000 requests per month
+- **Max searches:** ~333 searches per day
+- **Recommended rate:** 1 req/sec
+
+### Pro Tier ($50/month)
+- **Quota:** 50,000 requests per month
+- **Max searches:** ~1,666 searches per day
+- **Recommended rate:** 5 req/sec
+
+### Ultra Tier (Custom pricing)
+- **Quota:** Unlimited
+- **Recommended rate:** 20 req/sec or higher
+
+### Configuration
+
+Update `config/job-boards.yaml` to match your tier:
+
+```yaml
+rate_limit:
+  requests_per_second: 0.5  # Free tier (conservative)
+  # requests_per_second: 1.0  # Basic tier
+  # requests_per_second: 5.0  # Pro tier
+  # requests_per_second: 20   # Ultra tier
+```
+
+**Pro tip:** Start with free tier for testing, then upgrade to Basic once you know the pipeline works.
+
+###Warning: Free Tier Exhausts Quickly
+
+With the free tier's 50 requests over 7 days:
+- Each pipeline run uses 1 request (with `num_pages: 1`)
+- You can run the pipeline ~50 times total
+- Testing with multiple searches will quickly use your quota
+- Plan your testing accordingly!
+
+**Upgrade when:**
+- You want to run daily automated searches
+- You need higher rate limits
+- You're moving from testing to production use
+
+---
+
 ## Alternative: Using .env File
 
 ### Create .env File

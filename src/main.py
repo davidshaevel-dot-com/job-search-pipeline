@@ -28,6 +28,36 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+def _validate_project_structure():
+    """
+    Validate we're running from correct project location.
+
+    Ensures expected files exist before attempting to run the pipeline.
+    This helps catch errors early if the script is run from the wrong directory.
+
+    Exits with error code 1 if validation fails.
+    """
+    src_dir = Path(__file__).parent
+    project_root = src_dir.parent
+
+    expected_files = [
+        project_root / "config" / "job-boards.yaml",
+        project_root / "config" / "search-criteria.yaml",
+    ]
+
+    for expected_file in expected_files:
+        if not expected_file.exists():
+            print(f"ERROR: Project structure validation failed", file=sys.stderr)
+            print(f"Expected file not found: {expected_file}", file=sys.stderr)
+            print(f"", file=sys.stderr)
+            print(f"Make sure you're running from the project root:", file=sys.stderr)
+            print(f"  cd /path/to/job-search-pipeline", file=sys.stderr)
+            print(f"  python src/main.py", file=sys.stderr)
+            sys.exit(1)
+
+# Validate project structure before modifying sys.path
+_validate_project_structure()
+
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 

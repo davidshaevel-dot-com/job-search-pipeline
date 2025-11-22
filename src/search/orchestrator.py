@@ -91,8 +91,23 @@ class SearchOrchestrator:
         """
         Build search criteria dictionary from configuration.
 
+        PHASE 1 NOTE: This method currently builds JSearch-specific parameter names
+        (remote_jobs_only, employment_types). This is intentional for Phase 1 with
+        a single adapter and follows the YAGNI principle (You Aren't Gonna Need It).
+
+        PHASE 2 REFACTOR PLAN: When adding additional adapters (Adzuna, RemoteOK,
+        The Muse, USAJobs), we will:
+        1. Define generic criteria interface (keywords, location, remote, type)
+        2. Pass generic criteria to all adapters
+        3. Each adapter implements translate_criteria() to convert generic → specific
+        4. Move parameter translation to BaseAdapter with adapter-specific overrides
+
+        This follows the Rule of Three: don't abstract until you have ≥2 concrete
+        implementations to guide the abstraction design. Currently we have 1 adapter
+        (JSearch), so premature abstraction would be counterproductive.
+
         Returns:
-            Search criteria dictionary
+            Search criteria dictionary (currently JSearch-specific parameters)
         """
         search_config = self.config.get("search", {})
 
@@ -102,11 +117,12 @@ class SearchOrchestrator:
         }
 
         # Add optional parameters if present
+        # TODO Phase 2: Move these JSearch-specific mappings to adapter translation
         if "remote" in search_config:
-            criteria["remote_jobs_only"] = search_config["remote"]
+            criteria["remote_jobs_only"] = search_config["remote"]  # JSearch-specific
 
         if "employment_type" in search_config:
-            criteria["employment_types"] = search_config["employment_type"]
+            criteria["employment_types"] = search_config["employment_type"]  # JSearch-specific
 
         logger.debug(f"Built search criteria: {criteria}")
         return criteria
