@@ -1,58 +1,39 @@
 # Search Criteria Configuration
 
 search:
-  keywords:
-    primary:
-      - "DevOps Engineer"
-      - "Platform Engineer"
-      - "Infrastructure Engineer"
-      - "Site Reliability Engineer"
-    secondary:
-      - "Cloud Engineer"
-      - "Backend Engineer"
-      - "Software Engineer Infrastructure"
-  
-  location:
-    preferred:
-      - "Austin, TX"
-      - "Remote"
-      - "United States"
-    acceptable:
-      - "Texas"
-      - "Hybrid"
-  
   salary_range:
-    min: 140000
-    max: 200000
+    min: 150000
+    max: 240000
   
-  experience_level:
-    - "Senior"
-    - "Staff"
-    - "Lead"
-    - "Principal"
+  # experience_level:
+  #   - "Senior"
+  #   - "Staff"
+  #   - "Lead"
+  #   - "Principal"
   
-  company_stage:
-    exclude:
-      - "Pre-seed"
-      - "Idea stage"
-    prefer:
-      - "Series A+"
-      - "Profitable"
-      - "Established"
+  # company_stage:
+  #   exclude:
+  #     - "Pre-seed"
+  #     - "Idea stage"
+  #   prefer:
+  #     - "Series A+"
+  #     - "Profitable"
+  #     - "Established"
   
   tech_stack:
-    required:
-      - "AWS"
-      - "Terraform"
+    required: []
     preferred:
-      - "Python"
-      - "Kubernetes"
+      - "AWS"
+      - "Azure"
+      - "GCP"
+      - "Terraform"
+      - "Ansible"
+      - "Docker"
       - "CI/CD"
   
   exclude_companies:
-    - "Current Employer"
-    - "Companies Already Evaluated"
+    - "Zello"
+    - "Aravo"
   
   date_range:
     posted_within_days: 7  # Only new postings
-

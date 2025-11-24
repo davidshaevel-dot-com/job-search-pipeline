@@ -1,0 +1,8 @@
+job-searches-pipeline - today is wednesday november 19, 2025. lets make this the
+current working directory: /Users/dshaevel/workspace-ds/job-search-pipeline. lets make
+sure we understand what the job-search-pipeline is and where we last left off in a
+previous work session. lets read all of the .md files in the repo. lets make sure we
+understand the codebase. lets make sure we understand the git commit history for the
+repo. lets make sure we read all of the pull request comments from pr#1. lets read the
+linear project "Job Search Pipeline Development". lets read all of the linear issues for
+this project. lets draft an agenda of what to work on during this next work session.

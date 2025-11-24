@@ -112,6 +112,7 @@ def load_yaml_file(file_path: Path) -> Dict[str, Any]:
 def load_config(
     config_dir: Optional[Path] = None,
     search_criteria_file: str = "search-criteria.yaml",
+    search_criteria_complex_file: str = "search-criteria-complex.yaml",
     job_boards_file: str = "job-boards.yaml",
     slack_file: str = "slack.yaml",
     filters_file: str = "filters.yaml",
@@ -119,23 +120,24 @@ def load_config(
 ) -> Config:
     """
     Load all configuration files and return Config object.
-    
+
     All configuration files follow a consistent schema where each file has a single
     top-level key matching its purpose (e.g., 'search', 'boards', 'slack', 'filters',
     'evaluation'). This consistency simplifies loading logic and makes the system
     easier to maintain and extend.
-    
+
     Args:
         config_dir: Directory containing config files (defaults to project config/)
         search_criteria_file: Name of search criteria config file
+        search_criteria_complex_file: Name of complex search criteria config file
         job_boards_file: Name of job boards config file
         slack_file: Name of slack config file
         filters_file: Name of filters config file
         evaluation_thresholds_file: Name of evaluation thresholds config file
-        
+
     Returns:
         Config object containing all configuration
-        
+
     Raises:
         FileNotFoundError: If required config files don't exist
         yaml.YAMLError: If config files are invalid YAML
@@ -167,12 +169,15 @@ def load_config(
         "slack": slack_file,
         "filters": filters_file,
         "evaluation": evaluation_thresholds_file,
+        "search_criteria": search_criteria_complex_file,  # Complex search criteria
     }
-    
+
     for key, filename in optional_configs.items():
         path = config_dir / filename
         if path.exists():
-            config_data[key] = load_yaml_file(path).get(key, {})
+            # For search_criteria, use "search" key from YAML
+            yaml_key = "search" if key == "search_criteria" else key
+            config_data[key] = load_yaml_file(path).get(yaml_key, {})
         else:
             config_data[key] = {}
     

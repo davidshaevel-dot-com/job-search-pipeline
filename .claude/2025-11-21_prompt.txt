@@ -1,0 +1,3 @@
+job-search-pipeline - today is friday november 21, 2025. lets make this the
+current working directory: /Users/dshaevel/workspace-ds/job-search-pipeline. 
+lets continue with the next steps. lets create an agenda for today's work session.

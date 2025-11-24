@@ -23,7 +23,12 @@ boards:
       # You WILL exhaust your free tier quota quickly even at this rate.
       requests_per_second: 0.5  # Safe for free tier (will still exhaust quota quickly)
     search_params:
-      num_pages: 1  # CRITICAL: Keep at 1 for free tier (each page = 1 request)
+      # num_pages controls search breadth: 10 jobs per page
+      # Set to 2 for active job searching (20 jobs per search, better discovery)
+      # Set to 1 for API quota conservation (10 jobs per search, limited discovery)
+      # Trade-off: Missing job opportunities is more costly than API quota during active search
+      # Free tier: 50 requests / 7 days = ~7 searches at num_pages=2 or ~50 at num_pages=1
+      num_pages: 2  # Intentionally set to 2 for better job discovery during active search
       date_posted: "week"  # all, today, 3days, week, month
       remote_jobs_only: false  # Set to true for remote-only
       employment_types: "FULLTIME"  # FULLTIME, CONTRACTOR, PARTTIME, INTERN

@@ -12,6 +12,7 @@ from typing import Dict, List
 from adapters import JSearchAdapter
 from config.loader import Config
 from core.models import JobPosting
+from filters import FilterEngine, JobTracker
 
 logger = logging.getLogger(__name__)
 
@@ -40,6 +41,15 @@ class SearchOrchestrator:
         self.config = config
         self.adapters = []
         self._initialize_adapters()
+
+        # Initialize filtering components (Phase 2)
+        filters_config = config.get("filters", {})
+        search_criteria_config = config.get("search_criteria", {})
+        self.filter_engine = FilterEngine(
+            filters_config=filters_config,
+            search_criteria_config=search_criteria_config
+        )
+        self.job_tracker = JobTracker(data_dir=config.get("data_dir", "data"))
 
     def _initialize_adapters(self):
         """
@@ -127,6 +137,37 @@ class SearchOrchestrator:
         logger.debug(f"Built search criteria: {criteria}")
         return criteria
 
+    def _filter_and_track_jobs(self, jobs: List[JobPosting]) -> List[JobPosting]:
+        """
+        Helper method to apply filtering and track processed jobs.
+
+        Args:
+            jobs: List of job postings to filter and track
+
+        Returns:
+            List of filtered job postings
+        """
+        # Filter out previously processed jobs
+        unprocessed = self.job_tracker.filter_unprocessed(jobs)
+        logger.info(
+            f"Filtered out {len(jobs) - len(unprocessed)} "
+            f"previously processed job(s)"
+        )
+
+        # Apply filters (blacklists, criteria, deduplication)
+        filtered = self.filter_engine.filter_jobs(unprocessed)
+        logger.info(
+            f"Filtered: {len(unprocessed)} → {len(filtered)} jobs after "
+            f"blacklist, criteria, and deduplication"
+        )
+
+        # Mark filtered jobs as processed
+        if filtered:
+            self.job_tracker.mark_batch_processed(filtered, action="discovered")
+            logger.info(f"Marked {len(filtered)} new job(s) as processed")
+
+        return filtered
+
     def run_search(self) -> List[JobPosting]:
         """
         Execute search across all enabled job boards.
@@ -135,8 +176,12 @@ class SearchOrchestrator:
         results and handling errors gracefully. If one adapter fails,
         continues with remaining adapters.
 
+        Phase 2 additions:
+        - Filters results (blacklists, complex criteria, deduplication)
+        - Tracks processed jobs to avoid re-processing
+
         Returns:
-            List of JobPosting objects from all successful searches
+            List of JobPosting objects from all successful searches (filtered and deduplicated)
 
         Raises:
             RuntimeError: If no adapters are available to search
@@ -148,6 +193,9 @@ class SearchOrchestrator:
             )
 
         logger.info(f"Starting search across {len(self.adapters)} job board(s)")
+
+        # Reset filter engine state for new search
+        self.filter_engine.reset()
 
         # Build search criteria from configuration
         criteria = self._build_search_criteria()
@@ -177,13 +225,17 @@ class SearchOrchestrator:
                 # Continue with next adapter rather than failing completely
                 continue
 
-        # Log summary
+        # Log initial results count
         logger.info(
             f"Search complete: {len(all_results)} total job(s) from "
             f"{successful_boards} board(s) ({failed_boards} failed)"
         )
 
-        return all_results
+        # Phase 2: Apply filtering and deduplication
+        logger.info("Applying filters and deduplication...")
+        filtered = self._filter_and_track_jobs(all_results)
+
+        return filtered
 
     def search_specific_board(self, board_name: str) -> List[JobPosting]:
         """
@@ -191,11 +243,14 @@ class SearchOrchestrator:
 
         Useful for testing individual boards or selective searching.
 
+        Phase 2 additions:
+        - Applies same filtering and deduplication as run_search()
+
         Args:
             board_name: Name of the job board to search
 
         Returns:
-            List of JobPosting objects from the specified board
+            List of JobPosting objects from the specified board (filtered and deduplicated)
 
         Raises:
             ValueError: If board name not found or not enabled
@@ -216,6 +271,9 @@ class SearchOrchestrator:
 
         logger.info(f"Searching specific board: {board_name}")
 
+        # Reset filter engine state for new search
+        self.filter_engine.reset()
+
         # Build search criteria
         criteria = self._build_search_criteria()
 
@@ -223,7 +281,11 @@ class SearchOrchestrator:
         results = adapter.search(criteria)
         logger.info(f"{board_name}: Found {len(results)} job(s)")
 
-        return results
+        # Phase 2: Apply filtering and deduplication
+        logger.info("Applying filters and deduplication...")
+        filtered = self._filter_and_track_jobs(results)
+
+        return filtered
 
     def get_enabled_boards(self) -> List[str]:
         """

@@ -1,0 +1,9 @@
+https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2 has been
+merged and the branch has been deleted. Let's work from a new branch. Let's
+change the order of our plan: move the current phase 3, "Deduplication &
+Filtering - Remove Duplicates and Filter Unwanted Opportunities," to become
+the new phase 2. Move the current phase 2, "Multi-Board Support - Rate
+Limiting and Parallel Execution," to become the new phase 3. Update all
+relevant documents for this change. Update the Linear project and all relevant
+Linear issues accordingly. Also update the repo's main README.md file and the
+CLAUDE.md file.

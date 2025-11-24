@@ -1,0 +1,83 @@
+================================================================================
+JOB POSTING: DevOps​/SRE Leader
+================================================================================
+
+Company: BitKernel
+Location: Austin, Texas, US
+Remote Type: Onsite
+Salary: $80,000 - $100,000
+Posted Date: 2025-11-14
+Job URL: https://www.learn4good.com/jobs/austin/texas/info_technology/4603872625/e/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: rlqpUIgz_-R9jUopAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Join to apply for the Dev Ops/SRE Leader role at Bit Kernel
+.
+
+About Bit Kernel
+
+Bitkernel Technology Inc. is redefining how the world experiences digital video. With a proven track record of innovation, we’re on a mission to revolutionize streaming technology and build complete content ecosystems. Headquartered in Austin, Texas
+, with a growing office in Vancouver, B.C., we’re building our future in North America.
+
+Powered by our groundbreaking platform,
+Goose
+, we’re creating a next‑generation self‑serve SaaS solution that enables content creators, broadcasters, and media companies to launch and scale OTT streaming services across Android, iOS, Web, and SmartTV platforms.
+Why Join Bit Kernel?
+
+At Bitkernel, you’ll experience the energy of a startup with the stability of an established product
+—and the opportunity to make a global impact
+. You’ll help shape major technical innovations, collaborate with visionary leaders, and solve complex, global‑scale challenges backed by long‑term R&D investment.
+
+We thrive on empathy, innovation, and continuous learning
+. Our team is made up of curious, strategic thinkers who combine deep technical expertise with emotional intelligence and a collaborative spirit across cultures and disciplines.
+Bit Kernel DNA
+• Startup Hustle: You thrive in fast‑paced, ambiguous environments with a hands‑on, problem‑solving attitude.
+• Boundary‑Breaking Vision: You challenge conventions to pioneer innovative, world‑class user interfaces.
+• AI‑Enhanced Innovation: You harness AI to supercharge development workflows and push the boundaries of what’s possible.
+Role Overview
+
+The Dev Ops Manager is a strategic and technical leader responsible for driving operational excellence across infrastructure and engineering. This role oversees Dev Ops strategy, team management, and the optimization of CI/CD pipelines, monitoring, and security to ensure seamless integration between development and operations. The ideal candidate combines strong technical acumen with leadership and business alignment, ensuring Goose’s platform remains reliable, scalable, and secure.
+What You’ll Own
+Dev Ops Strategy and Planning
+• Formulate the company's overall Dev Ops direction and strategies for deployment, monitoring, and automation.
+• Research operational technologies and industry trends to provide competitive infrastructure advantages.
+• Participate in decision‑making to ensure Dev Ops investments align with long‑term goals.
+• Develop and execute the Dev Ops vision, strategy, and roadmap in alignment with business objectives.
+• Identify and evaluate emerging technologies (e.g., containerization, IaC) to inform future efforts.
+Infrastructure & Platform Engineering
+• Oversee design, provisioning, and management of multi‑cloud infrastructure (AWS, Azure, GCP) using Terraform, Pulumi, and Crossplane.
+• Lead Kubernetes‑based orchestration strategies for scalable, resilient, and globally distributed systems.
+• Define policies for disaster recovery, high availability, and cost optimization across environments.
+• Drive adoption of Git Ops workflows and Infrastructure as Code (IaC) principles across the engineering organization.
+Automation & CI/CD
+• Architect and maintain automated CI/CD pipelines using Jenkins, Git Lab CI, or ArgoCD.
+• Standardize environment provisioning and deployment automation across dev, staging, and production.
+• Implement progressive delivery patterns (blue/green, canary, feature flags) to increase release confidence.
+Observability, Security & Reliability
+• Enhance observability using Prometheus, Grafana, Loki, and Datadog.
+• Establish alerting, SLO/SLI dashboards, and operational runbooks to maintain system health.
+• Partner with Security to embed Dev Sec Ops practices, ensuring compliance, encryption, and secrets management.
+• Manage on‑call rotations, incident response, and post‑mortem reviews to improve MTTR and platform resilience.
+Leadership & Collaboration
+• Build and mentor a high‑performing team of Dev Ops and Site Reliability Engineers.
+• Collaborate closely with backend, QA, and product engineering leaders to align infrastructure goals with delivery objectives.
+• Foster a culture of automation, reliability, and continuous improvement.
+• Participate in…
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• Startup Hustle: You thrive in fast‑paced, ambiguous environments with a hands‑on, problem‑solving attitude
+• Boundary‑Breaking Vision: You challenge conventions to pioneer innovative, world‑class user interfaces
+• The ideal candidate combines strong technical acumen with leadership and business alignment, ensuring Goose’s platform remains reliable, scalable, and secure
+• Automation & CI/CD
+• Architect and maintain automated CI/CD pipelines using Jenkins, Git Lab CI, or ArgoCD
+• Observability, Security & Reliability
+• Enhance observability using Prometheus, Grafana, Loki, and Datadog
+
+================================================================================
+Generated: 2025-11-23 04:39:44
+================================================================================
