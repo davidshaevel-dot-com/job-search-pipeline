@@ -23,7 +23,7 @@ boards:
       # You WILL exhaust your free tier quota quickly even at this rate.
       requests_per_second: 0.5  # Safe for free tier (will still exhaust quota quickly)
     search_params:
-      num_pages: 1  # CRITICAL: Keep at 1 for free tier (each page = 1 request)
+      num_pages: 2  # CRITICAL: Keep at 1 for free tier (each page = 1 request)
       date_posted: "week"  # all, today, 3days, week, month
       remote_jobs_only: false  # Set to true for remote-only
       employment_types: "FULLTIME"  # FULLTIME, CONTRACTOR, PARTTIME, INTERN

@@ -1,16 +1,31 @@
-# Simplified Search Criteria for Phase 1 Testing
-#
-# The complex nested structure in search-criteria.yaml will be used in Phase 3
-# For now, we use a simple flat structure that works with the current JSearch adapter
+# Search Criteria - API Query Parameters
+# Purpose: Tell JSearch what jobs to find
+# Used BEFORE filtering - casts the net
 
 search:
+  # Keywords - Match your target roles
+  # Tip: Use broad terms here, filter specifically later
   keywords:
-    - "DevOps"
+    - "DevOps Engineer"
+    - "Platform Engineer"
+    - "Infrastructure Engineer"
+    - "Site Reliability Engineer"
+    - "Cloud Engineer"
+    # Consider adding:
+    # - "DevOps Lead"
+    # - "Senior DevOps"
+    # - "Staff DevOps"
+    # - "Infrastructure Lead"
+    # - "Platform Lead"
+    # - "SRE Lead"
 
-  location: ""
+  # Location - Your primary target
+  location: "Austin, TX"
 
-  # Optional: remote filter (not yet implemented in JSearch adapter)
+  # Optional: Remote filter
+  # Uncomment if you ONLY want remote jobs
   # remote: true
 
-  # Optional: employment type (not yet implemented in JSearch adapter)
+  # Optional: Employment type
+  # Uncomment if you ONLY want full-time
   # employment_type: "FULLTIME"
