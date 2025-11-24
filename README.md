@@ -208,13 +208,31 @@ See `docs/deployment.md` for detailed instructions.
 
 ## 📈 Implementation Status
 
-**Phase 1:** ✅ Foundation - Core infrastructure and single board integration (COMPLETE)
-**Phase 2:** ✅ Deduplication & Filtering - Remove duplicates and filter unwanted (COMPLETE)
-**Phase 3:** ⏳ Multi-Board Support - Rate limiting and parallel execution (In Progress)
-**Phase 4:** AI Evaluation - Automated evaluation using Claude API
-**Phase 5:** Organization & Linear Integration - Folder structure and auto-issues
-**Phase 6:** Scheduling & Automation - GitHub Actions, GCP, Slack
-**Phase 7:** Testing & Refinement - Test suite, performance, documentation
+| Phase | Description | Status | PR |
+|-------|-------------|--------|-----|
+| **Phase 1** | Foundation - Core infrastructure and JSearch integration | ✅ **COMPLETE** | [PR #2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) |
+| **Phase 2** | Deduplication & Filtering - Remove duplicates and filter unwanted | ✅ **COMPLETE** | [PR #4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) |
+| **Phase 3** | Multi-Board Support - Rate limiting and parallel execution | ⏳ Up Next | - |
+| **Phase 4** | AI Evaluation - Automated evaluation using Claude API | 📋 Planned | - |
+| **Phase 5** | Organization & Linear Integration - Folder structure and auto-issues | 📋 Planned | - |
+| **Phase 6** | Scheduling & Automation - GitHub Actions, GCP, Slack | 📋 Planned | - |
+| **Phase 7** | Testing & Refinement - Test suite, performance, documentation | 📋 Planned | - |
+
+### Recent Accomplishments
+
+**Phase 2 Complete (Nov 24, 2025):**
+- FilterEngine with blacklist, criteria, and deduplication filters
+- JobTracker for persistent tracking of processed jobs
+- Dual-key deduplication (board_job_id + company::title)
+- Fuzzy matching for near-duplicate detection
+- 19 unit tests with 100% passing
+- Two rounds of Gemini code review completed
+
+**Phase 1 Complete (Nov 19, 2025):**
+- JSearch adapter via RapidAPI (Google for Jobs aggregator)
+- Search orchestrator for coordinating board searches
+- Configuration system with YAML and environment variable support
+- File writer with date-based directory structure
 
 See `PLAN.md` for detailed phase breakdowns and Linear issues.
 
@@ -248,6 +266,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)  
-**Last Updated:** November 7, 2025  
-**Status:** Planning Phase - Implementation in Progress
+**Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
+**Last Updated:** November 24, 2025
+**Status:** Phase 2 Complete - Phase 3 Up Next

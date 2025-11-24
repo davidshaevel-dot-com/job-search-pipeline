@@ -1,9 +1,9 @@
 # AI Agent Handoff - Job Search Pipeline
 
-**Last Updated:** November 19, 2025
-**Project Status:** Phase 1 In Progress - JSearch Adapter Implementation
+**Last Updated:** November 24, 2025
+**Project Status:** Phase 2 Complete - Phase 3 (Multi-Board Support) Up Next
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
-**Current Branch:** `david/tt-45-jsearch-adapter-implementation`
+**Current Branch:** `main` (ready for Phase 3 branch)
 
 ---
 
@@ -70,50 +70,55 @@ job-search-pipeline/
 
 ## Current Status
 
-**Phase:** Phase 1 In Progress - JSearch Adapter Implementation ⏳
+**Phase:** Phase 2 Complete ✅ - Phase 3 (Multi-Board Support) Up Next
 
-**Completed:**
-- ✅ **PR #1 Merged** - Configuration System and File Writer Implementation
-  - Configuration loader with YAML support and environment variable substitution
-  - File writer with date-based directory structure and filename sanitization
-  - Core models (`JobPosting` dataclass in `src/core/models.py`)
-  - All code review feedback addressed and merged (18 review comments resolved)
-- ✅ **API Research Complete** (Nov 19, 2025)
-  - Comprehensive analysis documented in `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`
-  - Identified JSearch as best option for Phase 1
-  - Documented that Indeed API is deprecated (2020), LinkedIn has no public job search API
+### Completed Phases
 
-**In Progress:**
-- ⏳ **JSearch Adapter Implementation** (Current Branch: `david/tt-45-jsearch-adapter-implementation`)
-  - Implementing JSearch via RapidAPI instead of Indeed API (deprecated)
-  - 40+ data points per job including explicit remote designation
-  - Google for Jobs aggregator (sources from LinkedIn, Indeed, Glassdoor, ZipRecruiter, Monster, Dice, etc.)
-- ⏳ **Search Orchestrator**
-- ⏳ **Main Entry Point Wiring**
+**Phase 1: Foundation** ✅ (Nov 19, 2025)
+- [PR #2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) merged
+- JSearch adapter via RapidAPI (Google for Jobs aggregator)
+- Search orchestrator for coordinating board searches
+- Configuration system with YAML and environment variable support
+- File writer with date-based directory structure
+- Core models (`JobPosting` dataclass)
 
-**API Selection Update (Nov 19, 2025):**
-After comprehensive research, we're implementing **JSearch via RapidAPI** for Phase 1:
-- **Why:** Indeed API deprecated (2020), LinkedIn has no public job search API
-- **JSearch Benefits:** Google for Jobs aggregator, 40+ data points per job, explicit remote designation
-- **Authentication:** Simple RapidAPI key (X-RapidAPI-Key header)
-- **Pricing:** Free tier (50 requests/7 days for testing), Paid ($10-50/month for 10K-50K requests)
-- **Future:** Architecture supports adding Adzuna, RemoteOK, Remotive in Phase 2
+**Phase 2: Deduplication & Filtering** ✅ (Nov 24, 2025)
+- [PR #4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) merged
+- FilterEngine with blacklist, criteria, and deduplication filters
+- JobTracker for persistent tracking of processed jobs
+- Dual-key deduplication (board_job_id + company::title)
+- Fuzzy matching for near-duplicate detection (80% threshold)
+- 19 unit tests with 100% passing
+- Two rounds of Gemini code review completed (11 issues resolved)
 
-**Implementation Phases:**
-1. **Phase 1:** Foundation - Core infrastructure and single board integration ⏳ (In Progress)
-2. **Phase 2:** Deduplication & Filtering - Remove duplicates and filter unwanted
-3. **Phase 3:** Multi-Board Support - Rate limiting and parallel execution
-4. **Phase 4:** AI Evaluation - Automated evaluation using Claude API
-5. **Phase 5:** Organization & Linear Integration - Folder structure and auto-issues
-6. **Phase 6:** Scheduling & Automation - GitHub Actions, GCP, Slack
-7. **Phase 7:** Testing & Refinement - Test suite, performance, documentation
+### Up Next
+
+**Phase 3: Multi-Board Support** ⏳
+- Linear Issue: [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47)
+- Additional job board adapters (RemoteOK, Remotive, USAJobs, Adzuna, The Muse)
+- Rate limiting per API
+- Parallel execution with error handling
+- Result aggregation from multiple sources
+- See `docs/2025-11-25_tuesday_session_agenda.md` for planning details
+
+### Implementation Phases
+
+| Phase | Description | Status | PR |
+|-------|-------------|--------|-----|
+| 1 | Foundation - Core infrastructure and JSearch integration | ✅ Complete | [#2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) |
+| 2 | Deduplication & Filtering | ✅ Complete | [#4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) |
+| 3 | Multi-Board Support - Rate limiting and parallel execution | ⏳ Up Next | - |
+| 4 | AI Evaluation - Claude API integration | 📋 Planned | - |
+| 5 | Organization & Linear Integration | 📋 Planned | - |
+| 6 | Scheduling & Automation - GitHub Actions, GCP, Slack | 📋 Planned | - |
+| 7 | Testing & Refinement | 📋 Planned | - |
 
 **Linear Project:** [Job Search Pipeline Development](https://linear.app/davidshaevel-dot-com/project/job-search-pipeline-development-94abc44631e5)
 
 **Linear Issues:**
-- [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation (In Progress)
-- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering
-- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Multi-Board Support
+- [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation ✅
+- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering ✅
+- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Multi-Board Support ⏳
 - [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 4: AI Evaluation
 - [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 5: Organization & Linear Integration
 - [TT-50](https://linear.app/davidshaevel-dot-com/issue/TT-50) - Phase 6: Scheduling & Automation
@@ -516,12 +521,15 @@ When working on this project, consider:
 
 ---
 
-**Last Updated:** November 19, 2025
-**Status:** Phase 1 In Progress - JSearch Adapter Implementation ⏳
-**Last Merged PR:** [#1 - Phase 1: Configuration System and File Writer](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/1) - Merged ✅
-**Current Branch:** `david/tt-45-jsearch-adapter-implementation`
-**Next Steps:** Implement JSearch adapter via RapidAPI, search orchestrator, and main.py wiring
+**Last Updated:** November 24, 2025
+**Status:** Phase 2 Complete ✅ - Phase 3 Up Next
+**Last Merged PR:** [#4 - Phase 2: Deduplication & Filtering](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) - Merged ✅
+**Current Branch:** `main` (ready for Phase 3 feature branch)
+**Next Steps:** Plan and implement Phase 3 (Multi-Board Support) - see `docs/2025-11-25_tuesday_session_agenda.md`
 
-**API Research Complete (Nov 19, 2025):**
-Comprehensive research documented in `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md` identified JSearch as the best option for Phase 1, with Adzuna, RemoteOK, and Remotive as excellent free additions for Phase 2.
+**Phase 2 Accomplishments (Nov 24, 2025):**
+- FilterEngine with blacklist, criteria, and deduplication filters
+- JobTracker for persistent tracking with dual-key deduplication
+- 19 unit tests, two rounds of Gemini code review (11 issues resolved)
+- Pipeline now filters duplicates and tracks processed jobs across sessions
 
