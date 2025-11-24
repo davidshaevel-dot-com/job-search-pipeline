@@ -35,8 +35,9 @@ class FilterEngine:
         self.similarity_threshold = similarity_threshold
 
         # Extract filter settings
-        self.dedup_config = filters_config.get("filters", {}).get("deduplication", {})
-        self.blacklist_config = filters_config.get("filters", {}).get("blacklist", {})
+        # Note: Config loader already unwraps the top-level "filters" key
+        self.dedup_config = filters_config.get("deduplication", {})
+        self.blacklist_config = filters_config.get("blacklist", {})
 
         # Seen jobs tracking for deduplication
         self.seen_job_ids: Set[str] = set()

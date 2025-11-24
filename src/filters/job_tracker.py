@@ -28,21 +28,37 @@ class JobTracker:
         self.data_dir.mkdir(parents=True, exist_ok=True)
 
         self.processed_file = self.data_dir / "processed_jobs.json"
-        self.processed_jobs: Dict[str, Dict] = {}
+        self.processed_jobs: Dict[str, Dict] = {}  # Canonical storage by board_job_id or company::title
+        self.seen_job_ids: Set[str] = set()  # Track board_job_ids for fast lookup
+        self.seen_company_titles: Set[str] = set()  # Track company::title keys for fast lookup
 
         self._load_processed_jobs()
 
     def _load_processed_jobs(self):
-        """Load previously processed jobs from disk."""
+        """Load previously processed jobs from disk and rebuild lookup sets."""
         if self.processed_file.exists():
             try:
                 with open(self.processed_file, 'r') as f:
                     self.processed_jobs = json.load(f)
+
+                # Rebuild lookup sets from loaded data
+                for key, job_data in self.processed_jobs.items():
+                    board_job_id = job_data.get("board_job_id")
+                    if board_job_id:
+                        self.seen_job_ids.add(board_job_id)
+                    # If key looks like company::title format, add to seen_company_titles
+                    if "::" in key:
+                        self.seen_company_titles.add(key)
+
             except (json.JSONDecodeError, IOError) as e:
                 print(f"Warning: Could not load processed jobs: {e}")
                 self.processed_jobs = {}
+                self.seen_job_ids = set()
+                self.seen_company_titles = set()
         else:
             self.processed_jobs = {}
+            self.seen_job_ids = set()
+            self.seen_company_titles = set()
 
     def _save_processed_jobs(self):
         """Save processed jobs to disk."""
@@ -66,13 +82,13 @@ class JobTracker:
         Returns:
             True if job has been processed before
         """
-        # Check by job ID
-        if job.board_job_id and job.board_job_id in self.processed_jobs:
+        # Check by job ID in set (fast O(1) lookup)
+        if job.board_job_id and job.board_job_id in self.seen_job_ids:
             return True
 
-        # Check by company + title
+        # Check by company + title in set (fast O(1) lookup)
         company_title_key = self._get_company_title_key(job)
-        if company_title_key in self.processed_jobs:
+        if company_title_key in self.seen_company_titles:
             return True
 
         return False
@@ -94,13 +110,15 @@ class JobTracker:
             "processed_at": datetime.now().isoformat()
         }
 
-        # Store by job ID if available
-        if job.board_job_id:
-            self.processed_jobs[job.board_job_id] = job_data
+        # Store once under canonical key (prefer board_job_id if available)
+        canonical_key = job.board_job_id if job.board_job_id else self._get_company_title_key(job)
+        self.processed_jobs[canonical_key] = job_data
 
-        # Also store by company + title
+        # Track both identifiers in lookup sets for fast checking
+        if job.board_job_id:
+            self.seen_job_ids.add(job.board_job_id)
         company_title_key = self._get_company_title_key(job)
-        self.processed_jobs[company_title_key] = job_data
+        self.seen_company_titles.add(company_title_key)
 
         self._save_processed_jobs()
 
@@ -122,13 +140,15 @@ class JobTracker:
                 "processed_at": datetime.now().isoformat()
             }
 
-            # Store by job ID if available
-            if job.board_job_id:
-                self.processed_jobs[job.board_job_id] = job_data
+            # Store once under canonical key (prefer board_job_id if available)
+            canonical_key = job.board_job_id if job.board_job_id else self._get_company_title_key(job)
+            self.processed_jobs[canonical_key] = job_data
 
-            # Also store by company + title
+            # Track both identifiers in lookup sets for fast checking
+            if job.board_job_id:
+                self.seen_job_ids.add(job.board_job_id)
             company_title_key = self._get_company_title_key(job)
-            self.processed_jobs[company_title_key] = job_data
+            self.seen_company_titles.add(company_title_key)
 
         self._save_processed_jobs()
 
@@ -145,7 +165,12 @@ class JobTracker:
         return [job for job in jobs if not self.is_processed(job)]
 
     def get_processed_count(self) -> int:
-        """Get count of processed jobs."""
+        """
+        Get count of unique processed jobs.
+
+        Note: Since we now store each job only once, this accurately reflects
+        the number of unique jobs processed (no duplicates).
+        """
         return len(self.processed_jobs)
 
     def get_processed_by_board(self, board_name: str) -> List[Dict]:
@@ -156,7 +181,7 @@ class JobTracker:
             board_name: Name of the job board
 
         Returns:
-            List of processed job data dictionaries
+            List of processed job data dictionaries (no duplicates - each job stored once)
         """
         return [
             job_data for job_data in self.processed_jobs.values()
@@ -166,6 +191,8 @@ class JobTracker:
     def clear_processed(self):
         """Clear all processed jobs tracking (use with caution)."""
         self.processed_jobs = {}
+        self.seen_job_ids = set()
+        self.seen_company_titles = set()
         self._save_processed_jobs()
 
     @staticmethod

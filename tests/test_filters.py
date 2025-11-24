@@ -76,19 +76,17 @@ def sample_jobs():
 
 @pytest.fixture
 def filters_config():
-    """Sample filters configuration."""
+    """Sample filters configuration - matches production structure after config loader unwrapping."""
     return {
-        "filters": {
-            "deduplication": {
-                "enabled": True,
-                "methods": ["title_similarity", "company_name", "job_id"],
-                "similarity_threshold": 0.85
-            },
-            "blacklist": {
-                "companies": ["Blacklisted Company"],
-                "titles": ["Junior", "Intern"],
-                "keywords": ["Contract Only", "No Benefits"]
-            }
+        "deduplication": {
+            "enabled": True,
+            "methods": ["title_similarity", "company_name", "job_id"],
+            "similarity_threshold": 0.85
+        },
+        "blacklist": {
+            "companies": ["Blacklisted Company"],
+            "titles": ["Junior", "Intern"],
+            "keywords": ["Contract Only", "No Benefits"]
         }
     }
 
@@ -120,8 +118,8 @@ class TestFilterEngine:
         """Test FilterEngine initialization."""
         engine = FilterEngine(filters_config, search_criteria_config)
         assert engine.similarity_threshold == 0.85
-        assert engine.dedup_config == filters_config["filters"]["deduplication"]
-        assert engine.blacklist_config == filters_config["filters"]["blacklist"]
+        assert engine.dedup_config == filters_config["deduplication"]
+        assert engine.blacklist_config == filters_config["blacklist"]
 
     def test_company_blacklist_filter(self, sample_jobs, filters_config):
         """Test company blacklist filtering."""
