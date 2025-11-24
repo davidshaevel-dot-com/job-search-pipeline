@@ -1,0 +1,99 @@
+================================================================================
+JOB POSTING: Senior DevOps
+================================================================================
+
+Company: Gemini Solutions Pvt Ltd
+Location: Location not specified
+Remote Type: Onsite
+Salary: $120,000 - $140,000
+Posted Date: 2025-11-19
+Job URL: https://www.linkedin.com/jobs/view/senior-devops-at-gemini-solutions-pvt-ltd-4341964803?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: tfo9ruAYwUH-pKU4AAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Position: Senior DevOps
+
+Job Location: Austin, TX
+
+Job Type: Full Time
+
+Immediate Interview
+
+Position Summary:
+
+Senior Developer - CI/CD (We’re looking for someone who can start contributing to GitHub Actions
+
+from day one) We are seeking a highly skilled and experienced Senior CI/CD Developer to design,
+
+implement, and maintain CI/CD pipelines that enhance our software development and deployment
+
+processes.
+
+This individual will play a crucial role in writing platform pipeline codes, ensuring seamless integration
+
+and delivery of our applications. The ideal candidate will have a strong background in CI/CD practices,
+
+scripting, and automation tools.
+
+Experience And Required Skill Sets:
+
+Engineering Experience: At least 7 years of hands-on experience in CI/CD development and
+
+implementation. Proven track record of delivering complex software projects.
+
+Technical Skills:
+• Expertise in CI/CD tools such as GitLab CI, GitHub Actions, or Azure DevOps.
+• Proficiency in scripting languages (e.g., Python, Bash, Groovy) and configuration management tools (e.g., Chef, Ansible, Puppet).
+• Strong understanding of version control systems (e.g., Git) and containerization technologies (e.g., Docker, Kubernetes).
+• Experience with Infrastructure as Code (IaC) tools like Terraform for managing cloud infrastructure.
+• Solid Linux and infrastructure knowledge to effectively debug CI/CD pipeline issues and runners.
+• Knowledge of JFrog Artifactory and Xray for artifact management and security scanning is a plus.
+
+Cloud Experience:
+
+Familiarity with public cloud platforms (e.g., AWS, Azure, Google Cloud) and their CI/CD capabilities.
+
+Problem-Solving Skills: Excellent analytical and problem-solving skills, with the ability to troubleshoot complex CI/CD issues effectively.
+
+Communication Skills: Strong communication and collaboration skills, with the ability to work effectively across teams and stakeholders.
+
+Responsibilities:
+• Lead end-to-end migration of CICD pipelines from Gitlab CI to GitHub Actions
+• Analyze existing .gitlab-ci.yml pipelines and convert them to optimized GitHub reusable workflows
+• Build and maintain custom migration tooling, templates and job validation scripts.
+• Conduct thorough code reviews to ensure high-quality code standards, best practices, and adherence to project requirements. Provide constructive feedback to team members.
+• Work closely with cross-functional teams, including development, operations, and quality assurance, to ensure seamless integration and support for CI/CD practices.
+• Monitor and troubleshoot CI/CD processes to ensure smooth operation. Implement automation to streamline build, test, and deployment tasks.
+• Create and maintain documentation for CI/CD processes, configurations, and best practices to facilitate knowledge sharing within the team.
+• Tech Stack - Gitlab, Jfrog Artifactory, Github, AWS, EKS, DataDog
+• Programming languages - Shell scripts, PowerShell, Python, Golang(Nice to have)
+
+Education:
+
+Bachelor’s degree or master’s in computer science, Engineering, Software Engineering or a relevant field.
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• from day one) We are seeking a highly skilled and experienced Senior CI/CD Developer to design,
+• The ideal candidate will have a strong background in CI/CD practices,
+• scripting, and automation tools
+• Engineering Experience: At least 7 years of hands-on experience in CI/CD development and
+• Proven track record of delivering complex software projects
+• Expertise in CI/CD tools such as GitLab CI, GitHub Actions, or Azure DevOps
+• Proficiency in scripting languages (e.g., Python, Bash, Groovy) and configuration management tools (e.g., Chef, Ansible, Puppet)
+• Strong understanding of version control systems (e.g., Git) and containerization technologies (e.g., Docker, Kubernetes)
+• Experience with Infrastructure as Code (IaC) tools like Terraform for managing cloud infrastructure
+• Solid Linux and infrastructure knowledge to effectively debug CI/CD pipeline issues and runners
+• Familiarity with public cloud platforms (e.g., AWS, Azure, Google Cloud) and their CI/CD capabilities
+• Problem-Solving Skills: Excellent analytical and problem-solving skills, with the ability to troubleshoot complex CI/CD issues effectively
+• Communication Skills: Strong communication and collaboration skills, with the ability to work effectively across teams and stakeholders
+• Programming languages - Shell scripts, PowerShell, Python, Golang(Nice to have)
+• Bachelor’s degree or master’s in computer science, Engineering, Software Engineering or a relevant field
+
+================================================================================
+Generated: 2025-11-24 15:15:39
+================================================================================

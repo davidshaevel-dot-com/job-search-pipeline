@@ -1,0 +1,78 @@
+================================================================================
+JOB POSTING: Platform & DevOps Engineer
+================================================================================
+
+Company: Avtal
+Location: Austin, Texas, US
+Remote Type: Onsite
+Posted Date: 2025-10-30
+Job URL: https://jooble.org/jdp/1666651260917019113?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: jkqSYv-_nYVsbmP3AAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Job Title: Platform & DevOps Engineer
+Location: Austin, TX
+
+About the Role:
+
+Avtal helps collection agencies connect with consumers in a more modern and friendly way - through white-labeled digital outreach that drives higher recovery rates and better experiences.
+
+We've raised $9M (most recently led by S3 Ventures) and were recognized as their fastest-growing portfolio company. Our platform is quickly becoming the industry standard for digital debt collection. We're scaling our team and looking for people who want to help modernize a critical part of the financial system.
+
+Responsibilities:
+
+Provision, configure, and maintain AWS Linux EC2 instances and associated cloud infrastructure.
+Build, maintain, and optimize CI/CD pipelines using GitHub Actions.
+Automate infrastructure and configuration management using Ansible.
+Deploy, monitor, and troubleshoot production services written in Go and Node.js.
+Manage PostgreSQL databases, including schema updates, backups, and performance tuning.
+Monitor system and application performance, configure alerts, and proactively resolve issues.
+Participate in bug triage and production incident response, collaborating closely with developers.
+Implement best practices for security, scalability, and reliability across the platform.
+
+Required Qualifications:
+
+Strong experience with AWS services, especially AWS Linux / EC2, IAM, S3, and VPC.
+Hands-on experience with Git and GitHub Actions for CI/CD workflows.
+Proficiency in Go (Golang) and Node.js.
+Experience managing PostgreSQL databases in production environments.
+Strong automation skills with Ansible or equivalent tools (Terraform, Ansible, Chef).
+Solid understanding of Linux system administration, networking, and security best practices.
+Experience with monitoring and logging tools (CloudWatch, Prometheus, Grafana, ELK).
+Excellent problem-solving skills and the ability to troubleshoot production issues collaboratively.
+
+Preferred / Nice-to-Have:
+
+Experience with containers and orchestration (Docker, Kubernetes).
+Familiarity with Infrastructure as Code (IaC) frameworks.
+Understanding of reliability metrics (SLOs, SLIs) and production best practices.
+
+Why Join Us:
+
+Work with a fast-moving, collaborative team in Austin, TX.
+Shape the platform and automation strategy for a growing organization.
+Gain exposure to cutting-edge technologies and DevOps best practices.
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• Strong experience with AWS services, especially AWS Linux / EC2, IAM, S3, and VPC
+• Hands-on experience with Git and GitHub Actions for CI/CD workflows
+• Proficiency in Go (Golang) and Node.js
+• Experience managing PostgreSQL databases in production environments
+• Strong automation skills with Ansible or equivalent tools (Terraform, Ansible, Chef)
+• Solid understanding of Linux system administration, networking, and security best practices
+• Experience with monitoring and logging tools (CloudWatch, Prometheus, Grafana, ELK)
+• Excellent problem-solving skills and the ability to troubleshoot production issues collaboratively
+• Experience with containers and orchestration (Docker, Kubernetes)
+• Familiarity with Infrastructure as Code (IaC) frameworks
+• Understanding of reliability metrics (SLOs, SLIs) and production best practices
+• Shape the platform and automation strategy for a growing organization
+• Gain exposure to cutting-edge technologies and DevOps best practices
+
+================================================================================
+Generated: 2025-11-24 14:09:42
+================================================================================

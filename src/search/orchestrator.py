@@ -137,6 +137,37 @@ class SearchOrchestrator:
         logger.debug(f"Built search criteria: {criteria}")
         return criteria
 
+    def _filter_and_track_jobs(self, jobs: List[JobPosting]) -> List[JobPosting]:
+        """
+        Helper method to apply filtering and track processed jobs.
+
+        Args:
+            jobs: List of job postings to filter and track
+
+        Returns:
+            List of filtered job postings
+        """
+        # Filter out previously processed jobs
+        unprocessed = self.job_tracker.filter_unprocessed(jobs)
+        logger.info(
+            f"Filtered out {len(jobs) - len(unprocessed)} "
+            f"previously processed job(s)"
+        )
+
+        # Apply filters (blacklists, criteria, deduplication)
+        filtered = self.filter_engine.filter_jobs(unprocessed)
+        logger.info(
+            f"Filtered: {len(unprocessed)} → {len(filtered)} jobs after "
+            f"blacklist, criteria, and deduplication"
+        )
+
+        # Mark filtered jobs as processed
+        if filtered:
+            self.job_tracker.mark_batch_processed(filtered, action="discovered")
+            logger.info(f"Marked {len(filtered)} new job(s) as processed")
+
+        return filtered
+
     def run_search(self) -> List[JobPosting]:
         """
         Execute search across all enabled job boards.
@@ -162,6 +193,9 @@ class SearchOrchestrator:
             )
 
         logger.info(f"Starting search across {len(self.adapters)} job board(s)")
+
+        # Reset filter engine state for new search
+        self.filter_engine.reset()
 
         # Build search criteria from configuration
         criteria = self._build_search_criteria()
@@ -199,25 +233,7 @@ class SearchOrchestrator:
 
         # Phase 2: Apply filtering and deduplication
         logger.info("Applying filters and deduplication...")
-
-        # Filter out previously processed jobs
-        unprocessed = self.job_tracker.filter_unprocessed(all_results)
-        logger.info(
-            f"Filtered out {len(all_results) - len(unprocessed)} "
-            f"previously processed job(s)"
-        )
-
-        # Apply filters (blacklists, criteria, deduplication)
-        filtered = self.filter_engine.filter_jobs(unprocessed)
-        logger.info(
-            f"Filtered: {len(unprocessed)} → {len(filtered)} jobs after "
-            f"blacklist, criteria, and deduplication"
-        )
-
-        # Mark filtered jobs as processed
-        if filtered:
-            self.job_tracker.mark_batch_processed(filtered, action="discovered")
-            logger.info(f"Marked {len(filtered)} new job(s) as processed")
+        filtered = self._filter_and_track_jobs(all_results)
 
         return filtered
 
@@ -255,6 +271,9 @@ class SearchOrchestrator:
 
         logger.info(f"Searching specific board: {board_name}")
 
+        # Reset filter engine state for new search
+        self.filter_engine.reset()
+
         # Build search criteria
         criteria = self._build_search_criteria()
 
@@ -264,25 +283,7 @@ class SearchOrchestrator:
 
         # Phase 2: Apply filtering and deduplication
         logger.info("Applying filters and deduplication...")
-
-        # Filter out previously processed jobs
-        unprocessed = self.job_tracker.filter_unprocessed(results)
-        logger.info(
-            f"Filtered out {len(results) - len(unprocessed)} "
-            f"previously processed job(s)"
-        )
-
-        # Apply filters (blacklists, criteria, deduplication)
-        filtered = self.filter_engine.filter_jobs(unprocessed)
-        logger.info(
-            f"Filtered: {len(unprocessed)} → {len(filtered)} jobs after "
-            f"blacklist, criteria, and deduplication"
-        )
-
-        # Mark filtered jobs as processed
-        if filtered:
-            self.job_tracker.mark_batch_processed(filtered, action="discovered")
-            logger.info(f"Marked {len(filtered)} new job(s) as processed")
+        filtered = self._filter_and_track_jobs(results)
 
         return filtered
 

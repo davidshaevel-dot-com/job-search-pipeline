@@ -3,10 +3,13 @@ JobTracker for persisting processed job postings to avoid re-processing.
 """
 
 import json
+import logging
 import os
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Set
+
+logger = logging.getLogger(__name__)
 
 try:
     from core.models import JobPosting
@@ -46,12 +49,16 @@ class JobTracker:
                     board_job_id = job_data.get("board_job_id")
                     if board_job_id:
                         self.seen_job_ids.add(board_job_id)
-                    # If key looks like company::title format, add to seen_company_titles
-                    if "::" in key:
-                        self.seen_company_titles.add(key)
+
+                    # Always rebuild company::title from job data (not key format)
+                    company = job_data.get("company", "").lower()
+                    title = job_data.get("title", "").lower()
+                    if company and title:
+                        company_title_key = f"{company}::{title}"
+                        self.seen_company_titles.add(company_title_key)
 
             except (json.JSONDecodeError, IOError) as e:
-                print(f"Warning: Could not load processed jobs: {e}")
+                logger.warning(f"Could not load processed jobs: {e}")
                 self.processed_jobs = {}
                 self.seen_job_ids = set()
                 self.seen_company_titles = set()
@@ -66,7 +73,7 @@ class JobTracker:
             with open(self.processed_file, 'w') as f:
                 json.dump(self.processed_jobs, f, indent=2, default=str)
         except IOError as e:
-            print(f"Warning: Could not save processed jobs: {e}")
+            logger.warning(f"Could not save processed jobs: {e}")
 
     def is_processed(self, job: JobPosting) -> bool:
         """
@@ -93,9 +100,9 @@ class JobTracker:
 
         return False
 
-    def mark_processed(self, job: JobPosting, action: str = "evaluated"):
+    def _mark_single_job(self, job: JobPosting, action: str):
         """
-        Mark a job as processed.
+        Helper method to mark a single job as processed (without saving).
 
         Args:
             job: Job posting to mark
@@ -120,6 +127,15 @@ class JobTracker:
         company_title_key = self._get_company_title_key(job)
         self.seen_company_titles.add(company_title_key)
 
+    def mark_processed(self, job: JobPosting, action: str = "evaluated"):
+        """
+        Mark a job as processed.
+
+        Args:
+            job: Job posting to mark
+            action: Action taken (e.g., "evaluated", "applied", "rejected")
+        """
+        self._mark_single_job(job, action)
         self._save_processed_jobs()
 
     def mark_batch_processed(self, jobs: List[JobPosting], action: str = "evaluated"):
@@ -131,24 +147,7 @@ class JobTracker:
             action: Action taken for all jobs
         """
         for job in jobs:
-            job_data = {
-                "title": job.title,
-                "company": job.company,
-                "board_name": job.board_name,
-                "board_job_id": job.board_job_id,
-                "action": action,
-                "processed_at": datetime.now().isoformat()
-            }
-
-            # Store once under canonical key (prefer board_job_id if available)
-            canonical_key = job.board_job_id if job.board_job_id else self._get_company_title_key(job)
-            self.processed_jobs[canonical_key] = job_data
-
-            # Track both identifiers in lookup sets for fast checking
-            if job.board_job_id:
-                self.seen_job_ids.add(job.board_job_id)
-            company_title_key = self._get_company_title_key(job)
-            self.seen_company_titles.add(company_title_key)
+            self._mark_single_job(job, action)
 
         self._save_processed_jobs()
 

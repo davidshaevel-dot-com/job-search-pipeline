@@ -1,0 +1,51 @@
+================================================================================
+JOB POSTING: Site Reliability Engineer (SRE)
+================================================================================
+
+Company: Hirekeyz Inc
+Location: Location not specified
+Remote Type: Onsite
+Job URL: https://www.ziprecruiter.com/c/Hirekeyz-Inc/Job/Site-Reliability-Engineer-(SRE)/-in-Austin,TX?jid=2bbd0a16a6e1da98&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: vNtOrpw9g6gXnFqNAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Title: Site Reliability Engineer (SRE)
+
+Location: Austin, TX
+
+Job Type: Full Time
+
+Job Description:
+
+Technical Skills:
+• 6+ years of professional engineering experience developing, managing, or supporting distributed systems
+• 4+ SRE experience managing multi-cloud platforms
+• Strong trouble shooting skills in debugging multiarchitecture systems and experience with microservices architecture patterns is must.
+• Strong Experience in Issues Resolution and Incident management, RCA Creation, and follow-up.
+• Enterprise Cloud infrastructure experience e.g., GCP, AWS
+• Strong working knowledge of modern development technologies and tools e.g., Agile, CI/CD, Git, Jira, and Confluence.
+• Experience in developing and managing operations leveraging key event streaming, messaging, and DB services e.g., MQ/JMS/Kafka, Cloud SQL, etc.
+• Strong experience in using industry standard monitoring tools e.g., AppDynamics, Dynatrace, Splunk, Grafana, Nagios, Datadog, New Relic, Tempo, Loki, etc.
+• Experience working with containers e.g., Docker, Kubernetes, Cloud Foundry, etc.
+• Deep knowledge of Internet protocols and web services technologies e.g., HTTP, DNS, TCP/UDP, SOAP, JSON, and REST
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• 6+ years of professional engineering experience developing, managing, or supporting distributed systems
+• 4+ SRE experience managing multi-cloud platforms
+• Strong trouble shooting skills in debugging multiarchitecture systems and experience with microservices architecture patterns is must
+• Strong Experience in Issues Resolution and Incident management, RCA Creation, and follow-up
+• Enterprise Cloud infrastructure experience e.g., GCP, AWS
+• Strong working knowledge of modern development technologies and tools e.g., Agile, CI/CD, Git, Jira, and Confluence
+• Experience in developing and managing operations leveraging key event streaming, messaging, and DB services e.g., MQ/JMS/Kafka, Cloud SQL, etc
+• Strong experience in using industry standard monitoring tools e.g., AppDynamics, Dynatrace, Splunk, Grafana, Nagios, Datadog, New Relic, Tempo, Loki, etc
+• Experience working with containers e.g., Docker, Kubernetes, Cloud Foundry, etc
+• Deep knowledge of Internet protocols and web services technologies e.g., HTTP, DNS, TCP/UDP, SOAP, JSON, and REST
+
+================================================================================
+Generated: 2025-11-24 15:15:39
+================================================================================

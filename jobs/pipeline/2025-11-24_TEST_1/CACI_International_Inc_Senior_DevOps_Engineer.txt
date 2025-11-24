@@ -1,0 +1,135 @@
+================================================================================
+JOB POSTING: Senior DevOps Engineer
+================================================================================
+
+Company: CACI International Inc
+Location: Austin, Texas, US
+Remote Type: Onsite
+Salary: $82,100 - $172,000
+Job URL: https://www.linkedin.com/jobs/view/senior-devops-engineer-at-caci-international-inc-4280441549?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: uMRadz9CwKG9DW-RAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Job Category: Engineering
+
+Time Type: Full time
+
+Minimum Clearance Required to Start: TS/SCI
+
+Employee Type: Regular
+
+Percentage of Travel Required: Up to 10%
+
+Type of Travel: Local
+• * *
+
+The Opportunity
+
+As a Senior DevOps Engineer, you will be part of an Agile development team where you will support the design, development, modification, and evaluation of signals intelligence, radar, and communications prototype development systems, related software systems, and development environments for our Navy customer. You will be instrumental in the engineering and advanced research and development associated with designing of products during design, development, integration, and acceptance. Your area of work will include serving as a technical expert for efforts related to both DevOps configuration, automation, and deployment as well as acting as a Site Reliability Engineer.
+
+Responsibilities
+• Planning and executing projects or phases of projects to include customer interface, requirements development, design reviews, and technical interchanges, and all aspects of design, development, demonstration, and evaluation.
+• Lead CI/CD pipeline setup and maintenance
+• Implement virtual cloud deployment/test environments
+• Provide continuous deployment
+• Utilize some or all the following Ansible, Jenkins, Artifactory, Python, Kubernetes, Helm, Terraform, Packer, Vagrant to build, package, deploy, and analyze artifacts, applications, containers, and virtual machines to various environments.
+• Automate dependency management
+• Implement CM strategies
+• Implement a promotional release strategy
+• Provide multiple enclave support
+• Support cyber security scans, lockdowns, and vulnerability analysis
+• Provide and maintain configuration-controlled build containers
+• Implement dynamic creation of builder nodes for Jenkins
+• Facilitate OTA updates of fielded systems
+• Administer Atlassian Jira, Confluence, and Bitbucket or portions thereof
+• Provide associated design documentation
+• Mentor teammates as needed
+
+Qualifications
+
+Required:
+• Bachelor’s degree in Computer Science, Electrical Engineering, Aerospace Engineering, Computer Engineering, Physics, Math, or equivalent experience
+• Active TOP SECRET security clearance with SCI eligbility
+• Willing to work onsite
+• Minimum 5 years’ experience developing on-premise or cloud infrastructure to support team or customer initiatives and developing and deploying processes using CI/CD tools
+• Minimum 10 years’ experience in a technical / development role
+• Demonstrated experience with Linux operating systems, preferably RedHat Linux
+• Demonstrated experience with Git
+• Demonstrated experience with one or more of the following or similar:
+• Ansible
+• Jenkins
+• Artifactory
+• Python
+• Kubernetes
+• Helm
+• Terraform
+• Packer
+• Vagrant
+• 5+ years' experience administering and implementing development workflows, CI/CD solutions, and security practices using Artifactory, Jenkins, SonarQube, Bitbucket, Jira, Confluence
+
+Desired
+• 10+ years' experience developing on-premise or cloud infrastructure to support team or customer initiatives and developing and deploying processes using CI/CD tools
+• 7+ years' experience developing Infrastructure as Code / Configuration as Code (IaC/CaC) solutions
+
+This position is contingent on funding and may not be filled immediately. However, this position is representative of positions within CACI that are consistently available. Individuals who apply may also be considered for other positions at CACI.
+
+________________________________________________________________________________________
+
+What You Can Expect
+
+A culture of integrity.
+
+At CACI, we place character and innovation at the center of everything we do. As a valued team member, you’ll be part of a high-performing group dedicated to our customer’s missions and driven by a higher purpose – to ensure the safety of our nation.
+
+An environment of trust.
+
+CACI values the unique contributions that every employee brings to our company and our customers - every day. You’ll have the autonomy to take the time you need through a unique flexible time off benefit and have access to robust learning resources to make your ambitions a reality.
+
+A focus on continuous growth.
+
+Together, we will advance our nation's most critical missions, build on our lengthy track record of business success, and find opportunities to break new ground — in your career and in our legacy.
+
+Your potential is limitless. So is ours.
+
+Learn more about CACI here.
+
+________________________________________________________________________________________
+
+Pay Range: There are a host of factors that can influence final salary including, but not limited to, geographic location, Federal Government contract labor categories and contract wage rates, relevant prior work experience, specific skills and competencies, education, and certifications. Our employees value the flexibility at CACI that allows them to balance quality work and their personal lives. We offer competitive compensation, benefits and learning and development opportunities. Our broad and competitive mix of benefits options is designed to support and protect employees and their families. At CACI, you will receive comprehensive benefits such as; healthcare, wellness, financial, retirement, family support, continuing education, and time off benefits. Learn more here.
+
+Since this position can be worked in more than one location, the range shown is the national average for the position.
+
+The Proposed Salary Range For This Position Is
+
+$82,100-$172,400
+
+CACI is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, pregnancy, sexual orientation, age, national origin, disability, status as a protected veteran, or any other protected characteristic.
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• Bachelor’s degree in Computer Science, Electrical Engineering, Aerospace Engineering, Computer Engineering, Physics, Math, or equivalent experience
+• Active TOP SECRET security clearance with SCI eligbility
+• Willing to work onsite
+• Minimum 5 years’ experience developing on-premise or cloud infrastructure to support team or customer initiatives and developing and deploying processes using CI/CD tools
+• Minimum 10 years’ experience in a technical / development role
+• Demonstrated experience with Linux operating systems, preferably RedHat Linux
+• Demonstrated experience with Git
+• Demonstrated experience with one or more of the following or similar:
+• Ansible
+• Jenkins
+• Artifactory
+• Python
+• Kubernetes
+• Helm
+• Terraform
+• Packer
+• Vagrant
+• 5+ years' experience administering and implementing development workflows, CI/CD solutions, and security practices using Artifactory, Jenkins, SonarQube, Bitbucket, Jira, Confluence
+
+================================================================================
+Generated: 2025-11-24 14:09:42
+================================================================================

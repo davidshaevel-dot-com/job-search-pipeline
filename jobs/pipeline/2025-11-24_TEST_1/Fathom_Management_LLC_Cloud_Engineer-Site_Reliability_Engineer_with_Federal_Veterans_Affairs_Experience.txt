@@ -1,0 +1,81 @@
+================================================================================
+JOB POSTING: Cloud Engineer-Site Reliability Engineer with Federal / Veterans Affairs Experience
+================================================================================
+
+Company: Fathom Management LLC
+Location: Location not specified
+Remote Type: Onsite
+Salary: $130,000 - $150,000
+Posted Date: 2025-11-20
+Job URL: https://www.ziprecruiter.com/c/Fathom-Management-LLC/Job/Cloud-Engineer-Site-Reliability-Engineer-with-Federal-Veterans-Affairs-Experience/-in-Austin,TX?jid=ba185b0fb2558eb6&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: GNqWBh7edO50Sa2nAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Cloud Engineer-Site Reliability Engineer with Federal / Veterans Affairs Experience
+
+We are working aggressively with the customers to assess and migrate IT systems into cloud-based environments (Microsoft Azure, Amazon Web Services and others) as well as procure and implement new technology to replace legacy systems. The Site Reliability Engineer is a member of the group of technologists who are responsible for a broad range of application portfolios and technologies. Furthermore, the Engineer is responsible for maintaining a close working relationship with the technology vendors, the system owners, the Information System Security Officer (ISSO) and other key stakeholders to ensure applications and services meet the system security requirements and follow the evolving US Government regulations, the National Institute of Standard (NIST) cyber security standards, the VA information security policies, and the industry's best practice. Must have previous experience as a Site Reliability Engineer with most experience working with AWS platforms.
+
+Salary Range: $130,000 - $150,000. Based on Experience.
+
+Location: 100% REMOTE
+
+Supporting the Dept. of Veterans Affairs (VA)
+
+Responsibilities
+• Design and manage complex engineering and integration of the application, security, and infrastructure architecture.
+• Analyzes needs and requirements of existing and proposed systems, and develops technical, structural, and organizational specifications.
+• Monitor VA enterprise architecture and computer systems to ensure they are working optimally and that the hardware and software used are compatible with all appropriate VA and Federal policies and procedures.
+• Manage VA infrastructure equipment life cycles, requirements engineering, and capacity planning.
+• Assist in the development and maintenance of Infrastructure and Application architecture.
+• Identify departmental needs and make suggestions regarding technical direction.
+• Design and implement system security and data assurance.
+• Configure and install software applications for other organizations.
+• Test software applications and systems.
+• Analyze VA current and future users' needs.
+• Create flowcharts, diagrams, and other documentation.
+• Create manuals and detailed sets of instructions for Administrators (Application, System, Data, Network, and Security).
+• Analyzes needs and requirements of existing and proposed systems, and develops technical, structural, and organizational specifications.  
+• Understand how infrastructure (equipment, connectivity, application interfaces, images and processed data inputs and outputs) are moved from point A to point B.
+• Work with an internal customer organization and can troubleshoot for instance, incoming images/data being processed for invoices or other types of processing which might be imbedded in the image/data processing system that is then passed to a data entry or other validation systems.
+• Knowledgeable about SSO, SOA, PowerShell, Red Hat Linux, application integrations, scripting, cloud technology & storage, database design and table structure and data security related to PII and PHI data.
+
+Qualifications
+• Applicants must have IT-related experience demonstrating the competencies needed to successfully perform the responsibilities of the position described above.
+• Hands-on experience working with customers and vendor partners to implement solutions and recommend process improvements that streamline business processes.
+• Hands on experience as a technologist writing scripts and queries to move/manage data.
+• Experience providing directions to junior engineers and facilitating an environment of knowledge sharing and best practices.
+• Work independently with minimal direction and adapt to daily changes in priorities/deliverables to meet timelines and the needs of the customers.
+• Must be strong as an SRE with AWS experience
+
+Level of Education:
+• Must be a current, NOT PAST, VA Employee with active VA CAC CARD.
+• Bachelor's Degree with 12 years' experience
+• Solid experience in AWS and AZURE platforms and architecture in an Agile DevOps environment.
+• Strong developer skills with JAVA, .Net, or PEGA.
+
+Benefits Overview: Full-time employees are offered comprehensive and competitive benefits package including paid vacation, sick leave, holidays, health insurance, life insurance, military leave, training, tuition reimbursement, a wellness program, short- and long-term disability, 401(k) retirement plan with company matches/immediate vesting, commuter benefits, and more.
+
+EEO Policy: It is our policy to promote equal employment opportunities. All personnel decisions, including, but not limited to, recruiting, hiring, training, promotion, compensation, benefits, and termination, are made without regard to race, creed, color, religion, national origin, sex, age, marital status, sexual orientation, gender identity, citizenship status, veteran status, disability, or any other characteristic protected by applicable federal, state or local law.
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• Must have previous experience as a Site Reliability Engineer with most experience working with AWS platforms
+• Knowledgeable about SSO, SOA, PowerShell, Red Hat Linux, application integrations, scripting, cloud technology & storage, database design and table structure and data security related to PII and PHI data
+• Applicants must have IT-related experience demonstrating the competencies needed to successfully perform the responsibilities of the position described above
+• Hands-on experience working with customers and vendor partners to implement solutions and recommend process improvements that streamline business processes
+• Hands on experience as a technologist writing scripts and queries to move/manage data
+• Experience providing directions to junior engineers and facilitating an environment of knowledge sharing and best practices
+• Work independently with minimal direction and adapt to daily changes in priorities/deliverables to meet timelines and the needs of the customers
+• Must be strong as an SRE with AWS experience
+• Must be a current, NOT PAST, VA Employee with active VA CAC CARD
+• Bachelor's Degree with 12 years' experience
+• Solid experience in AWS and AZURE platforms and architecture in an Agile DevOps environment
+• Strong developer skills with JAVA, .Net, or PEGA
+
+================================================================================
+Generated: 2025-11-24 15:15:39
+================================================================================

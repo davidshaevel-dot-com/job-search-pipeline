@@ -419,7 +419,8 @@ class TestJobTracker:
         for job in jobs:
             assert tracker.is_processed(job)
 
-        assert tracker.get_processed_count() >= 5  # At least 5 (may have company+title keys too)
+        # Each job stored exactly once (no duplicates)
+        assert tracker.get_processed_count() == 5
 
     def test_get_processed_by_board(self, tmp_path):
         """Test getting processed jobs by board."""
@@ -445,10 +446,10 @@ class TestJobTracker:
         tracker.mark_processed(job1)
         tracker.mark_processed(job2)
 
-        # Get JSearch jobs
+        # Get JSearch jobs - should be exactly 1
         jsearch_jobs = tracker.get_processed_by_board("JSearch")
-        assert len(jsearch_jobs) >= 1
-        assert any(j["board_name"] == "JSearch" for j in jsearch_jobs)
+        assert len(jsearch_jobs) == 1
+        assert jsearch_jobs[0]["board_name"] == "JSearch"
 
     def test_clear_processed(self, tmp_path):
         """Test clearing all processed jobs."""

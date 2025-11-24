@@ -1,0 +1,86 @@
+================================================================================
+JOB POSTING: Site Reliability Engineer Enterprise Technology Services
+================================================================================
+
+Company: Apple
+Location: Location not specified
+Remote Type: Onsite
+Posted Date: 2025-11-02
+Job URL: https://www.jobaaj.com/job/apple-site-reliability-engineer-enterprise-technology-services-austin-texas-united-states-2-to-4-years-1091626?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: 3aHll1Htp63FnMr3AAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+This is a hands
+on leadership role with architectural ownership
+strategic influence
+and deep technical impact across multiple domains
+including application and infrastructure security
+incident response engineering
+and resilience automation
+7
+years of experience in SRE
+DevOps
+or Infrastructure Engineering roles
+with 2
+years in an architectural or principal engineering capacity
+Deep expertise in cloud infrastructure
+AWS
+GCP
+or AliCloud
+and container orchestration
+Kubernetes
+EKS
+
+Proven experience with Infrastructure as Code
+Terraform
+Pulumi
+CloudFormation
+
+Strong understanding of distributed systems
+networking
+and systems design at scale
+Proficiency in at least one programming or scripting language
+Python
+Go
+Bash
+or similar
+
+Experience designing observability stacks
+Prometheus
+Grafana
+Datadog
+OpenTelemetry
+ELK
+etc
+
+Solid background in CI
+CD tools and modern deployment strategies
+ArgoCD
+Spinnaker
+GitOps
+
+Familiarity with security best practices in cloud and containerized environments
+Familiarity with HSMs and crypto operations at scale will be a plus
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• years of experience in SRE
+• years in an architectural or principal engineering capacity
+• Deep expertise in cloud infrastructure
+• Proven experience with Infrastructure as Code
+• CloudFormation
+• Strong understanding of distributed systems
+• networking
+• and systems design at scale
+• Proficiency in at least one programming or scripting language
+• Python
+• Experience designing observability stacks
+• Familiarity with security best practices in cloud and containerized environments
+
+================================================================================
+Generated: 2025-11-24 15:15:39
+================================================================================

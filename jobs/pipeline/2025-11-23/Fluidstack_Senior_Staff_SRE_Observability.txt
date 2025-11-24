@@ -1,0 +1,116 @@
+================================================================================
+JOB POSTING: Senior / Staff SRE (Observability)
+================================================================================
+
+Company: Fluidstack
+Location: Austin, Texas, US
+Remote Type: Onsite
+Salary: $175,000 - $320,000
+Posted Date: 2025-11-11
+Job URL: https://www.ziprecruiter.com/c/FluidStack/Job/Senior-Staff-SRE-(Observability)/-in-Austin,TX?jid=98c8d30ef37f486a&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: oK5L1ejHe4lF4ygDAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+About Fluidstack
+
+We build and operate high-performance GPU clusters so the most ambitious teams can move fast, stay focused, and scale without friction. Our clusters power top AI labs, governments, and enterprises. Our customers include Mistral, Poolside, Black Forest Labs, Meta, and more.
+
+Our team is highly motivated, and focused on providing a world class supercomputing experience. We put our customers first in everything we do, working hard to not just win the sale, but to win repeated business and customer referrals.
+
+We hold ourselves and each other to high standards. We expect you to care deeply about the work you do, the products you build, and the experience our customers have in every interaction with us.
+
+You must work hard, take ownership from inception to delivery, and approach every problem with an open mind and a positive attitude. We value effectiveness, competence, and a growth mindset.
+
+About the Role
+
+We are looking for a Senior / Staff Site Reliability Engineer with deep expertise in observability infrastructure at scale. This role is critical to ensuring the reliability, performance, and debuggability of our global AI cloud as it supports some of the most demanding ML workloads in the world.
+
+You'll design, deploy, and operate our telemetry stack, optimizing cost and performance, and enabling our teams and customers to quickly detect, debug, and resolve production issues. You'll work closely with platform and infrastructure teams to ensure telemetry coverage for Kubernetes, SLURM, and distributed training jobs.
+
+Focus
+
+We are looking for candidates who are customer-centric, with a bias to action, and an ability to thrive in ambiguity. We expect communication skills, a low ego, and a positive attitude.
+
+In terms of skills, if any of the below bullet points sound like you, please reach out!
+• You have operated observability stacks in production (Mimir, Loki, Prometheus, Tempo) at scale (100M+ series, 10TB+/day logs)
+• You've tuned distributed telemetry systems for high availability, cost efficiency, and performance
+• You've worked on observability for GPU-heavy, multi-tenant, or globally distributed systems
+• You have deep experience with SLOs, alerting strategies, and reducing operational toil through automation
+• You've deployed and maintained infrastructure using Kubernetes, Helm, Kustomize, and Terraform
+• You write clean, maintainable code in Go, Python, or Bash to support observability and ops tooling
+
+About You
+• 7+ years total experience, 3+ years as SRE focused on observability at high scale ( 100 M metrics series, 10 TB+/day logs).
+• Expertise operating the "Grafana stack" in production: Prometheus/Mimir, Loki, Tempo, Grafana, Alertmanager.
+• Hands-on Kubernetes proficiency (Helm/Kustomize, custom CRDs, multi-cluster federation).
+• Infrastructure-as-Code fluency with Terraform (or Pulumi) for bare-metal + cloud provisioning.
+• Strong coding ability in Go (preferred) plus Python/Bash for automation, exporters, and custom controllers.
+• Design & governance of SLOs / SLIs and alerting strategies that minimize false positives and engineer toil.
+• Proven track record tuning observability pipelines for high availability, cardinality control, and cost efficiency.
+• Deep Linux systems/debug skills (cgroups, namespaces, networking, filesystems) plus TCP/IP & TLS fundamentals.
+• On-call ownership mindset: you've led incident response and post-mortems for production outages.
+• Clear, empathetic communication with both customers and internal engineering teams; comfortable in fast-moving, ambiguous environments.
+
+Nice to haves
+• Experience instrumenting GPU-dense / HPC clusters (NVIDIA A-/H-series, NVSwitch, DGX, RoCE, RDMA).
+• Familiarity with Slurm, Ray, or Kubernetes-native batch schedulers for distributed ML training.
+• Hands-on with eBPF, Cilium, or Hubble for low-overhead networking observability.
+• OpenTelemetry adoption/migration projects across metrics, logs, and traces.
+• Operating service meshes (Istio, Linkerd) and Envoy-based telemetry.
+• Observability for edge or globally distributed footprints (EU/US/APAC PoPs, WAN optimization).
+• FinOps / cost-allocation tooling (Kubecost, Cloudability) integrated into dashboards and alerts.
+• Security monitoring overlap (Falco, AWS GuardDuty, auditd pipelines).
+• Contributions to CNCF or Grafana Labs OSS projects; public talks or blog posts on observability at scale.
+• Knowledge of high-performance storage & data planes (Ceph, NVMe-oF, Lustre) and their metrics.
+• Familiarity with Kafka / ClickHouse / VictoriaMetrics as part of custom telemetry back-ends.
+
+Salary & Benefits
+• Competitive total compensation package (salary + equity).
+• Retirement or pension plan, in line with local norms.
+• Health, dental, and vision insurance.
+• Generous PTO policy, in line with local norms.
+
+The base salary range for this position is $175,000- $320,000 per year, depending on experience, skills, qualifications, and location. This range represents our good faith estimate of the compensation for this role at the time of posting. Total compensation may also include equity in the form of stock options.
+
+We are committed to pay equity and transparency.
+
+Fluidstack is an Equal Employment Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, national origin, sexual orientation, gender identity, disability and protected veterans' status, or any other characteristic protected by law. Fluidstack will consider for employment qualified applicants with arrest and conviction records pursuant to applicable law.
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• You must work hard, take ownership from inception to delivery, and approach every problem with an open mind and a positive attitude
+• We are looking for candidates who are customer-centric, with a bias to action, and an ability to thrive in ambiguity
+• We expect communication skills, a low ego, and a positive attitude
+• You have operated observability stacks in production (Mimir, Loki, Prometheus, Tempo) at scale (100M+ series, 10TB+/day logs)
+• You've worked on observability for GPU-heavy, multi-tenant, or globally distributed systems
+• You have deep experience with SLOs, alerting strategies, and reducing operational toil through automation
+• You've deployed and maintained infrastructure using Kubernetes, Helm, Kustomize, and Terraform
+• You write clean, maintainable code in Go, Python, or Bash to support observability and ops tooling
+• 7+ years total experience, 3+ years as SRE focused on observability at high scale ( 100 M metrics series, 10 TB+/day logs)
+• Expertise operating the "Grafana stack" in production: Prometheus/Mimir, Loki, Tempo, Grafana, Alertmanager
+• Hands-on Kubernetes proficiency (Helm/Kustomize, custom CRDs, multi-cluster federation)
+• Infrastructure-as-Code fluency with Terraform (or Pulumi) for bare-metal + cloud provisioning
+• Design & governance of SLOs / SLIs and alerting strategies that minimize false positives and engineer toil
+• Proven track record tuning observability pipelines for high availability, cardinality control, and cost efficiency
+• Deep Linux systems/debug skills (cgroups, namespaces, networking, filesystems) plus TCP/IP & TLS fundamentals
+• On-call ownership mindset: you've led incident response and post-mortems for production outages
+• Clear, empathetic communication with both customers and internal engineering teams; comfortable in fast-moving, ambiguous environments
+• Experience instrumenting GPU-dense / HPC clusters (NVIDIA A-/H-series, NVSwitch, DGX, RoCE, RDMA)
+• Familiarity with Slurm, Ray, or Kubernetes-native batch schedulers for distributed ML training
+• Hands-on with eBPF, Cilium, or Hubble for low-overhead networking observability
+• OpenTelemetry adoption/migration projects across metrics, logs, and traces
+• Operating service meshes (Istio, Linkerd) and Envoy-based telemetry
+• Observability for edge or globally distributed footprints (EU/US/APAC PoPs, WAN optimization)
+• FinOps / cost-allocation tooling (Kubecost, Cloudability) integrated into dashboards and alerts
+• Security monitoring overlap (Falco, AWS GuardDuty, auditd pipelines)
+• Contributions to CNCF or Grafana Labs OSS projects; public talks or blog posts on observability at scale
+• Knowledge of high-performance storage & data planes (Ceph, NVMe-oF, Lustre) and their metrics
+• Familiarity with Kafka / ClickHouse / VictoriaMetrics as part of custom telemetry back-ends
+
+================================================================================
+Generated: 2025-11-23 04:49:49
+================================================================================

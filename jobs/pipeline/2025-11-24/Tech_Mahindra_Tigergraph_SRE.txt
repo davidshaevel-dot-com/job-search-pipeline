@@ -1,0 +1,49 @@
+================================================================================
+JOB POSTING: Tigergraph SRE
+================================================================================
+
+Company: Tech Mahindra
+Location: Austin, Texas, US
+Remote Type: Onsite
+Salary: $125,000 - $130,000
+Posted Date: 2025-11-03
+Job URL: https://www.linkedin.com/jobs/view/tigergraph-sre-at-tech-mahindra-4320794702?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: v30C6WQim1VJzJ5GAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+About Us:
+
+At Tech Mahindra (Tech Mahindra | Connected World, Connected Experiences), we live the philosophy of connected world and connected experiences. We thrive on change that is powered by the intelligent symphony of technology and humans designing meaningful and sustainable experiences. Consumer ‘experiences’ are driving and disrupting industries like never before. Businesses must build seamless yet simple enterprises that collaborate, synergize, and drive the change. Change that connects us all and empowers us to deliver experiences that span across the digital, the physical, the convergent, and everything in between. That’s when truly connected experiences manifest.
+
+Extraordinary is when experiences come together – a continuous convergence of digital technologies, touchpoints, and most importantly people. It’s time to reimagine, reinvent, and revolutionize business models & operations as well as to transform enterprises into living, breathing, and connected businesses. We are the Digital Change makers who strive to change the way the world, communities, businesses, and humans interact digitally. We are harnessing the power of change, brought in by technologies, that makes it the most exciting time to be alive in the human history. Our universe, as we build it, disrupt it, and redesign it, is powering the digital change.
+
+Tech Mahindra represents the connected world, offering innovative and customer-centric information technology experiences, enabling Enterprises, Associates, and the Society to Rise. It has 150,000+ professionals working for 1000+ Global Customers (including Fortune 500 companies) in 90 Countries. We’re part of the esteemed Mahindra group, headquartered in India. Under a new CEO, Tech Mahindra is committed to a transformative journey with 'Scale @ Speed' as our guiding principle.
+
+Job Description:
+• Support developers in designing and handling graph schemas (vertices, edges, loading jobs);
+• Install and configure TigerGraph clusters;
+• Optimize data loading pipelines (batch & streaming);
+• Monitor data skew and partition balance across cluster nodes;
+• Create and handle users, roles, and privileges using TigerGraph’s RBAC model;
+• Audit query activity and ensure compliance with data governance policies;
+• Monitor query performance, memory usage, disk I/O, analyze GSQL query plans and optimize long-running traversals;
+• Validate HA setup and ensure zero data loss within recovery objectives;
+• Apply TigerGraph version upgrades and security patches safely;
+• Handle node recovery, rebalancing, and partition reallocation;
+• Collaborate with data engineers and platform teams for architecture and scaling;
+• Handle day-to-day operations and issues provide the detailed RCA for outages;
+• Ability to thrive in a fast-paced, tight deadline delivery timeline;
+• Participate in new technology/extension/feature evaluation, design, and development of highly scalable distributed databases;
+
+Note: We offer flexibility to opt for Neo4J as an alternative to Tigergraph.
+
+The pay range for this role is $125,000-$130,000 per annum including any bonuses or variable pay. Tech Mahindra also offers benefits like medical, vision, dental, life, disability insurance and paid time off (including holidays, parental leave, and sick leave, as required by law). Ask our recruiters for more details on our Benefits package. The exact offer terms will depend on the skill level, educational qualifications, experience and location of the candidate.
+
+Tech Mahindra is an Equal Employment Opportunity employer. We promote and support a diverse workforce at all levels of the company. All qualified applicants will receive consideration for employment without regard to race, religion, color, sex, age, national origin, or disability. All applicants will be evaluated solely on the basis of their ability, competence, and performance of the essential functions of their positions with or without reasonable accommodations. Reasonable accommodations also are available in the hiring process for applicants with disabilities. Candidates can request a reasonable accommodation by contacting the company ADA Coordinator at ADA_Accomodations@TechMahindra.com.
+
+================================================================================
+Generated: 2025-11-24 15:55:38
+================================================================================
