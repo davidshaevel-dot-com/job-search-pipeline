@@ -107,28 +107,28 @@ With Phase 2 (Deduplication & Filtering) now merged and complete, this session f
 5. Evaluation result storage
 6. Confidence scoring
 
-### Evaluation Result Schema (Draft)
+### Evaluation Result Schema (Example)
 
 ```json
 {
-  "job_id": "string",
-  "evaluation_timestamp": "ISO-8601",
+  "job_id": "some-job-id-123",
+  "evaluation_timestamp": "2025-11-26T10:00:00Z",
   "model": "claude-sonnet-4-5-20250929",
   "scores": {
-    "skills_match": {"score": 0-100, "weight": 0.25, "reasoning": "..."},
-    "compensation": {"score": 0-100, "weight": 0.20, "reasoning": "..."},
-    "stability": {"score": 0-100, "weight": 0.15, "reasoning": "..."},
-    "work_life_balance": {"score": 0-100, "weight": 0.15, "reasoning": "..."},
-    "career_growth": {"score": 0-100, "weight": 0.10, "reasoning": "..."},
-    "culture_fit": {"score": 0-100, "weight": 0.08, "reasoning": "..."},
-    "role_clarity": {"score": 0-100, "weight": 0.05, "reasoning": "..."},
-    "location": {"score": 0-100, "weight": 0.02, "reasoning": "..."}
+    "skills_match": {"score": 85, "weight": 0.25, "reasoning": "Strong alignment with required skills..."},
+    "compensation": {"score": 75, "weight": 0.20, "reasoning": "Salary is within market range..."},
+    "stability": {"score": 90, "weight": 0.15, "reasoning": "Company is well-funded..."},
+    "work_life_balance": {"score": 80, "weight": 0.15, "reasoning": "Standard PTO and flexible hours mentioned..."},
+    "career_growth": {"score": 82, "weight": 0.10, "reasoning": "Clear path for advancement..."},
+    "culture_fit": {"score": 78, "weight": 0.08, "reasoning": "Company values align with profile..."},
+    "role_clarity": {"score": 70, "weight": 0.05, "reasoning": "Responsibilities are somewhat vague..."},
+    "location": {"score": 95, "weight": 0.02, "reasoning": "Fully remote role matches preference..."}
   },
-  "overall_score": 0-100,
-  "grade": "A/B/C/D/F",
-  "confidence": 0.0-1.0,
-  "summary": "Brief evaluation summary",
-  "recommendation": "pursue/consider/skip"
+  "overall_score": 82.46,
+  "grade": "B",
+  "confidence": 0.95,
+  "summary": "A strong opportunity with good alignment on skills and company stability, though role clarity could be better.",
+  "recommendation": "pursue"
 }
 ```
 
