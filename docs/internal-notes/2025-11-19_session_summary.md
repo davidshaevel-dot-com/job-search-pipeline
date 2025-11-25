@@ -28,7 +28,7 @@ Completed Phase 1 implementation of the job search pipeline with JSearch adapter
 ### 1. Documentation Updates (4 commits)
 
 **Updated Files:**
-- [docs/2025-11-19_session_agenda.md](2025-11-19_session_agenda.md) - Complete JSearch implementation plan with technical specs
+- [docs/internal-notes/2025-11-19_session_agenda.md](2025-11-19_session_agenda.md) - Complete JSearch implementation plan with technical specs
 - [PLAN.md](../PLAN.md) - Updated Phase 1 and Phase 2 with JSearch and viable APIs
 - [CLAUDE.md](../CLAUDE.md) - Updated agent handoff with current status and JSearch details
 - [config/job-boards.yaml](../config/job-boards.yaml) - Complete rewrite with JSearch active and 5 Phase 2 APIs planned
@@ -163,8 +163,8 @@ python src/main.py --config-dir /path/to/config  # Custom config directory
 2. `src/search/orchestrator.py` - Search orchestrator (232 lines)
 3. `scripts/test_jsearch_adapter.py` - Test script (149 lines)
 4. `docs/TESTING_PHASE1.md` - Testing guide (440 lines)
-5. `docs/2025-11-19_session_agenda.md` - Session agenda (529 lines)
-6. `docs/2025-11-19_session_summary.md` - This file
+5. `docs/internal-notes/2025-11-19_session_agenda.md` - Session agenda (529 lines)
+6. `docs/internal-notes/2025-11-19_session_summary.md` - This file
 
 ### Modified Files (7):
 1. `src/adapters/__init__.py` - Export JSearchAdapter
@@ -173,7 +173,7 @@ python src/main.py --config-dir /path/to/config  # Custom config directory
 4. `config/job-boards.yaml` - JSearch config + Phase 2 APIs
 5. `PLAN.md` - Updated Phase 1 and Phase 2 sections
 6. `CLAUDE.md` - Updated current status and JSearch details
-7. `docs/2025-11-19_session_agenda.md` - Updated with JSearch details
+7. `docs/internal-notes/2025-11-19_session_agenda.md` - Updated with JSearch details
 
 **Total Lines Added:** ~2,200 lines (code + documentation)
 

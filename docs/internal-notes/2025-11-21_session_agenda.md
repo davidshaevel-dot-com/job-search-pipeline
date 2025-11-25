@@ -193,8 +193,8 @@ Implements Phase 1 foundation of the job search pipeline with JSearch integratio
 
 ### 5. Documentation Updates
 - API research: docs/BEST_JOB_SEARCH_APIS.md
-- Session agenda: docs/2025-11-19_session_agenda.md
-- Session summary: docs/2025-11-19_session_summary.md
+- Session agenda: docs/internal-notes/2025-11-19_session_agenda.md
+- Session summary: docs/internal-notes/2025-11-19_session_summary.md
 - PLAN.md: Updated Phase 1 and Phase 2 sections
 - CLAUDE.md: Updated current status and JSearch details
 - config/job-boards.yaml: JSearch config + Phase 2 APIs planned
