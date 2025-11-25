@@ -212,8 +212,8 @@ See `docs/deployment.md` for detailed instructions.
 |-------|-------------|--------|-----|
 | **Phase 1** | Foundation - Core infrastructure and JSearch integration | ✅ **COMPLETE** | [PR #2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) |
 | **Phase 2** | Deduplication & Filtering - Remove duplicates and filter unwanted | ✅ **COMPLETE** | [PR #4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) |
-| **Phase 3** | Multi-Board Support - Rate limiting and parallel execution | ⏳ Up Next | - |
-| **Phase 4** | AI Evaluation - Automated evaluation using Claude API | 📋 Planned | - |
+| **Phase 3** | AI Evaluation - Automated evaluation using Claude API | ⏳ Up Next | - |
+| **Phase 4** | Multi-Board Support - Rate limiting and parallel execution | 📋 Planned | - |
 | **Phase 5** | Organization & Linear Integration - Folder structure and auto-issues | 📋 Planned | - |
 | **Phase 6** | Scheduling & Automation - GitHub Actions, GCP, Slack | 📋 Planned | - |
 | **Phase 7** | Testing & Refinement - Test suite, performance, documentation | 📋 Planned | - |
@@ -243,8 +243,8 @@ See `PLAN.md` for detailed phase breakdowns and Linear issues.
 **Issues:**
 - [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation
 - [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering
-- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Multi-Board Support
-- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 4: AI Evaluation
+- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 3: AI Evaluation
+- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 4: Multi-Board Support
 - [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 5: Organization & Linear Integration
 - [TT-50](https://linear.app/davidshaevel-dot-com/issue/TT-50) - Phase 6: Scheduling & Automation
 - [TT-51](https://linear.app/davidshaevel-dot-com/issue/TT-51) - Phase 7: Testing & Refinement
@@ -267,5 +267,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ---
 
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
-**Last Updated:** November 24, 2025
-**Status:** Phase 2 Complete - Phase 3 Up Next
+**Last Updated:** November 25, 2025
+**Status:** Phase 2 Complete - Phase 3 (AI Evaluation) Up Next
