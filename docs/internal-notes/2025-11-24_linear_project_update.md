@@ -112,7 +112,7 @@ Marked 14 new job(s) as processed
 - Per-board configuration
 
 **Planning Session:** Tuesday, November 25, 2025
-- See `docs/2025-11-25_tuesday_session_agenda.md`
+- See `docs/internal-notes/2025-11-25_tuesday_session_agenda.md`
 
 ---
 

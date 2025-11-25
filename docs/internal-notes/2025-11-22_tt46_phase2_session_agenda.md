@@ -610,7 +610,7 @@ class Config:
 
 **Documentation:**
 - `PLAN.md` - Phase 2 requirements (lines 602-617)
-- `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md` - API research
+- `docs/BEST_JOB_SEARCH_APIS.md` - API research
 
 **External:**
 - fuzzywuzzy docs: https://github.com/seatgeek/fuzzywuzzy

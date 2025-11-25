@@ -40,9 +40,9 @@ This repository contains a comprehensive plan and initial structure for an autom
 - ✅ **docker/docker-compose.yml** - Local Docker Compose setup
 
 ### Documentation
-- ✅ **docs/evaluation_rubric.md** - 8-factor evaluation rubric
-- ✅ **docs/slack-integration.md** - Slack setup guide
-- ✅ **docs/deployment.md** - Deployment instructions
+- ✅ **docs/EVALUATION_RUBRIC.md** - 8-factor evaluation rubric
+- ✅ **docs/SLACK_INTEGRATION.md** - Slack setup guide
+- ✅ **docs/DEPLOYMENT.md** - Deployment instructions
 
 ### Project Files
 - ✅ **requirements.txt** - Python dependencies
@@ -219,9 +219,9 @@ job-search-pipeline/
 ## Resources
 
 - **Plan:** `PLAN.md` - Comprehensive implementation plan
-- **Evaluation:** `docs/evaluation_rubric.md` - 8-factor rubric
-- **Slack:** `docs/slack-integration.md` - Slack setup
-- **Deployment:** `docs/deployment.md` - Deployment guide
+- **Evaluation:** `docs/EVALUATION_RUBRIC.md` - 8-factor rubric
+- **Slack:** `docs/SLACK_INTEGRATION.md` - Slack setup
+- **Deployment:** `docs/DEPLOYMENT.md` - Deployment guide
 - **Linear Project:** https://linear.app/davidshaevel-dot-com/project/job-search-pipeline-development-94abc44631e5
 
 ---
