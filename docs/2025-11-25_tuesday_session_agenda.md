@@ -1,14 +1,19 @@
 # Session Agenda - Tuesday, November 25, 2025
 
 **Project:** Job Search Pipeline Development
-**Focus:** Phase 3 Planning and Preparation
-**Linear Issue:** [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Multi-Board Support
+**Focus:** Phase 3 Planning - AI Evaluation
+**Linear Issue:** [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 3: AI Evaluation
 
 ---
 
 ## Session Overview
 
-With Phase 2 (Deduplication & Filtering) now merged and complete, this session focuses on planning and preparing for Phase 3: Multi-Board Support.
+With Phase 2 (Deduplication & Filtering) now merged and complete, this session focuses on planning and preparing for Phase 3: AI Evaluation.
+
+**Phase Reorganization (Nov 25):**
+- **OLD:** Phase 3 = Multi-Board Support, Phase 4 = AI Evaluation
+- **NEW:** Phase 3 = AI Evaluation (TT-48), Phase 4 = Multi-Board Support (TT-47)
+- **Rationale:** Prioritize AI evaluation to enable better analysis of jobs from the single JSearch source before adding more job boards
 
 **Previous Session Accomplishments (Nov 24):**
 - Resolved all Gemini Round 2 code review issues (7 fixes)
@@ -21,57 +26,70 @@ With Phase 2 (Deduplication & Filtering) now merged and complete, this session f
 
 ### 1. Phase 3 Planning (HIGH - 60 min)
 
-**Goal:** Create detailed implementation plan for multi-board support
+**Goal:** Create detailed implementation plan for AI evaluation
 
 **Tasks:**
 - [ ] Review Phase 3 requirements from PLAN.md
-- [ ] Identify additional job boards to implement:
-  - Adzuna (free tier available)
-  - RemoteOK (completely free)
-  - Remotive (completely free)
-  - The Muse (free tier available)
-  - USAJobs (completely free, government jobs)
-- [ ] Design rate limiting strategy for multiple boards
-- [ ] Plan parallel execution architecture
+- [ ] Design evaluation prompt templates for Claude API
+- [ ] Define 8-factor rubric implementation details
+- [ ] Plan score calculation and grading logic
+- [ ] Design evaluation result storage format
 - [ ] Define success criteria for Phase 3
 
 **Key Considerations:**
-- Rate limiting per board (different APIs have different limits)
-- Error handling for individual board failures
-- Aggregation of results from multiple sources
-- Configuration structure for multi-board settings
+- Claude API integration (model selection, token limits, cost)
+- Prompt engineering for accurate job evaluation
+- Structured output parsing (JSON or structured format)
+- Handling incomplete job descriptions
+- Confidence scoring for evaluation quality
 
-### 2. Board Adapter Research (MEDIUM - 45 min)
+### 2. Evaluation Framework Design (MEDIUM - 45 min)
 
-**Goal:** Research API requirements for each new board
-
-**Tasks:**
-- [ ] Adzuna API documentation review
-- [ ] RemoteOK API documentation review
-- [ ] Remotive API documentation review
-- [ ] The Muse API documentation review
-- [ ] USAJobs API documentation review
-- [ ] Document authentication requirements for each
-- [ ] Estimate implementation effort per board
-
-### 3. Architecture Design (MEDIUM - 30 min)
-
-**Goal:** Design multi-board orchestration
+**Goal:** Design the AI evaluation engine architecture
 
 **Tasks:**
-- [ ] Design adapter factory pattern
-- [ ] Plan rate limiter implementation
-- [ ] Design result aggregation strategy
-- [ ] Plan configuration schema updates
-- [ ] Consider async/parallel execution options
+- [ ] Review existing 8-factor rubric from `docs/evaluation_rubric.md`
+- [ ] Design prompt template structure
+- [ ] Plan scoring normalization (0-100 scale)
+- [ ] Design grade assignment logic (A/B/C/D/F)
+- [ ] Plan evaluation caching/deduplication
+- [ ] Design evaluation result schema
+
+**8-Factor Rubric:**
+1. Skills & Experience Match (25%)
+2. Compensation & Benefits (20%)
+3. Company Stability & Growth (15%)
+4. Work-Life Balance (15%)
+5. Career Growth & Learning (10%)
+6. Culture & Team Fit (8%)
+7. Role Clarity & Expectations (5%)
+8. Location & Commute (2%)
+
+### 3. Claude API Integration Planning (MEDIUM - 30 min)
+
+**Goal:** Plan Claude API integration details
+
+**Tasks:**
+- [ ] Select Claude model (Sonnet 4.5 recommended for cost/quality)
+- [ ] Design API client wrapper
+- [ ] Plan rate limiting for API calls
+- [ ] Design error handling and retry logic
+- [ ] Estimate cost per evaluation
+- [ ] Plan batch processing strategy
+
+**API Considerations:**
+- Model: claude-sonnet-4-5-20250929 (recommended)
+- Token limits: Input/output constraints
+- Cost optimization: Batch vs individual evaluations
+- Error handling: Rate limits, API errors, timeouts
 
 ### 4. Linear Updates (LOW - 15 min)
 
 **Goal:** Update Linear with Phase 3 planning details
 
 **Tasks:**
-- [ ] Update TT-47 with implementation plan
-- [ ] Add sub-tasks for each board adapter
+- [ ] Update TT-48 with implementation plan
+- [ ] Add sub-tasks for each component
 - [ ] Update project status
 - [ ] Set estimated timeline
 
@@ -81,50 +99,68 @@ With Phase 2 (Deduplication & Filtering) now merged and complete, this session f
 
 ### Phase 3 Scope (from PLAN.md)
 
-**Multi-Board Support includes:**
-1. Additional job board adapters (beyond JSearch)
-2. Rate limiting per API
-3. Parallel execution with error handling
-4. Result aggregation from multiple sources
-5. Configuration for board-specific settings
+**AI Evaluation includes:**
+1. Integrate Claude API
+2. Build evaluation prompt templates
+3. Implement rubric application
+4. Score calculation and grading
+5. Evaluation result storage
+6. Confidence scoring
 
-### Board Priority Order
+### Evaluation Result Schema (Draft)
 
-Based on API research documented in `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`:
-
-1. **RemoteOK** - Completely free, no API key needed
-2. **Remotive** - Completely free, no authentication
-3. **USAJobs** - Free, requires API key registration
-4. **Adzuna** - Free tier (50 requests/day)
-5. **The Muse** - Free tier available
+```json
+{
+  "job_id": "string",
+  "evaluation_timestamp": "ISO-8601",
+  "model": "claude-sonnet-4-5-20250929",
+  "scores": {
+    "skills_match": {"score": 0-100, "weight": 0.25, "reasoning": "..."},
+    "compensation": {"score": 0-100, "weight": 0.20, "reasoning": "..."},
+    "stability": {"score": 0-100, "weight": 0.15, "reasoning": "..."},
+    "work_life_balance": {"score": 0-100, "weight": 0.15, "reasoning": "..."},
+    "career_growth": {"score": 0-100, "weight": 0.10, "reasoning": "..."},
+    "culture_fit": {"score": 0-100, "weight": 0.08, "reasoning": "..."},
+    "role_clarity": {"score": 0-100, "weight": 0.05, "reasoning": "..."},
+    "location": {"score": 0-100, "weight": 0.02, "reasoning": "..."}
+  },
+  "overall_score": 0-100,
+  "grade": "A/B/C/D/F",
+  "confidence": 0.0-1.0,
+  "summary": "Brief evaluation summary",
+  "recommendation": "pursue/consider/skip"
+}
+```
 
 ### Success Metrics for Phase 3
 
-- [ ] At least 2 additional board adapters implemented
-- [ ] Rate limiting prevents API quota exhaustion
-- [ ] Failed board searches don't block other boards
-- [ ] Aggregated results properly deduplicated (via Phase 2)
-- [ ] Configuration allows enabling/disabling boards
+- [ ] Claude API integration working
+- [ ] All 8 evaluation factors implemented
+- [ ] Scores calculated with weighted averages
+- [ ] Grades assigned based on thresholds
+- [ ] Evaluation results saved to JSON
+- [ ] Confidence scoring implemented
+- [ ] Integration test with real job data
 
 ---
 
 ## Files to Reference
 
 - `PLAN.md` - Full implementation plan
-- `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md` - API research
-- `src/adapters/jsearch.py` - Reference implementation for new adapters
-- `src/adapters/base.py` - Base adapter interface
-- `config/job-boards.yaml` - Board configuration
+- `docs/evaluation_rubric.md` - 8-factor evaluation framework
+- `src/filters/filter_engine.py` - Reference for pipeline integration
+- `config/evaluation-thresholds.yaml` - Scoring thresholds config
+- Anthropic API docs: https://docs.anthropic.com/
 
 ---
 
 ## Questions to Address
 
-1. Should we implement all boards in Phase 3, or prioritize a subset?
-2. What's the right balance between parallel and sequential execution?
-3. How should we handle boards with significantly different data schemas?
-4. Should rate limiting be global or per-board?
-5. What's the minimum viable Phase 3 scope?
+1. Should evaluations be synchronous or async/batch?
+2. How to handle jobs with missing information (salary, benefits)?
+3. Should we cache evaluations to avoid re-evaluating unchanged jobs?
+4. What confidence threshold triggers manual review?
+5. How to validate evaluation accuracy?
 
 ---
 
@@ -132,7 +168,7 @@ Based on API research documented in `docs/best-job-search-apis-for-automated-pip
 
 By the end of this session:
 1. Clear implementation plan for Phase 3
-2. Board adapter priorities defined
-3. Architecture decisions documented
-4. Linear TT-47 updated with plan
+2. Evaluation prompt template drafted
+3. Result schema finalized
+4. Linear TT-48 updated with plan
 5. Ready to begin Phase 3 implementation

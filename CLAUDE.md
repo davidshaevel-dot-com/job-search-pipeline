@@ -1,7 +1,7 @@
 # AI Agent Handoff - Job Search Pipeline
 
-**Last Updated:** November 24, 2025
-**Project Status:** Phase 2 Complete - Phase 3 (Multi-Board Support) Up Next
+**Last Updated:** November 25, 2025
+**Project Status:** Phase 2 Complete - Phase 3 (AI Evaluation) Up Next
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
 **Current Branch:** `main` (ready for Phase 3 branch)
 
@@ -70,7 +70,7 @@ job-search-pipeline/
 
 ## Current Status
 
-**Phase:** Phase 2 Complete ✅ - Phase 3 (Multi-Board Support) Up Next
+**Phase:** Phase 2 Complete ✅ - Phase 3 (AI Evaluation) Up Next
 
 ### Completed Phases
 
@@ -93,12 +93,12 @@ job-search-pipeline/
 
 ### Up Next
 
-**Phase 3: Multi-Board Support** ⏳
-- Linear Issue: [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47)
-- Additional job board adapters (RemoteOK, Remotive, USAJobs, Adzuna, The Muse)
-- Rate limiting per API
-- Parallel execution with error handling
-- Result aggregation from multiple sources
+**Phase 3: AI Evaluation** ⏳
+- Linear Issue: [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48)
+- AI-powered job evaluation using Claude API
+- 8-factor weighted rubric implementation
+- Evaluation prompt engineering
+- Score aggregation and grading
 - See `docs/2025-11-25_tuesday_session_agenda.md` for planning details
 
 ### Implementation Phases
@@ -107,8 +107,8 @@ job-search-pipeline/
 |-------|-------------|--------|-----|
 | 1 | Foundation - Core infrastructure and JSearch integration | ✅ Complete | [#2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) |
 | 2 | Deduplication & Filtering | ✅ Complete | [#4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) |
-| 3 | Multi-Board Support - Rate limiting and parallel execution | ⏳ Up Next | - |
-| 4 | AI Evaluation - Claude API integration | 📋 Planned | - |
+| 3 | AI Evaluation - Claude API integration | ⏳ Up Next | - |
+| 4 | Multi-Board Support - Rate limiting and parallel execution | 📋 Planned | - |
 | 5 | Organization & Linear Integration | 📋 Planned | - |
 | 6 | Scheduling & Automation - GitHub Actions, GCP, Slack | 📋 Planned | - |
 | 7 | Testing & Refinement | 📋 Planned | - |
@@ -118,8 +118,8 @@ job-search-pipeline/
 **Linear Issues:**
 - [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation ✅
 - [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering ✅
-- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 3: Multi-Board Support ⏳
-- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 4: AI Evaluation
+- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 3: AI Evaluation ⏳
+- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 4: Multi-Board Support
 - [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 5: Organization & Linear Integration
 - [TT-50](https://linear.app/davidshaevel-dot-com/issue/TT-50) - Phase 6: Scheduling & Automation
 - [TT-51](https://linear.app/davidshaevel-dot-com/issue/TT-51) - Phase 7: Testing & Refinement
@@ -521,11 +521,17 @@ When working on this project, consider:
 
 ---
 
-**Last Updated:** November 24, 2025
-**Status:** Phase 2 Complete ✅ - Phase 3 Up Next
+**Last Updated:** November 25, 2025
+**Status:** Phase 2 Complete ✅ - Phase 3 (AI Evaluation) Up Next
 **Last Merged PR:** [#4 - Phase 2: Deduplication & Filtering](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) - Merged ✅
 **Current Branch:** `main` (ready for Phase 3 feature branch)
-**Next Steps:** Plan and implement Phase 3 (Multi-Board Support) - see `docs/2025-11-25_tuesday_session_agenda.md`
+**Next Steps:** Plan and implement Phase 3 (AI Evaluation) - see `docs/2025-11-25_tuesday_session_agenda.md`
+
+**Phase Reorganization (Nov 25, 2025):**
+- Swapped Phase 3 and Phase 4 order
+- NEW Phase 3: AI Evaluation (was Phase 4) - TT-48
+- NEW Phase 4: Multi-Board Support (was Phase 3) - TT-47
+- Rationale: AI evaluation adds more immediate value to single-board results
 
 **Phase 2 Accomplishments (Nov 24, 2025):**
 - FilterEngine with blacklist, criteria, and deduplication filters
