@@ -48,7 +48,7 @@ With Phase 2 (Deduplication & Filtering) now merged and complete, this session f
 **Goal:** Design the AI evaluation engine architecture
 
 **Tasks:**
-- [ ] Review existing 8-factor rubric from `docs/evaluation_rubric.md`
+- [ ] Review existing 8-factor rubric from `docs/EVALUATION_RUBRIC.md`
 - [ ] Design prompt template structure
 - [ ] Plan scoring normalization (0-100 scale)
 - [ ] Design grade assignment logic (A/B/C/D/F)
@@ -147,7 +147,7 @@ With Phase 2 (Deduplication & Filtering) now merged and complete, this session f
 ## Files to Reference
 
 - `PLAN.md` - Full implementation plan
-- `docs/evaluation_rubric.md` - 8-factor evaluation framework
+- `docs/EVALUATION_RUBRIC.md` - 8-factor evaluation framework
 - `src/filters/filter_engine.py` - Reference for pipeline integration
 - `config/evaluation-thresholds.yaml` - Scoring thresholds config
 - Anthropic API docs: https://docs.anthropic.com/

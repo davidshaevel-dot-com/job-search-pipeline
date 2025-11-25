@@ -315,7 +315,7 @@ evaluation:
 **Location:** `src/adapters/`
 
 **Updated API Strategy (Nov 19, 2025):**
-Based on comprehensive research (`docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`):
+Based on comprehensive research (`docs/BEST_JOB_SEARCH_APIS.md`):
 
 **Phase 1 (Current):**
 - **JSearch via RapidAPI** - Google for Jobs aggregator, 40+ fields, $10-50/month
@@ -362,7 +362,7 @@ class JobPosting:
 - `scorer.py` - Calculates weighted scores
 - `prompt_builder.py` - Constructs evaluation prompts
 
-Uses Claude API to evaluate jobs against the 8-factor rubric (see `docs/evaluation_rubric.md`).
+Uses Claude API to evaluate jobs against the 8-factor rubric (see `docs/EVALUATION_RUBRIC.md`).
 
 ### 5. Organization System
 
@@ -584,7 +584,7 @@ gcloud scheduler jobs create http job-search-daily \
 7. ⏳ Simple file output to `jobs/pipeline/YYYY-MM-DD/`
 
 **API Selection Update (Nov 19, 2025):**
-After comprehensive research (see `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`), implementing **JSearch via RapidAPI** instead of Indeed/LinkedIn:
+After comprehensive research (see `docs/BEST_JOB_SEARCH_APIS.md`), implementing **JSearch via RapidAPI** instead of Indeed/LinkedIn:
 - **Why:** Indeed API deprecated (2020), LinkedIn has no public job search API
 - **JSearch Benefits:** Google for Jobs aggregator, 40+ data points, explicit remote designation
 - **Authentication:** Simple RapidAPI key (X-RapidAPI-Key header)

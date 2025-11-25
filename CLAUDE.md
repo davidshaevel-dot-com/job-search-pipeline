@@ -99,7 +99,7 @@ job-search-pipeline/
 - 8-factor weighted rubric implementation
 - Evaluation prompt engineering
 - Score aggregation and grading
-- See `docs/2025-11-25_tuesday_session_agenda.md` for planning details
+- See `docs/internal-notes/2025-11-25_tuesday_session_agenda.md` for planning details
 
 ### Implementation Phases
 
@@ -150,7 +150,7 @@ jobs/
 - Secrets stored in GitHub Secrets or GCP Secret Manager
 
 ### Evaluation Framework
-Uses 8-factor weighted rubric (see `docs/evaluation_rubric.md`):
+Uses 8-factor weighted rubric (see `docs/EVALUATION_RUBRIC.md`):
 1. Skills & Experience Match (25%)
 2. Compensation & Benefits (20%)
 3. Company Stability & Growth (15%)
@@ -385,7 +385,7 @@ gcloud run deploy job-search-pipeline \
 - **Location:** `src/adapters/`
 - **Interface:** `src/adapters/base.py`
 - **Note:** LinkedIn, Indeed, Glassdoor, and Wellfound APIs are deprecated or unavailable for job search
-- **Research:** See `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md` for comprehensive analysis
+- **Research:** See `docs/BEST_JOB_SEARCH_APIS.md` for comprehensive analysis
 
 ---
 
@@ -400,9 +400,9 @@ gcloud run deploy job-search-pipeline \
 ### Documentation
 - `README.md` - Main documentation and quick start
 - `PLAN.md` - Comprehensive implementation plan
-- `docs/evaluation_rubric.md` - 8-factor evaluation rubric
-- `docs/slack-integration.md` - Slack setup guide
-- `docs/deployment.md` - Deployment instructions
+- `docs/EVALUATION_RUBRIC.md` - 8-factor evaluation rubric
+- `docs/SLACK_INTEGRATION.md` - Slack setup guide
+- `docs/DEPLOYMENT.md` - Deployment instructions
 
 ### Source Code
 - `src/main.py` - Entry point
@@ -455,7 +455,7 @@ GOOGLE_CLOUD_PROJECT=...
 ### Adding Slack Commands
 1. Create command handler in `src/integrations/slack/trigger_handler.py`
 2. Register command in Slack app configuration
-3. Update `docs/slack-integration.md`
+3. Update `docs/SLACK_INTEGRATION.md`
 4. Test command locally
 
 ### Deploying to GCP
@@ -496,9 +496,9 @@ GOOGLE_CLOUD_PROJECT=...
 
 ### Documentation
 - **Plan:** `PLAN.md` - Comprehensive implementation plan
-- **Evaluation:** `docs/evaluation_rubric.md` - 8-factor rubric
-- **Slack:** `docs/slack-integration.md` - Slack setup
-- **Deployment:** `docs/deployment.md` - Deployment guide
+- **Evaluation:** `docs/EVALUATION_RUBRIC.md` - 8-factor rubric
+- **Slack:** `docs/SLACK_INTEGRATION.md` - Slack setup
+- **Deployment:** `docs/DEPLOYMENT.md` - Deployment guide
 
 ### External Links
 - **Repository:** https://github.com/davidshaevel-dot-com/job-search-pipeline
@@ -525,7 +525,7 @@ When working on this project, consider:
 **Status:** Phase 2 Complete ✅ - Phase 3 (AI Evaluation) Up Next
 **Last Merged PR:** [#4 - Phase 2: Deduplication & Filtering](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) - Merged ✅
 **Current Branch:** `main` (ready for Phase 3 feature branch)
-**Next Steps:** Plan and implement Phase 3 (AI Evaluation) - see `docs/2025-11-25_tuesday_session_agenda.md`
+**Next Steps:** Plan and implement Phase 3 (AI Evaluation) - see `docs/internal-notes/2025-11-25_tuesday_session_agenda.md`
 
 **Phase Reorganization (Nov 25, 2025):**
 - Swapped Phase 3 and Phase 4 order

@@ -100,7 +100,7 @@ Send a message to your Slack bot:
 /trigger-job-search
 ```
 
-Or use Slack slash commands (see `docs/slack-integration.md`)
+Or use Slack slash commands (see `docs/SLACK_INTEGRATION.md`)
 
 ## 📋 Features
 
@@ -169,7 +169,7 @@ Jobs are evaluated using an 8-factor weighted rubric:
 7. **Role Clarity & Expectations** (5%)
 8. **Location & Commute** (2%)
 
-See `docs/evaluation_rubric.md` for details.
+See `docs/EVALUATION_RUBRIC.md` for details.
 
 ## 🔄 Workflows
 
@@ -190,7 +190,7 @@ Daily at 8:00 AM CT via GitHub Actions (see `.github/workflows/job-search-daily.
 - **Triggers**: Start pipeline runs via Slack commands
 - **Reports**: Get summaries of discovered opportunities
 
-See `docs/slack-integration.md` for setup instructions.
+See `docs/SLACK_INTEGRATION.md` for setup instructions.
 
 ## 🚢 Deployment
 
@@ -204,7 +204,7 @@ Workflows are configured in `.github/workflows/`. Set up repository secrets and 
 2. Push to GCR: `gcloud builds submit --tag gcr.io/PROJECT_ID/job-search-pipeline`
 3. Deploy: `gcloud run deploy job-search-pipeline --image gcr.io/PROJECT_ID/job-search-pipeline`
 
-See `docs/deployment.md` for detailed instructions.
+See `docs/DEPLOYMENT.md` for detailed instructions.
 
 ## 📈 Implementation Status
 

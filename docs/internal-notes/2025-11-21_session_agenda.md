@@ -192,7 +192,7 @@ Implements Phase 1 foundation of the job search pipeline with JSearch integratio
 - Environment validation and sample output
 
 ### 5. Documentation Updates
-- API research: docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md
+- API research: docs/BEST_JOB_SEARCH_APIS.md
 - Session agenda: docs/2025-11-19_session_agenda.md
 - Session summary: docs/2025-11-19_session_summary.md
 - PLAN.md: Updated Phase 1 and Phase 2 sections

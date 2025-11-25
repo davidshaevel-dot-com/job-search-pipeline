@@ -59,7 +59,7 @@ This session focuses on continuing Phase 1 implementation by building the remain
 **Priority:** HIGH
 **Estimated Time:** 2-3 hours
 
-**Updated Decision:** Based on comprehensive API research (see `docs/best-job-search-apis-for-automated-pipelines-in-2024-2025.md`), we're implementing **JSearch via RapidAPI** instead of Indeed API (which is deprecated).
+**Updated Decision:** Based on comprehensive API research (see `docs/BEST_JOB_SEARCH_APIS.md`), we're implementing **JSearch via RapidAPI** instead of Indeed API (which is deprecated).
 
 **Why JSearch:**
 - ✅ Indeed API is **deprecated** since 2020 for job search
