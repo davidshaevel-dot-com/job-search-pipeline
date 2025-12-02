@@ -165,7 +165,7 @@ class TestEvaluationResult:
             job_title="Senior DevOps Engineer",
             company="TestCo",
             evaluation_timestamp=datetime(2025, 12, 1, 10, 0, 0),
-            model="claude-sonnet-4-5-20250514",
+            model="claude-sonnet-4-5-20250929",
             factor_scores=sample_factor_scores,
             overall_score=overall,
             grade=grade,

@@ -57,7 +57,7 @@ class AIEvaluator:
     """Evaluates job postings using Claude API."""
 
     # Default model to use
-    DEFAULT_MODEL = "claude-sonnet-4-5-20250514"
+    DEFAULT_MODEL = "claude-sonnet-4-5-20250929"
 
     # API configuration
     MAX_TOKENS = 2000
@@ -79,7 +79,7 @@ class AIEvaluator:
         Args:
             api_key: Anthropic API key. If not provided, reads from
                      ANTHROPIC_API_KEY environment variable.
-            model: Claude model to use. Defaults to claude-sonnet-4-5-20250514.
+            model: Claude model to use. Defaults to claude-sonnet-4-5-20250929.
             user_profile: Custom user profile for evaluation context.
 
         Raises:
