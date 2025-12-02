@@ -17,8 +17,16 @@ class Config:
     
     def __getattr__(self, name: str) -> Any:
         """Allow access to config values as attributes."""
-        if name in self._data:
-            value = self._data[name]
+        # Use object.__getattribute__ to avoid infinite recursion if _data is missing
+        try:
+            data = object.__getattribute__(self, "_data")
+        except AttributeError:
+            # If _data is missing (e.g. uninitialized), let standard attribute error propagation happen
+            # or raise a specific error about the requested attribute
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+
+        if name in data:
+            value = data[name]
             if isinstance(value, dict):
                 return Config(value)
             return value
