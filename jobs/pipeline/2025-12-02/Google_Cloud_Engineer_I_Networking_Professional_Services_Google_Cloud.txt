@@ -1,0 +1,62 @@
+================================================================================
+JOB POSTING: Cloud Engineer I, Networking, Professional Services, Google Cloud
+================================================================================
+
+Company: Google
+Location: Austin, Texas, US
+Remote Type: Onsite
+Salary: $123,000 - $176,000
+Posted Date: 2025-11-25
+Job URL: https://www.linkedin.com/jobs/view/cloud-engineer-i-networking-professional-services-google-cloud-at-google-4324591529?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: sFLcJHqEkEDISHSYAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Chicago, IL, USA; Atlanta, GA, USA; Houston, TX, USA; Miami, FL, USA; Austin, TX, USA.Minimum qualifications:
+• Bachelor's degree in Computer Science or equivalent practical experience.
+• 3 years of experience in networking, compute infrastructure (e.g., servers, databases, firewalls, load balancers) and architecting, developing, or maintaining cloud solutions in virtualized environments.
+• 3 years of experience in project management and technical solution delivery.
+• Ability to travel 30% of the time, as needed, for client engagements.
+
+Preferred qualifications:
+• Experience with one or more third-party networking products (e.g., PANW, Fortinet, VMWare Cloud Foundation).
+• Experience in scalable networking design, including high availability, redundancy, fail-over, and load balancing.
+• Experience troubleshooting networking protocols such as TCP/IP, HyperText Transfer Protocol Secure (HTTP/S), and Border Gateway Protocol (BGP).
+• Experience in customer-facing migration, including service discovery, assessment, planning, execution, and operations.
+• Knowledge of containerization and container orchestration technologies such as Google Kubernetes Engine (GKE).
+• Familiarity with standard IT security practices such as identity and access management, data protection, encryption, certificate and key management.
+
+About The Job
+
+The Google Cloud Consulting Professional Services team guides customers through the moments that matter most in their cloud journey to help businesses thrive. We help customers transform and evolve their business through the use of Google’s global network, web-scale data centers, and software infrastructure. As part of an innovative team in this rapidly growing business, you will help shape the future of businesses of all sizes and use technology to connect with customers, employees, and partners.
+
+In this role, you will work with Google’s customers on cloud networking projects that transform business. You will provide consulting, program management, and technical expertise on customer engagements, while working with client executives and key technical leaders to deploy solutions on Google Cloud Platform. You will also work with Google partners to deliver joint consulting services, providing technical guidance and networking best practices.
+
+Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.
+
+The US base salary range for this full-time position is $123,000-$176,000 + bonus + equity + benefits. Our salary ranges are determined by role, level, and location. Within the range, individual pay is determined by work location and additional factors, including job-related skills, experience, and relevant education or training. Your recruiter can share more about the specific salary range for your preferred location during the hiring process.
+
+Please note that the compensation details listed in US role postings reflect the base salary only, and do not include bonus, equity, or benefits. Learn more about benefits at Google .
+
+Responsibilities
+• Propose solution architectures and manage the deployment of cloud networking solutions according to customer requirements and implementation best practices.
+• Work with customers to design and implement Cloud based technical architectures, migration approaches, and application optimizations that enable business objectives.
+• Work with internal specialists, product, and engineering teams to package approaches, best practices, and lessons learned into thought leadership, methodologies, and published assets.
+• Interact with business, partners, and customer technical stakeholders to manage project scope, priorities, deliverables, risks and issues, and timelines for successful client outcomes.
+• Travel up to 30% for in-region for meetings, technical reviews, and onsite delivery activities.
+
+Google is proud to be an equal opportunity workplace and is an affirmative action employer. We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. See also Google's EEO Policy and EEO is the Law. If you have a disability or special need that requires accommodation, please let us know by completing our Accommodations for Applicants form .
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• Bachelor's degree in Computer Science or equivalent practical experience
+• 3 years of experience in networking, compute infrastructure (e.g., servers, databases, firewalls, load balancers) and architecting, developing, or maintaining cloud solutions in virtualized environments
+• 3 years of experience in project management and technical solution delivery
+• Ability to travel 30% of the time, as needed, for client engagements
+
+================================================================================
+Generated: 2025-12-02 16:23:01
+================================================================================

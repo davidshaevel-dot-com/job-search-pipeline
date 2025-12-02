@@ -1,0 +1,97 @@
+{
+  "evaluation": {
+    "job_id": "zyUb-s45_qzrPB7xAAAAAA==",
+    "job_title": "Senior DevOps & Platform Engineer (GitHub CI/CD)",
+    "company": "TechDigital Group",
+    "evaluation_timestamp": "2025-12-02T16:17:32.313572",
+    "model": "claude-sonnet-4-5-20250929",
+    "factor_scores": {
+      "skills_match": {
+        "factor": "skills_match",
+        "score": 88,
+        "weight": 0.25,
+        "reasoning": "Excellent alignment with candidate's 15 years experience, GitHub Actions, CI/CD, and cloud expertise. Role focuses on core competencies including DevOps, platform engineering, and software delivery ecosystem.",
+        "weighted_score": 22.0
+      },
+      "compensation": {
+        "factor": "compensation",
+        "score": 45,
+        "weight": 0.2,
+        "reasoning": "Major red flag - no salary range specified. Candidate targets $150-240K, but complete lack of transparency suggests potential lowball offer or disorganized hiring process.",
+        "weighted_score": 9.0
+      },
+      "stability": {
+        "factor": "stability",
+        "score": 55,
+        "weight": 0.15,
+        "reasoning": "Limited information available. 'Tech solutions company' is vague; no funding stage, company size, or business model details provided. Doesn't match candidate's preference for Series A+/established companies.",
+        "weighted_score": 8.25
+      },
+      "work_life_balance": {
+        "factor": "work_life_balance",
+        "score": 50,
+        "weight": 0.15,
+        "reasoning": "Onsite requirement conflicts with candidate's hybrid preference. No information on hours, PTO, or work culture. 'Dynamic team' could indicate high-pressure environment.",
+        "weighted_score": 7.5
+      },
+      "career_growth": {
+        "factor": "career_growth",
+        "score": 72,
+        "weight": 0.1,
+        "reasoning": "Role involves architecting and owning software delivery ecosystem, suggesting significant scope and impact. Opportunity to enhance developer productivity indicates meaningful technical challenges.",
+        "weighted_score": 7.2
+      },
+      "culture_fit": {
+        "factor": "culture_fit",
+        "score": 60,
+        "weight": 0.08,
+        "reasoning": "Minimal culture information provided. 'Dynamic team' is generic marketing language. No details on team size, collaboration style, or company values to assess fit.",
+        "weighted_score": 4.8
+      },
+      "role_clarity": {
+        "factor": "role_clarity",
+        "score": 65,
+        "weight": 0.05,
+        "reasoning": "Core responsibility (architecting software delivery ecosystem) is clear, but requirements are extremely sparse. Missing details on team structure, reporting, and specific deliverables.",
+        "weighted_score": 3.25
+      },
+      "location": {
+        "factor": "location",
+        "score": 40,
+        "weight": 0.02,
+        "reasoning": "Location matches (Austin, TX) but onsite requirement is a significant mismatch with candidate's hybrid preference. No flexibility mentioned for remote work.",
+        "weighted_score": 0.8
+      }
+    },
+    "overall_score": 62.8,
+    "grade": "D",
+    "recommendation": "skip",
+    "confidence": 0.4,
+    "summary": "This role offers strong technical alignment with the candidate's DevOps and platform engineering expertise, but has multiple concerning gaps. The lack of salary transparency, onsite-only requirement conflicting with hybrid preference, and minimal company information are significant red flags that outweigh the technical fit.",
+    "strengths": [
+      "Excellent skills match with GitHub CI/CD, DevOps, and cloud platform expertise",
+      "Senior-level role with ownership of software delivery ecosystem aligns with experience level",
+      "Located in candidate's preferred city (Austin, TX)"
+    ],
+    "concerns": [
+      "No salary range provided - major transparency issue for a senior role",
+      "Onsite requirement conflicts with candidate's hybrid work preference",
+      "Extremely limited company information and vague 'tech solutions' description doesn't match preference for established/funded companies",
+      "Sparse job description suggests potentially disorganized hiring process"
+    ]
+  },
+  "metadata": {
+    "evaluated_at": "2025-12-02T16:23:01.226232",
+    "board_job_id": "zyUb-s45_qzrPB7xAAAAAA==",
+    "board_name": "JSearch"
+  },
+  "job_summary": {
+    "title": "Senior DevOps & Platform Engineer (GitHub CI/CD)",
+    "company": "TechDigital Group",
+    "location": "Austin, Texas, US",
+    "remote_type": "onsite",
+    "salary_min": null,
+    "salary_max": null,
+    "job_url": "https://jooble.org/jdp/-2111929834618705496?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+  }
+}

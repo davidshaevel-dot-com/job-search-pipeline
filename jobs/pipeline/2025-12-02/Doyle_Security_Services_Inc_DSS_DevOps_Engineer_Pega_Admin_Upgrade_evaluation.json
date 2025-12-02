@@ -1,0 +1,99 @@
+{
+  "evaluation": {
+    "job_id": "5cVfFjKir5hi1wnjAAAAAA==",
+    "job_title": "DevOps Engineer Pega Admin Upgrade",
+    "company": "Doyle Security Services, Inc. (DSS)",
+    "evaluation_timestamp": "2025-12-02T16:23:01.215972",
+    "model": "claude-sonnet-4-5-20250929",
+    "factor_scores": {
+      "skills_match": {
+        "factor": "skills_match",
+        "score": 45,
+        "weight": 0.25,
+        "reasoning": "Critical mismatch: Role requires specialized Pega platform administration experience, which is not in candidate's profile. While candidate has strong general DevOps skills (Docker, Terraform, CI/CD), the mandatory Pega Admin Upgrade experience and federal workforce requirement are dealbreakers. Middleware tools (Oracle WebLogic, ESB, SOA) also not mentioned in candidate's skillset.",
+        "weighted_score": 11.25
+      },
+      "compensation": {
+        "factor": "compensation",
+        "score": 55,
+        "weight": 0.2,
+        "reasoning": "Salary range $130K-$150K falls significantly below candidate's target of $150K-$240K, with maximum only meeting the minimum target. For 15 years of experience, this is below market rate for senior DevOps roles. No equity mentioned, which is important to candidate. Benefits package appears standard but not exceptional.",
+        "weighted_score": 11.0
+      },
+      "stability": {
+        "factor": "stability",
+        "score": 70,
+        "weight": 0.15,
+        "reasoning": "Doyle Security Services appears to be an established security/investigations company with federal contracts, suggesting stability. However, no information about funding, growth trajectory, or company size. Federal contracting provides steady revenue but limited growth potential compared to candidate's preference for Series A+/B+ startups or public companies.",
+        "weighted_score": 10.5
+      },
+      "work_life_balance": {
+        "factor": "work_life_balance",
+        "score": 65,
+        "weight": 0.15,
+        "reasoning": "100% remote option is positive and aligns with hybrid preference. However, federal contracting often involves strict deadlines, on-call requirements, and potential for high-pressure situations. No specific information about PTO, working hours, or work culture provided. Standard benefits mentioned but no details on actual usage culture.",
+        "weighted_score": 9.75
+      },
+      "career_growth": {
+        "factor": "career_growth",
+        "score": 40,
+        "weight": 0.1,
+        "reasoning": "Role is highly specialized in Pega platform administration, which is a niche skill set that may limit broader career growth. Limited learning opportunities for modern cloud-native technologies candidate values. Federal contracting environment typically offers less innovation and advancement opportunities compared to tech startups or product companies.",
+        "weighted_score": 4.0
+      },
+      "culture_fit": {
+        "factor": "culture_fit",
+        "score": 50,
+        "weight": 0.08,
+        "reasoning": "Security/investigations industry culture likely differs significantly from tech-focused environments. Federal contracting typically involves more bureaucracy and process-heavy work. No information about team size, collaboration style, or company values. EEO policy is standard but doesn't indicate progressive culture candidate may prefer.",
+        "weighted_score": 4.0
+      },
+      "role_clarity": {
+        "factor": "role_clarity",
+        "score": 75,
+        "weight": 0.05,
+        "reasoning": "Responsibilities are clearly defined with specific focus on Pega platform upgrades, CI/CD pipeline management, and infrastructure automation. Success metrics implied through operational reliability and performance optimization. However, organizational structure and reporting relationships not specified.",
+        "weighted_score": 3.75
+      },
+      "location": {
+        "factor": "location",
+        "score": 85,
+        "weight": 0.02,
+        "reasoning": "100% remote option available, which exceeds candidate's hybrid preference for Austin, TX. No commute required, no travel requirements mentioned. Location flexibility is a strong positive factor.",
+        "weighted_score": 1.7
+      }
+    },
+    "overall_score": 55.95,
+    "grade": "F",
+    "recommendation": "skip",
+    "confidence": 0.75,
+    "summary": "This role is a poor fit for the candidate despite location flexibility. The mandatory Pega platform administration experience and federal workforce requirement are critical gaps that disqualify the candidate. Additionally, compensation is below target range, and the specialized nature of the role limits career growth in modern cloud technologies the candidate values.",
+    "strengths": [
+      "100% remote work option provides excellent location flexibility",
+      "Some overlap in general DevOps tools (Docker, Kubernetes, Terraform, CI/CD)",
+      "Established company with federal contracts suggests stability"
+    ],
+    "concerns": [
+      "Mandatory Pega Admin Upgrade experience not in candidate's profile - dealbreaker requirement",
+      "Federal workforce experience required - candidate profile doesn't indicate this background",
+      "Compensation $130K-$150K significantly below candidate's $150K-$240K target range",
+      "Highly specialized niche role limits career growth in modern cloud-native technologies",
+      "Missing required middleware expertise (Oracle WebLogic, ESB, SOA)",
+      "Company type (security/investigations contractor) doesn't match preference for tech startups or public companies"
+    ]
+  },
+  "metadata": {
+    "evaluated_at": "2025-12-02T16:23:01.236716",
+    "board_job_id": "5cVfFjKir5hi1wnjAAAAAA==",
+    "board_name": "JSearch"
+  },
+  "job_summary": {
+    "title": "DevOps Engineer Pega Admin Upgrade",
+    "company": "Doyle Security Services, Inc. (DSS)",
+    "location": "Austin, Texas, US",
+    "remote_type": "hybrid",
+    "salary_min": 130000,
+    "salary_max": 150000,
+    "job_url": "https://www.learn4good.com/jobs/austin/texas/info_technology/4656877787/e/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+  }
+}

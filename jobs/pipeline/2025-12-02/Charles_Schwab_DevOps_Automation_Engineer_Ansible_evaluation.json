@@ -1,0 +1,97 @@
+{
+  "evaluation": {
+    "job_id": "oC6FIzk7NEXbFZnyAAAAAA==",
+    "job_title": "DevOps Automation Engineer; Ansible",
+    "company": "Charles Schwab",
+    "evaluation_timestamp": "2025-12-02T16:20:00.882830",
+    "model": "claude-sonnet-4-5-20250929",
+    "factor_scores": {
+      "skills_match": {
+        "factor": "skills_match",
+        "score": 82,
+        "weight": 0.25,
+        "reasoning": "Strong alignment with automation, CI/CD, and infrastructure experience. Candidate has relevant skills (Ansible, Docker, Terraform) though role is heavily Ansible-focused. 15 years experience exceeds 5+ requirement, but specific AAP platform experience unclear.",
+        "weighted_score": 20.5
+      },
+      "compensation": {
+        "factor": "compensation",
+        "score": 65,
+        "weight": 0.2,
+        "reasoning": "No salary specified is concerning. Charles Schwab typically pays competitively ($140-180K range for this level in Austin), likely at lower end of candidate's $150-240K target. Bonus eligible mentioned but equity unlikely at large public company.",
+        "weighted_score": 13.0
+      },
+      "stability": {
+        "factor": "stability",
+        "score": 95,
+        "weight": 0.15,
+        "reasoning": "Charles Schwab is a Fortune 500 public company with excellent financial stability, strong market position in financial services, and proven track record. Matches candidate's preference for established/public companies.",
+        "weighted_score": 14.25
+      },
+      "work_life_balance": {
+        "factor": "work_life_balance",
+        "score": 70,
+        "weight": 0.15,
+        "reasoning": "Hybrid role matches preference, but emphasis on 'in-office collaboration' and 'fully intend for candidate to work on site' suggests limited flexibility. Large enterprise typically has reasonable hours but on-call support likely required for platform management.",
+        "weighted_score": 10.5
+      },
+      "career_growth": {
+        "factor": "career_growth",
+        "score": 75,
+        "weight": 0.1,
+        "reasoning": "Platform ownership role offers deep expertise in AAP and automation at scale. Large organization provides advancement paths, but may be narrowly focused on Ansible rather than broader DevOps/cloud technologies candidate has experience with.",
+        "weighted_score": 7.5
+      },
+      "culture_fit": {
+        "factor": "culture_fit",
+        "score": 78,
+        "weight": 0.08,
+        "reasoning": "Collaborative role with mentorship component (office hours, tenant support) aligns with candidate's team culture priority. Large financial services company culture may be more corporate/structured than startup environment. Innovation mentioned but within established frameworks.",
+        "weighted_score": 6.24
+      },
+      "role_clarity": {
+        "factor": "role_clarity",
+        "score": 88,
+        "weight": 0.05,
+        "reasoning": "Very well-defined responsibilities as primary AAP platform owner. Clear expectations for tenant support, automation development, and platform governance. Success metrics implicit in platform reliability and tenant satisfaction.",
+        "weighted_score": 4.4
+      },
+      "location": {
+        "factor": "location",
+        "score": 100,
+        "weight": 0.02,
+        "reasoning": "Perfect match - role is in Austin, TX with hybrid arrangement, exactly matching candidate's location preference and remote flexibility requirements.",
+        "weighted_score": 2.0
+      }
+    },
+    "overall_score": 78.39,
+    "grade": "C",
+    "recommendation": "consider",
+    "confidence": 0.75,
+    "summary": "This is a solid opportunity at a highly stable Fortune 500 company with excellent role clarity and perfect location match. The position offers deep platform ownership and mentorship opportunities, though it's more narrowly focused on Ansible/AAP than the candidate's broader DevOps skillset. Main concerns are unspecified compensation (likely at lower-mid range of target) and limited remote flexibility despite hybrid designation.",
+    "strengths": [
+      "Excellent company stability and reputation - Fortune 500 public company matching candidate preferences",
+      "Perfect location match in Austin, TX with hybrid work arrangement",
+      "Clear platform ownership role with mentorship and leadership opportunities",
+      "Strong role definition with meaningful impact on enterprise-wide automation initiatives"
+    ],
+    "concerns": [
+      "No salary specified; likely $140-180K range falls at lower end of candidate's $150-240K target with limited equity upside",
+      "Role heavily focused on Ansible/AAP platform may not leverage candidate's broader cloud (AWS/Azure/GCP) and container orchestration expertise",
+      "Emphasis on in-office work suggests less remote flexibility than candidate may prefer despite hybrid designation"
+    ]
+  },
+  "metadata": {
+    "evaluated_at": "2025-12-02T16:23:01.231086",
+    "board_job_id": "oC6FIzk7NEXbFZnyAAAAAA==",
+    "board_name": "JSearch"
+  },
+  "job_summary": {
+    "title": "DevOps Automation Engineer; Ansible",
+    "company": "Charles Schwab",
+    "location": "Austin, Texas, US",
+    "remote_type": "hybrid",
+    "salary_min": null,
+    "salary_max": null,
+    "job_url": "https://www.learn4good.com/jobs/austin/texas/info_technology/4659705122/e/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+  }
+}

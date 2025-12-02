@@ -1,0 +1,98 @@
+{
+  "evaluation": {
+    "job_id": "hvG7ItNCtpli5It6AAAAAA==",
+    "job_title": "Cloud Engineer - Hands-on Automaton",
+    "company": "NTT DATA Services",
+    "evaluation_timestamp": "2025-12-02T16:18:59.554807",
+    "model": "claude-sonnet-4-5-20250929",
+    "factor_scores": {
+      "skills_match": {
+        "factor": "skills_match",
+        "score": 65,
+        "weight": 0.25,
+        "reasoning": "Candidate has strong DevOps/Platform engineering skills (Terraform, Ansible, Docker, CI/CD) but role heavily emphasizes Windows Server administration and 24/7 production support, which appears to be a traditional ops role rather than modern platform engineering. The Windows-centric focus is a significant mismatch for a DevOps-focused candidate.",
+        "weighted_score": 16.25
+      },
+      "compensation": {
+        "factor": "compensation",
+        "score": 45,
+        "weight": 0.2,
+        "reasoning": "No salary range specified, which is a major red flag. NTT DATA is a large consulting firm typically known for below-market compensation compared to tech companies. Candidate's $150-240K target is likely not met, especially given the 7+ years requirement vs candidate's 15 years experience.",
+        "weighted_score": 9.0
+      },
+      "stability": {
+        "factor": "stability",
+        "score": 85,
+        "weight": 0.15,
+        "reasoning": "NTT DATA is a large, established global IT services company (public, Fortune 500) with strong financial stability. However, it's a consulting/services firm rather than a product company, which may not align with candidate's preference for Series A+/B+/Profitable startups.",
+        "weighted_score": 12.75
+      },
+      "work_life_balance": {
+        "factor": "work_life_balance",
+        "score": 40,
+        "weight": 0.15,
+        "reasoning": "Major concerns: 24/7 production support model, on-call rotation, after-hours support requirements, and client-facing responsibilities typical of consulting. This is incompatible with good work-life balance and suggests high-stress, reactive work environment.",
+        "weighted_score": 6.0
+      },
+      "career_growth": {
+        "factor": "career_growth",
+        "score": 55,
+        "weight": 0.1,
+        "reasoning": "Limited growth potential - role is focused on maintaining legacy Windows systems rather than cutting-edge technologies. Mentoring junior engineers is positive, but the work is more operational support than strategic platform engineering that would advance a senior engineer's career.",
+        "weighted_score": 5.5
+      },
+      "culture_fit": {
+        "factor": "culture_fit",
+        "score": 50,
+        "weight": 0.08,
+        "reasoning": "Large consulting firm culture with client-driven work and likely bureaucratic processes. Team collaboration exists but within a managed services context. Unlikely to match the innovative, engineering-focused culture a senior DevOps engineer typically seeks.",
+        "weighted_score": 4.0
+      },
+      "role_clarity": {
+        "factor": "role_clarity",
+        "score": 75,
+        "weight": 0.05,
+        "reasoning": "Role responsibilities are clearly defined with detailed task lists. However, the title 'Cloud Engineer - Hands-on Automaton' (likely typo for 'Automation') doesn't match the actual Windows Server support focus, creating some confusion about the role's true nature.",
+        "weighted_score": 3.75
+      },
+      "location": {
+        "factor": "location",
+        "score": 90,
+        "weight": 0.02,
+        "reasoning": "Perfect location match in Austin, TX with hybrid work model that aligns with candidate's preferences. This is one of the strongest aspects of the opportunity.",
+        "weighted_score": 1.8
+      }
+    },
+    "overall_score": 59.05,
+    "grade": "F",
+    "recommendation": "skip",
+    "confidence": 0.75,
+    "summary": "This role is a poor fit for a senior DevOps/Platform Engineer seeking modern cloud-native work. It's primarily a Windows Server administration position with 24/7 support responsibilities in a consulting environment, which misaligns with the candidate's DevOps expertise, work-life balance priorities, and career growth goals. The lack of salary transparency and likely below-market compensation are additional significant concerns.",
+    "strengths": [
+      "Perfect location match in Austin with hybrid flexibility",
+      "Company stability with NTT DATA being a large, established Fortune 500 firm",
+      "Some exposure to multi-cloud environments (AWS, Azure, GCP, OCI)"
+    ],
+    "concerns": [
+      "No salary information provided; likely below candidate's $150-240K target range",
+      "24/7 production support with on-call rotation severely impacts work-life balance",
+      "Role is Windows Server-centric operations support, not modern DevOps/Platform engineering",
+      "Consulting firm environment with client-facing responsibilities and reactive work",
+      "Limited career growth - maintaining legacy systems rather than building modern platforms"
+    ]
+  },
+  "metadata": {
+    "evaluated_at": "2025-12-02T16:23:01.228442",
+    "board_job_id": "hvG7ItNCtpli5It6AAAAAA==",
+    "board_name": "JSearch"
+  },
+  "job_summary": {
+    "title": "Cloud Engineer - Hands-on Automaton",
+    "company": "NTT DATA Services",
+    "location": "Austin, Texas, US",
+    "remote_type": "hybrid",
+    "salary_min": null,
+    "salary_max": null,
+    "job_url": "https://www.ziprecruiter.com/c/NTT-DATA-Services/Job/Cloud-Engineer-Hands-on-Automaton/-in-Austin,TX?jid=f748fecaaca1c735&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+  }
+}

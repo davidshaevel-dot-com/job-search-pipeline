@@ -1,0 +1,95 @@
+{
+  "evaluation": {
+    "job_id": "A5L8i48d0Cq2a8f0AAAAAA==",
+    "job_title": "Senior Cloud Infra Engineer for CI/CD",
+    "company": "General Motors",
+    "evaluation_timestamp": "2025-12-02T16:19:39.313730",
+    "model": "claude-sonnet-4-5-20250929",
+    "factor_scores": {
+      "skills_match": {
+        "factor": "skills_match",
+        "score": 85,
+        "weight": 0.25,
+        "reasoning": "Candidate's 15 years experience far exceeds the 7+ year requirement. Strong alignment with cloud infrastructure, CI/CD, and DevOps skills. However, job description lacks specific technology stack details to confirm exact tool matches.",
+        "weighted_score": 21.25
+      },
+      "compensation": {
+        "factor": "compensation",
+        "score": 88,
+        "weight": 0.2,
+        "reasoning": "Salary range $150K-$250K aligns well with candidate's $150K-$240K target, with upside potential. As a large public company, GM likely offers comprehensive benefits, 401k matching, and stable compensation structure, though equity upside is limited compared to startups.",
+        "weighted_score": 17.6
+      },
+      "stability": {
+        "factor": "stability",
+        "score": 95,
+        "weight": 0.15,
+        "reasoning": "General Motors is a Fortune 500 public company with strong financial stability, established market position, and significant investment in EV/technology transformation. Minimal risk of company failure or funding issues.",
+        "weighted_score": 14.25
+      },
+      "work_life_balance": {
+        "factor": "work_life_balance",
+        "score": 65,
+        "weight": 0.15,
+        "reasoning": "Major concern: role is onsite while candidate prefers hybrid. Large automotive companies often have traditional work cultures with structured hours. Positive: established companies typically have better work-life boundaries than startups, but lack of remote flexibility is a significant drawback.",
+        "weighted_score": 9.75
+      },
+      "career_growth": {
+        "factor": "career_growth",
+        "score": 75,
+        "weight": 0.1,
+        "reasoning": "GM's technology transformation offers learning opportunities in automotive tech and large-scale infrastructure. However, large corporate environments can have slower advancement paths and more bureaucracy. Scope of impact could be significant given company size.",
+        "weighted_score": 7.5
+      },
+      "culture_fit": {
+        "factor": "culture_fit",
+        "score": 70,
+        "weight": 0.08,
+        "reasoning": "GM is transitioning from traditional automotive to tech-forward, which may create cultural friction. As an established public company, it matches candidate's company stage preference. Team collaboration mentioned in posting is positive, but traditional corporate culture may differ from modern tech companies.",
+        "weighted_score": 5.6
+      },
+      "role_clarity": {
+        "factor": "role_clarity",
+        "score": 55,
+        "weight": 0.05,
+        "reasoning": "Job description is notably vague with minimal detail on specific responsibilities, team structure, or success metrics. Only mentions 'collaboration and innovation' and basic requirements. This lack of clarity is concerning for understanding day-to-day expectations.",
+        "weighted_score": 2.75
+      },
+      "location": {
+        "factor": "location",
+        "score": 40,
+        "weight": 0.02,
+        "reasoning": "Significant mismatch: role is onsite in Austin while candidate prefers hybrid. Location city matches (Austin), but the onsite requirement conflicts with candidate's hybrid preference, likely requiring daily commute with no flexibility.",
+        "weighted_score": 0.8
+      }
+    },
+    "overall_score": 79.5,
+    "grade": "C",
+    "recommendation": "consider",
+    "confidence": 0.65,
+    "summary": "Strong compensation and company stability match with excellent skills alignment, but significant concerns around onsite requirement vs. hybrid preference and vague role description. GM offers career stability and competitive pay, but traditional corporate environment may limit flexibility and clarity.",
+    "strengths": [
+      "Excellent company stability as Fortune 500 public company with strong financials",
+      "Competitive salary range $150K-$250K aligns perfectly with candidate's target",
+      "Candidate's 15 years experience and cloud/CI/CD skills exceed requirements"
+    ],
+    "concerns": [
+      "Onsite requirement conflicts with candidate's hybrid preference - major work-life balance issue",
+      "Extremely vague job description lacks detail on responsibilities, tech stack, and expectations"
+    ]
+  },
+  "metadata": {
+    "evaluated_at": "2025-12-02T16:23:01.230277",
+    "board_job_id": "A5L8i48d0Cq2a8f0AAAAAA==",
+    "board_name": "JSearch"
+  },
+  "job_summary": {
+    "title": "Senior Cloud Infra Engineer for CI/CD",
+    "company": "General Motors",
+    "location": "Austin, Texas, US",
+    "remote_type": "onsite",
+    "salary_min": 150000,
+    "salary_max": 250000,
+    "job_url": "https://us.bebee.com/job/e93410ea0de73d1105134ea0cbbd2b3e?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+  }
+}

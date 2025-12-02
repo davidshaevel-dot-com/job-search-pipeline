@@ -1,0 +1,64 @@
+================================================================================
+JOB POSTING: Google Cloud Engineer - Remote at PTP Austin, TX
+================================================================================
+
+Company: PTP
+Location: Austin, Texas, US
+Remote Type: Onsite
+Posted Date: 2025-11-24
+Job URL: https://headlightny.com/library/job/google-cloud-engineer-remote-at-ptp-austin-tx-L3I5TXBjaHZJcGpRSFFHRjdhd2JZeDBPamc9PQ==?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: mgH5Wn0onPlgvXgSAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Google Cloud Engineer - Remote job at PTP. Austin, TX. Job Description
+
+Job Description
+
+PTP is a fast-growing system integrator that offers strategic Customer Experience (CX) solutions to our clients. We are looking for a Google Cloud Engineer to help us develop CX solutions that provide our clients with customer journeys that achieve results. At PTP we value aptitude and creativity as well as experience. We are a diverse organization and are looking for bright, passionate, and committed professionals who strive to be the best at what they do.
+
+Responsibilities
+• Assist in lift and shift of existing product into Goggle Cloud Platform (GCP)
+• Deploy and manage GCP applications using command-line tools
+• Validate GCP software deployments and releases
+• Write and execute queries to make configuration changes to GCP applications
+• Use standard tools like Jenkins and git to pre-stage software for deployment
+• Use Unix commands to troubleshoot system and network behavior
+
+Requirements
+
+In addition to excellent communication and client interaction skills, you should have at least 3 years experience with:
+• GCP networking and application model
+• Containerized applications
+• Google Kubernetes Engine (GKE)
+• Docker
+• Terraform
+• MySQL or PostGres SQL databases
+• Python, JavaScript, C++, NodeJS and Bash
+• GNU Tool chain for building C++ Code
+• Microservice based architectures on Linux/Unix platforms
+• Google Cloud Certifications, such as Professional Cloud Architect or Professional Cloud DevOps Engineer
+
+Salary is DOE and is extremely competitive. We are a growing company with a solid customer base, excellent compensation and benefits, and a collaborative yet flexible work environment.
+this is a remote position
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• In addition to excellent communication and client interaction skills, you should have at least 3 years experience with:
+• GCP networking and application model
+• Containerized applications
+• Google Kubernetes Engine (GKE)
+• Docker
+• Terraform
+• MySQL or PostGres SQL databases
+• Python, JavaScript, C++, NodeJS and Bash
+• GNU Tool chain for building C++ Code
+• Microservice based architectures on Linux/Unix platforms
+• Google Cloud Certifications, such as Professional Cloud Architect or Professional Cloud DevOps Engineer
+
+================================================================================
+Generated: 2025-12-02 16:23:01
+================================================================================

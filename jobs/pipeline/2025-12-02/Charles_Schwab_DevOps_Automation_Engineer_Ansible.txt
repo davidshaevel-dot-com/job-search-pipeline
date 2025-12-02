@@ -1,0 +1,84 @@
+================================================================================
+JOB POSTING: DevOps Automation Engineer; Ansible
+================================================================================
+
+Company: Charles Schwab
+Location: Austin, Texas, US
+Remote Type: Hybrid
+Posted Date: 2025-11-29
+Job URL: https://www.learn4good.com/jobs/austin/texas/info_technology/4659705122/e/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: oC6FIzk7NEXbFZnyAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Position: DevOps Automation Engineer (Ansible)
+
+Your opportunity
+
+At Schwab, you’re empowered to make an impact on your career. Here, innovative thought meets creative problem solving, helping us “challenge the status quo” and transform the finance industry together.
+
+We believe in the importance of in-office collaboration and fully intend for the selected candidate for this role to work on site in the specified location(s).
+
+Schwab Technology Services enables the future of how clients manage their money by providing innovative and reliable technology products and services as a part of our ongoing commitment to democratize access to investing and financial planning.
+
+Join our development team as the primary owner for the day-to-day management and development of the Red Hat Ansible Automation Platform (AAP). You will be the go-to expert for tenants navigating the platform, providing guidance, troubleshooting, and development support. This role is pivotal in ensuring the platform’s reliability, scalability, and usability for infrastructure-wide automation initiatives.
+Position Responsibilities:
+• Tenant Support: Serve as the primary contact for tenants, holding regular office hours and providing hands-on support for automation questions and platform navigation.
+• Automation Development: Design, develop, and maintain Ansible playbooks, roles, and modules to address tenant needs and expand platform capabilities.
+• Collaboration: Partner with application development, infrastructure, and security teams to align automation strategies and ensure compliance with organizational standards. Partner with platform engineering team in support of lifecycle management of AAP.
+• Documentation & Enablement: Author and maintain platform documentation, runbooks, and best practices. Deliver training and onboarding sessions for new tenants.
+• Governance & Standards: Contribute to platform governance, including RBAC, security controls, and CI/CD integration for automation content.
+• Continuous Improvement: Identify opportunities to enhance platform usability, automation coverage, and developer experience. Drive adoption of Infrastructure-as-Code (IaC) methodologies.
+• Troubleshooting & Support: Troubleshoot and resolve technical issues using best practices to support automations running on AAP. Execute strategies to restore services promptly and address disruptions.
+What you have
+
+Required Qualifications:
+• 5+ years - Automation experience (Python, scripts, Ansible, Salt, etc.) and experience with Git for version control
+• 2+ years proven experience managing and developing on Red Hat Ansible Automation Platform (AAP)
+• 2+ years programming/scripting experience with REST API endpoints
+• Strong understanding of project management methodologies and processes (Lean, Agile, Kanban)
+• Experience supporting enterprise Linux environments (RHEL 8/9) and troubleshooting OS/container runtime issues.
+• Ability to support and mentor tenants, including running office hours and providing technical guidance.
+• Familiarity with CI/CD pipelines, platform governance, and automation best practices.
+• Excellent communication skills for both technical and non-technical audiences.
+
+Preferred Qualifications:
+• Bachelor’s degree in Computer Science, Engineering, IT, or related field, or an additional 5+ years of relevant experience.
+• Experience developing automation for multi-tenant platforms and integrating with APIs.
+• Experience working in 5,000+ users environment
+• Experience in VMware products and integration with their products
+• Experience in Change Control process (Remedy/Helix)
+• Experience in addressing QA challenges by applying best practices in testing and compliance
+• Comfort level with the Atlassian toolset (Jira, Confluence, Bamboo)
+• Knowledge of security standards, compliance, and Role Based Access Control (RBAC) in automation environments.
+
+In addition to the salary range, this role is also eligible for bonus or incentive opportunities.
+What’s in it for you
+
+At Schwab, you’re empowered to shape your future. We champion your growth through meaningful work, continuous learning, and a culture of trust and collaboration—so you can build the skills to make a lasting impact. Our Hybrid Work and Flexibility approach balances our ongoing commitment to workplace flexibility, serving our clients, and our strong belief in the value of being together in person on a regular basis.
+
+We offer a competitive benefits package that takes care of the whole you – both today and in the future:
+• 401(k) with company match and Employee stock purchase plan
+• Paid time for vacation, volunteering, and 28-day sabbatical after every 5 years of service for eligible positions
+• Paid parental leave and family building benefits
+• Tuition reimbursement
+• Health, dental, and vision insurance
+#J-18808-Ljbffr
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• 5+ years - Automation experience (Python, scripts, Ansible, Salt, etc.) and experience with Git for version control
+• 2+ years proven experience managing and developing on Red Hat Ansible Automation Platform (AAP)
+• 2+ years programming/scripting experience with REST API endpoints
+• Strong understanding of project management methodologies and processes (Lean, Agile, Kanban)
+• Experience supporting enterprise Linux environments (RHEL 8/9) and troubleshooting OS/container runtime issues
+• Ability to support and mentor tenants, including running office hours and providing technical guidance
+• Familiarity with CI/CD pipelines, platform governance, and automation best practices
+• Excellent communication skills for both technical and non-technical audiences
+
+================================================================================
+Generated: 2025-12-02 16:23:01
+================================================================================

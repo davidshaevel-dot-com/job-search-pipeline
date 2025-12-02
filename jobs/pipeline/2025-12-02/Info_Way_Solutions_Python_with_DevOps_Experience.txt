@@ -1,0 +1,62 @@
+================================================================================
+JOB POSTING: Python with DevOps Experience
+================================================================================
+
+Company: Info Way Solutions
+Location: Austin, Texas, US
+Remote Type: Hybrid
+Posted Date: 2025-11-29
+Job URL: https://us.jobrapido.com/jobpreview/4406285274137493504?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: tOjXFGTb_3mN9CWyAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Python with DevOps Experience
+Austin, TX
+Onsite Job
+Primary skill : Python and DevOPs
+Nice to have skill : Hadoop and AWS
+Description:
+• In this role you will be responsible for engineering, integrating and maintaining an analytics data platform based on a hybrid cloud infrastructure.
+• Work collaboratively with our Data Engineering team to engineer custom solutions when required.
+• Participate and provide support to our stakeholders and platform users when required.
+Key Qualifications:
+• 3+ years of professional experience with the Python programming language.
+• 2+ years of professional software engineering experience (APIs, services, tooling and automation).
+• Knowledge and experience in working with Docker, Kubernetes, and related technologies.
+• Knowledge and experience with DevOps methodologies.
+• Excellent time management skills with the ability to manage work to tight deadlines.
+• Experience developing solid and scalable technical solutions to business problems.
+• Experience with agile development and work management methodologies.
+• bility to pick up new technologies relatively quickly.
+• bility to communicate effectively (written and spoken).
+• bility to work with the multi-timezone development teams and self-manage own work.
+• strong work ethic.
+Nice to Have:
+Professional experience with Java/Scala based analytics platforms (Hadoop, Spark, Hive, Trino, etc.).
+Professional experience with Splunk, Flink, Jupyter Notebook, Apache Airflow (and related technologies) is a big plus.
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• Primary skill : Python and DevOPs
+• Nice to have skill : Hadoop and AWS
+• 3+ years of professional experience with the Python programming language
+• 2+ years of professional software engineering experience (APIs, services, tooling and automation)
+• Knowledge and experience in working with Docker, Kubernetes, and related technologies
+• Knowledge and experience with DevOps methodologies
+• Excellent time management skills with the ability to manage work to tight deadlines
+• Experience developing solid and scalable technical solutions to business problems
+• Experience with agile development and work management methodologies
+• bility to pick up new technologies relatively quickly
+• bility to communicate effectively (written and spoken)
+• bility to work with the multi-timezone development teams and self-manage own work
+• strong work ethic
+• Professional experience with Java/Scala based analytics platforms (Hadoop, Spark, Hive, Trino, etc.)
+• Professional experience with Splunk, Flink, Jupyter Notebook, Apache Airflow (and related technologies) is a big plus
+
+================================================================================
+Generated: 2025-12-02 16:23:01
+================================================================================

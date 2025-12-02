@@ -1,0 +1,98 @@
+================================================================================
+JOB POSTING: DevOps Engineer Pega Admin Upgrade
+================================================================================
+
+Company: Doyle Security Services, Inc. (DSS)
+Location: Austin, Texas, US
+Remote Type: Hybrid
+Salary: $130,000 - $150,000
+Posted Date: 2025-11-29
+Job URL: https://www.learn4good.com/jobs/austin/texas/info_technology/4656877787/e/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: 5cVfFjKir5hi1wnjAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+Position: DevOps Engineer MUST have Pega Admin Upgrade Experience
+
+Overview
+
+Dev Ops Engineer MUST have Pega Admin Upgrade Experience. Join to apply for the Dev Ops Engineer MUST have Pega Admin Upgrade Experience role at Doyle Security Services, Inc. (DSS).
+Location
+
+Location:
+
+100% Remote
+Job Type
+
+Full-Time
+Salary
+
+Salary Range: $130,000 - $150,000 Annually based on experience and technical interview
+Key Responsibilities
+• Automate and support deployments, upgrades, and migrations of the Pega platform.
+• Manage and optimize CI/CD pipelines (Jenkins, Octopus Deploy, Azure Dev Ops).
+• Integrate Nexus, Puppet, and Terraform Enterprise (TFE) for configuration, artifact, and infrastructure management in Pega environments.
+• Collaborate with development and infrastructure teams to ensure seamless containerization (Docker, Kubernetes) and migration from Windows to Linux.
+• Monitor, troubleshoot, and optimize application performance, ensuring reliability and operational visibility.
+• Implement infrastructure automation for upgrades/patching to minimize downtime.
+• Maintain and enhance security, compliance, and integration with authentication and authorization (TLS 1.2+, SSO, OAuth, etc.).
+• Participate in continuous improvement initiatives and stay current with Pega and Dev Ops industry trends.
+• Work with middleware tools, including Oracle Web Logic, ESB, and SOA, to support integration, deployment, and configuration activities.
+Required Skills & Experience
+• Bachelor's Degree in Computer Science, Engineering, Math, or equivalent plus 10 years of relevant work experience (8 years of additional experience may be substituted for education)
+• Federal workforce experience required.
+• Pega Admin Upgrade exposure experience
+• Proven experience administering and upgrading Pega platforms (Infinity 24.x preferred).
+• Proficiency with Dev Ops automation tools:
+Jenkins, Octopus Deploy, Azure Dev Ops, Nexus, Puppet, Terraform Enterprise.
+• Solid understanding of containerization, Kubernetes, and Docker in enterprise environments.
+• Strong scripting skills (Power Shell, Bash, Python).
+• Experience with infrastructure automation, monitoring, and logging solutions.
+• Solid problem-solving, troubleshooting, and communication skills.
+• Ability to work collaboratively in a fast-paced, evolving environment.
+• Expertise in middleware tools:
+Oracle Web Logic, ESB, and SOA.
+Preferred Qualifications
+• Experience with cloud platforms (Azure, AWS, GCP).
+• Familiarity with major web servers (Tomcat, Web Logic), databases, and load balancers.
+• Exposure to hybrid or cloud-ready architectures and migrations.
+Benefits Overview
+
+Full-time employees are offered comprehensive and competitive benefits package including paid vacation, sick leave, holidays, health insurance, life insurance, military leave, training, tuition reimbursement, a wellness program, short- and long-term disability, 401(k) retirement plan with company matches/immediate vesting, commuter benefits, and more.
+EEO Policy
+
+It is our policy to promote equal employment opportunities. All personnel decisions, including, but not limited to, recruiting, hiring, training, promotion, compensation, benefits, and termination, are made without regard to race, creed, color, religion, national origin, sex, age, marital status, sexual orientation, gender identity, citizenship status, veteran status, disability, or any other characteristic protected by applicable federal, state or local law.
+Seniority
+
+level
+• Mid-Senior level
+Employment type
+• Full-time
+Job function
+• Engineering and Information Technology
+• Industries
+• Security and Investigations
+#J-18808-Ljbffr
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• Position: DevOps Engineer MUST have Pega Admin Upgrade Experience
+• Bachelor's Degree in Computer Science, Engineering, Math, or equivalent plus 10 years of relevant work experience (8 years of additional experience may be substituted for education)
+• Federal workforce experience required
+• Pega Admin Upgrade exposure experience
+• Proficiency with Dev Ops automation tools:
+• Jenkins, Octopus Deploy, Azure Dev Ops, Nexus, Puppet, Terraform Enterprise
+• Solid understanding of containerization, Kubernetes, and Docker in enterprise environments
+• Strong scripting skills (Power Shell, Bash, Python)
+• Experience with infrastructure automation, monitoring, and logging solutions
+• Solid problem-solving, troubleshooting, and communication skills
+• Ability to work collaboratively in a fast-paced, evolving environment
+• Expertise in middleware tools:
+• Oracle Web Logic, ESB, and SOA
+
+================================================================================
+Generated: 2025-12-02 16:23:01
+================================================================================

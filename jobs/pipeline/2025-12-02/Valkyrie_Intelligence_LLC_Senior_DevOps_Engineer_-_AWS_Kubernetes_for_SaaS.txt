@@ -1,0 +1,26 @@
+================================================================================
+JOB POSTING: Senior DevOps Engineer - AWS & Kubernetes for SaaS
+================================================================================
+
+Company: Valkyrie Intelligence LLC
+Location: Austin, Texas, US
+Remote Type: Onsite
+Posted Date: 2025-11-25
+Job URL: https://jooble.org/jdp/-6461273565180289134?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic
+Board: JSearch
+Board Job ID: gNiHHLlzWMSeEyECAAAAAA==
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+A leading applied science firm in Austin, TX, is seeking an experienced DevOps Engineer to lead the development of their production infrastructure. You will design and implement secure and compliant AWS solutions while fostering a DevOps culture within the engineering team. The ideal candidate has extensive experience in Kubernetes, AWS, and multi-tenant architectures, bringing innovative solutions to support enterprise customers in regulated industries.
+#J-18808-Ljbffr Valkyrie Intelligence LLC
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+• The ideal candidate has extensive experience in Kubernetes, AWS, and multi-tenant architectures, bringing innovative solutions to support enterprise customers in regulated industries
+
+================================================================================
+Generated: 2025-12-02 16:23:01
+================================================================================

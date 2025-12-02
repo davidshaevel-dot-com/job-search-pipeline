@@ -1,0 +1,98 @@
+{
+  "evaluation": {
+    "job_id": "hBc1nq10HFAqtNSuAAAAAA==",
+    "job_title": "Senior Cloud Engineer / Specialist (OASE)",
+    "company": "Oracle",
+    "evaluation_timestamp": "2025-12-02T16:21:11.775599",
+    "model": "claude-sonnet-4-5-20250929",
+    "factor_scores": {
+      "skills_match": {
+        "factor": "skills_match",
+        "score": 72,
+        "weight": 0.25,
+        "reasoning": "Strong technical alignment with cloud platforms (AWS, Azure, GCP) and DevOps tools (Terraform, Ansible, Docker, CI/CD). However, Oracle-specific technologies (OCI, Oracle Analytics Cloud, Oracle DB) are emphasized but not in candidate's profile. The 15 years experience far exceeds the 2+ years requirement, but the role focuses heavily on Oracle ecosystem which may require learning curve.",
+        "weighted_score": 18.0
+      },
+      "compensation": {
+        "factor": "compensation",
+        "score": 45,
+        "weight": 0.2,
+        "reasoning": "Salary range of $79,200-$178,000 falls significantly below candidate's target of $150,000-$240,000. Even at the high end ($178k), it's below the target range midpoint. No equity mentioned for a public company role, and Oracle's benefits are standard but not exceptional.",
+        "weighted_score": 9.0
+      },
+      "stability": {
+        "factor": "stability",
+        "score": 95,
+        "weight": 0.15,
+        "reasoning": "Oracle is a well-established public company with strong financial stability, decades of market presence, and consistent revenue. Government contracts provide additional stability. This aligns perfectly with candidate's preference for established/public companies.",
+        "weighted_score": 14.25
+      },
+      "work_life_balance": {
+        "factor": "work_life_balance",
+        "score": 35,
+        "weight": 0.15,
+        "reasoning": "Major concerns: 24x7 on-call rotation including nights and weekends, extended shifts required, onsite requirement conflicts with hybrid preference. Government support role typically means rigid schedules and high-pressure incident response. This is a significant mismatch with candidate's work-life balance priority.",
+        "weighted_score": 5.25
+      },
+      "career_growth": {
+        "factor": "career_growth",
+        "score": 55,
+        "weight": 0.1,
+        "reasoning": "Limited growth potential - role is heavily focused on support and operations rather than innovation. Oracle Analytics Cloud is a niche area. Mentoring opportunities mentioned, but the role appears more operational than strategic. At 15 years experience, this may feel like a lateral or backward move.",
+        "weighted_score": 5.5
+      },
+      "culture_fit": {
+        "factor": "culture_fit",
+        "score": 60,
+        "weight": 0.08,
+        "reasoning": "Large enterprise culture at Oracle with established processes and global teams. Government contract work tends to be more bureaucratic and less collaborative/innovative. Team collaboration mentioned but within rigid operational framework. May not align with candidate's priorities for team culture and collaboration.",
+        "weighted_score": 4.8
+      },
+      "role_clarity": {
+        "factor": "role_clarity",
+        "score": 85,
+        "weight": 0.05,
+        "reasoning": "Very clear responsibilities outlined: DevOps support, incident response, change management, documentation. Success metrics around uptime and service delivery are well-defined. Organizational structure within OASE team is clear. Expectations for on-call and extended hours are explicit.",
+        "weighted_score": 4.25
+      },
+      "location": {
+        "factor": "location",
+        "score": 20,
+        "weight": 0.02,
+        "reasoning": "Critical mismatch: Role is onsite in Austin, TX, but candidate prefers hybrid work. This is a dealbreaker given candidate's explicit hybrid_ok preference and remote flexibility priority. No remote work flexibility mentioned despite candidate's strong preference.",
+        "weighted_score": 0.4
+      }
+    },
+    "overall_score": 61.45,
+    "grade": "D",
+    "recommendation": "skip",
+    "confidence": 0.85,
+    "summary": "This Oracle role offers excellent company stability and role clarity but has significant mismatches in compensation (below target range), work-life balance (24x7 on-call, onsite requirement), and location flexibility (onsite vs. hybrid preference). The technical skills partially align, but the Oracle-specific focus and operational support nature may not provide the growth and challenge a 15-year veteran seeks.",
+    "strengths": [
+      "Excellent company stability with Oracle's established market position and government contracts",
+      "Clear role definition with well-structured responsibilities and expectations",
+      "Technical skills overlap in cloud platforms (AWS, Azure, GCP) and DevOps tools"
+    ],
+    "concerns": [
+      "Compensation significantly below target range ($178k max vs. $150k-$240k target), no equity mentioned",
+      "Critical work-life balance issues: 24x7 on-call rotation, extended shifts, weekend work requirements",
+      "Onsite requirement conflicts with hybrid preference and remote flexibility priority",
+      "Requires Top Secret/SCI clearance with Polygraph - major barrier if not already held",
+      "Limited career growth potential in operational support role for someone with 15 years experience"
+    ]
+  },
+  "metadata": {
+    "evaluated_at": "2025-12-02T16:23:01.233013",
+    "board_job_id": "hBc1nq10HFAqtNSuAAAAAA==",
+    "board_name": "JSearch"
+  },
+  "job_summary": {
+    "title": "Senior Cloud Engineer / Specialist (OASE)",
+    "company": "Oracle",
+    "location": "Austin, Texas, US",
+    "remote_type": "onsite",
+    "salary_min": 79200,
+    "salary_max": 178000,
+    "job_url": "https://www.linkedin.com/jobs/view/senior-cloud-engineer-specialist-oase-at-oracle-4337467372?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
+  }
+}
