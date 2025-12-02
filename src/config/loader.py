@@ -170,14 +170,20 @@ def load_config(
         "filters": filters_file,
         "evaluation": evaluation_thresholds_file,
         "search_criteria": search_criteria_complex_file,  # Complex search criteria
+        "user_profile": "user-profile.yaml",  # User profile for AI evaluation
     }
 
     for key, filename in optional_configs.items():
         path = config_dir / filename
         if path.exists():
+            # user_profile has no top-level key, load entire file
+            if key == "user_profile":
+                config_data[key] = load_yaml_file(path)
             # For search_criteria, use "search" key from YAML
-            yaml_key = "search" if key == "search_criteria" else key
-            config_data[key] = load_yaml_file(path).get(yaml_key, {})
+            elif key == "search_criteria":
+                config_data[key] = load_yaml_file(path).get("search", {})
+            else:
+                config_data[key] = load_yaml_file(path).get(key, {})
         else:
             config_data[key] = {}
     
