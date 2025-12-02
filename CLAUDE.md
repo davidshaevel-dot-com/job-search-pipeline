@@ -1,9 +1,9 @@
 # AI Agent Handoff - Job Search Pipeline
 
-**Last Updated:** November 25, 2025
-**Project Status:** Phase 2 Complete - Phase 3 (AI Evaluation) Up Next
+**Last Updated:** December 2, 2025
+**Project Status:** Phase 3 Complete - Integration & Storage In Progress
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
-**Current Branch:** `main` (ready for Phase 3 branch)
+**Current Branch:** `david/tt-48-phase3-integration-dec2`
 
 ---
 
@@ -70,17 +70,29 @@ job-search-pipeline/
 
 ## Current Status
 
-**Phase:** Phase 2 Complete ✅ - Phase 3 (AI Evaluation) Up Next
+**Phase:** Phase 3 Complete ✅ - Integration & Storage In Progress
+
+### Current Work: Phase 3 Integration (Dec 2, 2025)
+
+**Focus:** Wire evaluator into pipeline and add result storage
+
+**Tasks:**
+1. **Integration** - Wire `AIEvaluator` into `SearchOrchestrator` pipeline
+2. **Storage** - Save `EvaluationResult` JSON files alongside job files
+3. **End-to-End Test** - Test with real JSearch job data
 
 ### Completed Phases
 
-**Phase 1: Foundation** ✅ (Nov 19, 2025)
-- [PR #2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) merged
-- JSearch adapter via RapidAPI (Google for Jobs aggregator)
-- Search orchestrator for coordinating board searches
-- Configuration system with YAML and environment variable support
-- File writer with date-based directory structure
-- Core models (`JobPosting` dataclass)
+**Phase 3: AI Evaluation** ✅ (Dec 2, 2025)
+- [PR #8](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/8) merged
+- AI-powered job evaluation using Claude Sonnet 4.5
+- 8-factor weighted rubric fully implemented
+- `EvaluationResult`, `FactorScore`, and `Grade` models (`src/evaluation/models.py`)
+- `PromptBuilder` for structured evaluation prompts with JSON output (`src/evaluation/prompt_builder.py`)
+- `AIEvaluator` with retry logic and error handling (`src/evaluation/ai_evaluator.py`)
+- User profile configuration (`config/user-profile.yaml`)
+- 50 unit tests (31 new + 19 existing) with 100% passing
+- Three rounds of Gemini code review completed (9 issues resolved)
 
 **Phase 2: Deduplication & Filtering** ✅ (Nov 24, 2025)
 - [PR #4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) merged
@@ -91,15 +103,13 @@ job-search-pipeline/
 - 19 unit tests with 100% passing
 - Two rounds of Gemini code review completed (11 issues resolved)
 
-### Up Next
-
-**Phase 3: AI Evaluation** ⏳
-- Linear Issue: [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48)
-- AI-powered job evaluation using Claude API
-- 8-factor weighted rubric implementation
-- Evaluation prompt engineering
-- Score aggregation and grading
-- See `docs/internal-notes/2025-11-25_tuesday_session_agenda.md` for planning details
+**Phase 1: Foundation** ✅ (Nov 19, 2025)
+- [PR #2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) merged
+- JSearch adapter via RapidAPI (Google for Jobs aggregator)
+- Search orchestrator for coordinating board searches
+- Configuration system with YAML and environment variable support
+- File writer with date-based directory structure
+- Core models (`JobPosting` dataclass)
 
 ### Implementation Phases
 
@@ -107,7 +117,7 @@ job-search-pipeline/
 |-------|-------------|--------|-----|
 | 1 | Foundation - Core infrastructure and JSearch integration | ✅ Complete | [#2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) |
 | 2 | Deduplication & Filtering | ✅ Complete | [#4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) |
-| 3 | AI Evaluation - Claude API integration | ⏳ Up Next | - |
+| 3 | AI Evaluation - Claude API integration | ✅ Complete | [#8](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/8) |
 | 4 | Multi-Board Support - Rate limiting and parallel execution | 📋 Planned | - |
 | 5 | Organization & Linear Integration | 📋 Planned | - |
 | 6 | Scheduling & Automation - GitHub Actions, GCP, Slack | 📋 Planned | - |
@@ -118,7 +128,7 @@ job-search-pipeline/
 **Linear Issues:**
 - [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation ✅
 - [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering ✅
-- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 3: AI Evaluation ⏳
+- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 3: AI Evaluation ✅
 - [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 4: Multi-Board Support
 - [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 5: Organization & Linear Integration
 - [TT-50](https://linear.app/davidshaevel-dot-com/issue/TT-50) - Phase 6: Scheduling & Automation
@@ -521,21 +531,30 @@ When working on this project, consider:
 
 ---
 
-**Last Updated:** November 25, 2025
-**Status:** Phase 2 Complete ✅ - Phase 3 (AI Evaluation) Up Next
-**Last Merged PR:** [#4 - Phase 2: Deduplication & Filtering](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) - Merged ✅
-**Current Branch:** `main` (ready for Phase 3 feature branch)
-**Next Steps:** Plan and implement Phase 3 (AI Evaluation) - see `docs/internal-notes/2025-11-25_tuesday_session_agenda.md`
+**Last Updated:** December 2, 2025
+**Status:** Phase 3 Complete ✅ - Integration & Storage In Progress
+**Last Merged PR:** [#8 - Phase 3: AI Evaluation Engine with Claude API](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/8) - Merged ✅
+**Current Branch:** `david/tt-48-phase3-integration-dec2`
+**Next Steps:** Wire evaluator into SearchOrchestrator, add result storage, test with real data
 
-**Phase Reorganization (Nov 25, 2025):**
-- Swapped Phase 3 and Phase 4 order
-- NEW Phase 3: AI Evaluation (was Phase 4) - TT-48
-- NEW Phase 4: Multi-Board Support (was Phase 3) - TT-47
-- Rationale: AI evaluation adds more immediate value to single-board results
+**Phase 3 Accomplishments (Dec 2, 2025):**
+- AI-powered job evaluation using Claude Sonnet 4.5
+- 8-factor weighted rubric with `EvaluationResult`, `FactorScore`, `Grade` models
+- `PromptBuilder` for structured JSON output prompts
+- `AIEvaluator` with retry logic, error handling, and cost estimation
+- User profile configuration (`config/user-profile.yaml`)
+- 50 unit tests (31 new + 19 existing), three rounds of Gemini code review (9 issues resolved)
+- **Current focus:** Integration with SearchOrchestrator and result storage
 
 **Phase 2 Accomplishments (Nov 24, 2025):**
 - FilterEngine with blacklist, criteria, and deduplication filters
 - JobTracker for persistent tracking with dual-key deduplication
 - 19 unit tests, two rounds of Gemini code review (11 issues resolved)
 - Pipeline now filters duplicates and tracks processed jobs across sessions
+
+**Phase Reorganization (Nov 25, 2025):**
+- Swapped Phase 3 and Phase 4 order
+- NEW Phase 3: AI Evaluation (was Phase 4) - TT-48
+- NEW Phase 4: Multi-Board Support (was Phase 3) - TT-47
+- Rationale: AI evaluation adds more immediate value to single-board results
 

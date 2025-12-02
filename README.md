@@ -212,13 +212,24 @@ See `docs/DEPLOYMENT.md` for detailed instructions.
 |-------|-------------|--------|-----|
 | **Phase 1** | Foundation - Core infrastructure and JSearch integration | ✅ **COMPLETE** | [PR #2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) |
 | **Phase 2** | Deduplication & Filtering - Remove duplicates and filter unwanted | ✅ **COMPLETE** | [PR #4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) |
-| **Phase 3** | AI Evaluation - Automated evaluation using Claude API | ⏳ Up Next | - |
+| **Phase 3** | AI Evaluation - Automated evaluation using Claude API | ✅ **COMPLETE** | [PR #8](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/8) |
 | **Phase 4** | Multi-Board Support - Rate limiting and parallel execution | 📋 Planned | - |
 | **Phase 5** | Organization & Linear Integration - Folder structure and auto-issues | 📋 Planned | - |
 | **Phase 6** | Scheduling & Automation - GitHub Actions, GCP, Slack | 📋 Planned | - |
 | **Phase 7** | Testing & Refinement - Test suite, performance, documentation | 📋 Planned | - |
 
 ### Recent Accomplishments
+
+**Phase 3 Complete (Dec 2, 2025):**
+- AI-powered job evaluation using Claude Sonnet 4.5
+- 8-factor weighted rubric fully implemented
+- `EvaluationResult`, `FactorScore`, and `Grade` models
+- `PromptBuilder` for structured evaluation prompts with JSON output
+- `AIEvaluator` with retry logic and error handling
+- User profile configuration (`config/user-profile.yaml`)
+- 50 unit tests (31 new + 19 existing) with 100% passing
+- Three rounds of Gemini code review completed
+- **Next:** Wire evaluator into SearchOrchestrator, add result storage
 
 **Phase 2 Complete (Nov 24, 2025):**
 - FilterEngine with blacklist, criteria, and deduplication filters
@@ -267,5 +278,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ---
 
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
-**Last Updated:** November 25, 2025
-**Status:** Phase 2 Complete - Phase 3 (AI Evaluation) Up Next
+**Last Updated:** December 2, 2025
+**Status:** Phase 3 Complete - Integration & Storage In Progress
