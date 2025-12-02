@@ -1,5 +1,5 @@
 """Search orchestration module."""
 
-from .orchestrator import SearchOrchestrator
+from .orchestrator import SearchOrchestrator, SearchResult
 
-__all__ = ["SearchOrchestrator"]
+__all__ = ["SearchOrchestrator", "SearchResult"]
