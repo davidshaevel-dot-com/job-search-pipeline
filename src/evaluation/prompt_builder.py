@@ -46,16 +46,16 @@ class PromptBuilder:
         ],
         "salary_target": {
             "min": 150000,
-            "max": 180000,
+            "max": 240000,
             "currency": "USD"
         },
         "location_preference": {
-            "preferred": ["Austin, TX", "Remote"],
-            "acceptable": ["Texas", "Hybrid"],
+            "preferred": ["Austin, TX", "Hybrid"],
+            "acceptable": ["Texas", "Remote"],
             "willing_to_relocate": False
         },
         "work_style_preference": {
-            "remote_preference": "remote_preferred",  # remote_only, remote_preferred, hybrid_ok, onsite_ok
+            "remote_preference": "hybrid_ok",  # remote_only, remote_preferred, hybrid_ok, onsite_ok
             "max_office_days_per_week": 3
         },
         "company_preferences": {

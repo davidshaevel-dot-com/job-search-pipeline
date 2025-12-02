@@ -341,8 +341,8 @@ search:
   remote: true
 
   salary_range:
-    min: 160000
-    max: 200000
+    min: 150000
+    max: 240000
 
   experience_level:
     - "Senior"

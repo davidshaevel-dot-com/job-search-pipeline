@@ -33,16 +33,16 @@ This guide covers testing the Phase 3 AI Evaluation Engine implementation:
 │                    AI Evaluation Engine                         │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  ┌──────────────┐    ┌──────────────────┐    ┌──────────────┐  │
-│  │  JobPosting  │───▶│  PromptBuilder   │───▶│  AIEvaluator │  │
-│  │   (input)    │    │  (builds prompts)│    │ (calls API)  │  │
-│  └──────────────┘    └──────────────────┘    └──────────────┘  │
+│  ┌──────────────┐    ┌──────────────────┐    ┌──────────────┐   │
+│  │  JobPosting  │───▶│  PromptBuilder   │───▶│  AIEvaluator │   │
+│  │   (input)    │    │  (builds prompts)│    │ (calls API)  │   │
+│  └──────────────┘    └──────────────────┘    └──────────────┘   │
 │                              │                       │          │
 │                              ▼                       ▼          │
-│                      ┌──────────────┐      ┌──────────────────┐│
-│                      │ user-profile │      │ EvaluationResult ││
-│                      │    .yaml     │      │    (output)      ││
-│                      └──────────────┘      └──────────────────┘│
+│                      ┌──────────────┐      ┌──────────────────┐ │
+│                      │ user-profile │      │ EvaluationResult │ │
+│                      │    .yaml     │      │    (output)      │ │
+│                      └──────────────┘      └──────────────────┘ │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -541,8 +541,8 @@ job = JobPosting(
     company="TechCorp",
     location="Austin, TX",
     remote_type="hybrid",
-    salary_min=160000,
-    salary_max=190000,
+    salary_min=150000,
+    salary_max=240000,
     description="""
     We're looking for a Senior DevOps Engineer to join our platform team.
     You'll work on AWS infrastructure, CI/CD pipelines, and Kubernetes clusters.
@@ -646,7 +646,7 @@ custom_profile = {"salary_target": {"min": 200000}}
     "experience_years": 15,  # DEFAULT
     "salary_target": {
         "min": 200000,  # CUSTOM
-        "max": 180000,  # DEFAULT
+        "max": 240000,  # DEFAULT
         "currency": "USD"  # DEFAULT
     },
     ...
