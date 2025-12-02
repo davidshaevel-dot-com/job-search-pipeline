@@ -317,7 +317,7 @@ class AIEvaluator:
             score_data = data["scores"][factor.key]
             factor_scores[factor.key] = FactorScore(
                 factor=factor.key,
-                score=int(score_data["score"]),
+                score=int(round(float(score_data["score"]))),
                 reasoning=score_data["reasoning"],
             )
 
