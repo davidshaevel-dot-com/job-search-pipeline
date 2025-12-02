@@ -7,7 +7,7 @@ Handles loading YAML configuration files and environment variable substitution.
 import os
 import re
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import yaml
 
@@ -149,43 +149,32 @@ def load_config(
         config_dir = project_root / "config"
     
     config_dir = Path(config_dir)
-    
-    # Load all config files with consistent schema
-    # Each file has a single top-level key matching its purpose
-    config_data = {}
-    
-    # Required configurations
-    # Note: Currently only 2 required configs, so explicit handling is clear.
-    # If more required configs are added, consider refactoring to a loop similar
-    # to optional_configs below for consistency.
-    search_criteria_path = config_dir / search_criteria_file
-    config_data["search"] = load_yaml_file(search_criteria_path).get("search", {})
-    
-    job_boards_path = config_dir / job_boards_file
-    config_data["boards"] = load_yaml_file(job_boards_path).get("boards", [])
-    
-    # Optional configurations
-    optional_configs = {
-        "slack": slack_file,
-        "filters": filters_file,
-        "evaluation": evaluation_thresholds_file,
-        "search_criteria": search_criteria_complex_file,  # Complex search criteria
-        "user_profile": "user-profile.yaml",  # User profile for AI evaluation
-    }
+    config_data: Dict[str, Any] = {}
 
-    for key, filename in optional_configs.items():
+    # Define all configurations as tuples: (config_key, filename, yaml_key, required, default)
+    # yaml_key=None means load entire file without extracting a top-level key
+    config_specs: List[Tuple[str, str, Optional[str], bool, Any]] = [
+        # Required configurations
+        ("search", search_criteria_file, "search", True, {}),
+        ("boards", job_boards_file, "boards", True, []),
+        # Optional configurations
+        ("slack", slack_file, "slack", False, {}),
+        ("filters", filters_file, "filters", False, {}),
+        ("evaluation", evaluation_thresholds_file, "evaluation", False, {}),
+        ("search_criteria", search_criteria_complex_file, "search", False, {}),
+        ("user_profile", "user-profile.yaml", None, False, {}),  # No top-level key
+    ]
+
+    for config_key, filename, yaml_key, required, default in config_specs:
         path = config_dir / filename
         if path.exists():
-            # user_profile has no top-level key, load entire file
-            if key == "user_profile":
-                config_data[key] = load_yaml_file(path)
-            # For search_criteria, use "search" key from YAML
-            elif key == "search_criteria":
-                config_data[key] = load_yaml_file(path).get("search", {})
-            else:
-                config_data[key] = load_yaml_file(path).get(key, {})
+            data = load_yaml_file(path)
+            # yaml_key=None means use entire file, otherwise extract the key
+            config_data[config_key] = data if yaml_key is None else data.get(yaml_key, default)
+        elif required:
+            raise FileNotFoundError(f"Required configuration file not found: {path}")
         else:
-            config_data[key] = {}
+            config_data[config_key] = default
     
     # Substitute environment variables (will raise ValueError if missing)
     config_data = _substitute_env_vars(config_data)

@@ -5,11 +5,31 @@ Constructs structured prompts for Claude API to evaluate job postings
 using the 8-factor weighted rubric.
 """
 
-import json
+import copy
 from typing import Any, Dict, Optional
 
 from core.models import JobPosting
 from .models import EvaluationFactor
+
+
+def _deep_merge(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Deep merge two dictionaries, with override values taking precedence.
+
+    Args:
+        base: Base dictionary with default values
+        override: Dictionary with values to override
+
+    Returns:
+        New dictionary with merged values
+    """
+    result = copy.deepcopy(base)
+    for key, value in override.items():
+        if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            result[key] = _deep_merge(result[key], value)
+        else:
+            result[key] = copy.deepcopy(value)
+    return result
 
 
 class PromptBuilder:
@@ -186,9 +206,15 @@ Please provide your evaluation in the specified JSON format.
         Initialize prompt builder.
 
         Args:
-            user_profile: Custom user profile dict, or None to use default
+            user_profile: Custom user profile dict. If provided, it is deep-merged
+                         with DEFAULT_USER_PROFILE so partial profiles work correctly.
+                         If None, uses DEFAULT_USER_PROFILE directly.
         """
-        self.user_profile = user_profile or self.DEFAULT_USER_PROFILE
+        if user_profile is None:
+            self.user_profile = self.DEFAULT_USER_PROFILE
+        else:
+            # Deep merge to ensure all nested defaults are present
+            self.user_profile = _deep_merge(self.DEFAULT_USER_PROFILE, user_profile)
 
     def get_system_prompt(self) -> str:
         """Get the system prompt for job evaluation."""
@@ -227,24 +253,25 @@ Please provide your evaluation in the specified JSON format.
             posted_date = "Not specified"
 
         # Format user profile fields
+        # Profile is guaranteed to have all fields via deep merge with defaults
         profile = self.user_profile
-        salary_target = profile.get("salary_target", {})
-        location_pref = profile.get("location_preference", {})
-        work_style = profile.get("work_style_preference", {})
-        company_pref = profile.get("company_preferences", {})
+        salary_target = profile["salary_target"]
+        location_pref = profile["location_preference"]
+        work_style = profile["work_style_preference"]
+        company_pref = profile["company_preferences"]
 
         return self.USER_PROMPT_TEMPLATE.format(
-            # Candidate profile
-            target_role=profile.get("target_role", "Software Engineer"),
-            experience_years=profile.get("experience_years", 5),
-            key_skills=", ".join(profile.get("key_skills", [])),
-            salary_min=salary_target.get("min", 100000),
-            salary_max=salary_target.get("max", 150000),
-            currency=salary_target.get("currency", "USD"),
-            location_preference=", ".join(location_pref.get("preferred", ["Remote"])),
-            remote_preference=work_style.get("remote_preference", "remote_preferred"),
-            company_preferences=", ".join(company_pref.get("preferred_stages", [])),
-            priorities=", ".join(profile.get("priorities", [])),
+            # Candidate profile - all fields guaranteed present via deep merge
+            target_role=profile["target_role"],
+            experience_years=profile["experience_years"],
+            key_skills=", ".join(profile["key_skills"]),
+            salary_min=salary_target["min"],
+            salary_max=salary_target["max"],
+            currency=salary_target["currency"],
+            location_preference=", ".join(location_pref["preferred"]),
+            remote_preference=work_style["remote_preference"],
+            company_preferences=", ".join(company_pref["preferred_stages"]),
+            priorities=", ".join(profile["priorities"]),
             # Job details
             job_title=job.title,
             company=job.company,

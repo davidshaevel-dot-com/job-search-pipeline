@@ -7,11 +7,38 @@ Evaluates job postings using Claude API and the 8-factor weighted rubric.
 import json
 import logging
 import os
+import re
 import time
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 import anthropic
+
+# Regex pattern to extract JSON from markdown code blocks
+# Matches ```json or ``` followed by content and ending ```
+_MARKDOWN_CODE_BLOCK_PATTERN = re.compile(
+    r"```(?:json)?\s*([\s\S]*?)\s*```",
+    re.MULTILINE
+)
+
+# Regex pattern for slugifying strings (removes unsafe characters)
+_SLUGIFY_PATTERN = re.compile(r"[^a-z0-9]+")
+
+
+def _slugify(text: str) -> str:
+    """
+    Convert text to a safe slug for use as identifiers.
+
+    Converts to lowercase, replaces non-alphanumeric characters with underscores,
+    and removes leading/trailing underscores.
+
+    Args:
+        text: Input text to slugify
+
+    Returns:
+        Safe slug string (e.g., "Acme Corp!!" -> "acme_corp")
+    """
+    return _SLUGIFY_PATTERN.sub("_", text.lower()).strip("_")
 
 from core.models import JobPosting
 from .models import (
@@ -242,19 +269,14 @@ class AIEvaluator:
             ValueError: If response is not valid JSON or fails validation
         """
         # Try to extract JSON from response
-        # Claude may include markdown code blocks
+        # Claude may include markdown code blocks anywhere in response
         json_text = response_text.strip()
 
-        # Remove markdown code block if present
-        if json_text.startswith("```json"):
-            json_text = json_text[7:]
-        elif json_text.startswith("```"):
-            json_text = json_text[3:]
-
-        if json_text.endswith("```"):
-            json_text = json_text[:-3]
-
-        json_text = json_text.strip()
+        # Use regex to extract content from markdown code blocks
+        match = _MARKDOWN_CODE_BLOCK_PATTERN.search(json_text)
+        if match:
+            json_text = match.group(1).strip()
+        # If no code block found, try parsing the raw text as JSON
 
         # Parse JSON
         try:
@@ -306,8 +328,8 @@ class AIEvaluator:
         grade = Grade.from_score(overall_score)
         recommendation = Recommendation.from_grade(grade)
 
-        # Generate job_id from board_job_id or create one
-        job_id = job.board_job_id or f"{job.company}_{job.title}".lower().replace(" ", "_")
+        # Generate job_id from board_job_id or create a safe slug
+        job_id = job.board_job_id or _slugify(f"{job.company}_{job.title}")
 
         return EvaluationResult(
             job_id=job_id,

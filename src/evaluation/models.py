@@ -70,6 +70,10 @@ class Recommendation(Enum):
         return mapping[grade]
 
 
+# Module-level cache for EvaluationFactor key lookups (populated on first access)
+_EVALUATION_FACTOR_KEY_MAP: Optional[Dict[str, "EvaluationFactor"]] = None
+
+
 class EvaluationFactor(Enum):
     """
     The 8 evaluation factors with their weights.
@@ -91,17 +95,41 @@ class EvaluationFactor(Enum):
         self.display_name = display_name
 
     @classmethod
+    def _get_key_map(cls) -> Dict[str, "EvaluationFactor"]:
+        """Get or build the cached key -> factor lookup map."""
+        global _EVALUATION_FACTOR_KEY_MAP
+        if _EVALUATION_FACTOR_KEY_MAP is None:
+            _EVALUATION_FACTOR_KEY_MAP = {factor.key: factor for factor in cls}
+        return _EVALUATION_FACTOR_KEY_MAP
+
+    @classmethod
     def get_all_keys(cls) -> List[str]:
         """Get list of all factor keys."""
-        return [factor.key for factor in cls]
+        return list(cls._get_key_map().keys())
+
+    @classmethod
+    def get_by_key(cls, key: str) -> "EvaluationFactor":
+        """
+        Get factor by key with O(1) lookup.
+
+        Args:
+            key: Factor key (e.g., "skills_match")
+
+        Returns:
+            Corresponding EvaluationFactor enum value
+
+        Raises:
+            ValueError: If key is not found
+        """
+        key_map = cls._get_key_map()
+        if key not in key_map:
+            raise ValueError(f"Unknown factor key: {key}")
+        return key_map[key]
 
     @classmethod
     def get_weight(cls, key: str) -> float:
-        """Get weight for a factor by key."""
-        for factor in cls:
-            if factor.key == key:
-                return factor.weight
-        raise ValueError(f"Unknown factor key: {key}")
+        """Get weight for a factor by key with O(1) lookup."""
+        return cls.get_by_key(key).weight
 
 
 @dataclass
@@ -310,7 +338,7 @@ class EvaluationResult:
         )
 
         for factor_key, score in sorted_factors:
-            factor = next(f for f in EvaluationFactor if f.key == factor_key)
+            factor = EvaluationFactor.get_by_key(factor_key)
             lines.append(
                 f"  {factor.display_name}: {score.score}/100 "
                 f"(weight: {score.weight:.0%})"
