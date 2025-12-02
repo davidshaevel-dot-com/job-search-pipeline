@@ -211,7 +211,7 @@ Please provide your evaluation in the specified JSON format.
                          If None, uses DEFAULT_USER_PROFILE directly.
         """
         if user_profile is None:
-            self.user_profile = self.DEFAULT_USER_PROFILE
+            self.user_profile = copy.deepcopy(self.DEFAULT_USER_PROFILE)
         else:
             # Deep merge to ensure all nested defaults are present
             self.user_profile = _deep_merge(self.DEFAULT_USER_PROFILE, user_profile)
