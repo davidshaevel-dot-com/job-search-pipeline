@@ -218,11 +218,11 @@ class SearchOrchestrator:
 
         logger.info(f"Evaluating {len(jobs)} job(s) with AI evaluator...")
 
-        # Get user profile path from config (optional)
-        user_profile_path = self.config.get("user_profile_path")
+        # Get user profile from config (loaded from user-profile.yaml)
+        user_profile = self.config.get("user_profile")
 
         # Initialize evaluator
-        evaluator = AIEvaluator(user_profile_path=user_profile_path)
+        evaluator = AIEvaluator(user_profile=user_profile)
 
         # Evaluate all jobs
         evaluations = []
