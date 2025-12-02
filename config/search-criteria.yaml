@@ -7,10 +7,10 @@ search:
   # Note: JSearch API may timeout with too many keywords. Use 1-2 for reliability.
   keywords:
     - "DevOps Engineer"
-    # - "Platform Engineer"
+    - "Platform Engineer"
+    - "Cloud Engineer"
     # - "Infrastructure Engineer"
     # - "Site Reliability Engineer"
-    # - "Cloud Engineer"
     # Consider adding:
     # - "DevOps Lead"
     # - "Senior DevOps"

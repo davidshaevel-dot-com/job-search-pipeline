@@ -9,39 +9,40 @@ experience_years: 15
 # Technical skills (used for skills match scoring)
 key_skills:
   - AWS
+  - Azure
+  - GCP
   - Terraform
-  - Kubernetes
+  - Ansible
+  #- Kubernetes
   - Docker
   - CI/CD
-  - Python
   - Infrastructure as Code
   - Monitoring
   - Prometheus
   - Grafana
   - GitHub Actions
-  - Ansible
 
 # Compensation expectations
 salary_target:
-  min: 150000
-  max: 180000
+  min: 160000
+  max: 240000
   currency: USD
 
 # Location preferences
 location_preference:
   preferred:
     - Austin, TX
-    - Remote
+    - Hybrid
   acceptable:
     - Texas
-    - Hybrid
+    - Remote
     - United States
   willing_to_relocate: false
 
 # Work style preferences
 work_style_preference:
   # Options: remote_only, remote_preferred, hybrid_ok, onsite_ok
-  remote_preference: remote_preferred
+  remote_preference: hybrid_ok
   max_office_days_per_week: 3
 
 # Company preferences
