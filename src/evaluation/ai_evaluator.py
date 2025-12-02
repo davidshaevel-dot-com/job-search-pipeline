@@ -68,6 +68,14 @@ class AIEvaluator:
     MAX_RETRIES = 3
     RETRY_DELAY_BASE = 2  # Base delay in seconds for exponential backoff
 
+    # Cost estimation constants (based on typical job description evaluations)
+    AVG_INPUT_TOKENS_PER_JOB = 2000   # System prompt + user prompt + job description
+    AVG_OUTPUT_TOKENS_PER_JOB = 800   # JSON response
+
+    # Claude Sonnet 4.5 pricing (per million tokens, as of late 2024)
+    INPUT_COST_PER_MILLION = 3.0
+    OUTPUT_COST_PER_MILLION = 15.0
+
     def __init__(
         self,
         api_key: Optional[str] = None,
@@ -359,20 +367,11 @@ class AIEvaluator:
         Returns:
             Dictionary with cost estimates
         """
-        # Rough token estimates based on typical job descriptions
-        AVG_INPUT_TOKENS = 2000  # System prompt + user prompt + job description
-        AVG_OUTPUT_TOKENS = 800  # JSON response
+        total_input_tokens = self.AVG_INPUT_TOKENS_PER_JOB * len(jobs)
+        total_output_tokens = self.AVG_OUTPUT_TOKENS_PER_JOB * len(jobs)
 
-        # Sonnet 4.5 pricing (as of late 2024)
-        # $3 per million input tokens, $15 per million output tokens
-        INPUT_COST_PER_M = 3.0
-        OUTPUT_COST_PER_M = 15.0
-
-        total_input_tokens = AVG_INPUT_TOKENS * len(jobs)
-        total_output_tokens = AVG_OUTPUT_TOKENS * len(jobs)
-
-        input_cost = (total_input_tokens / 1_000_000) * INPUT_COST_PER_M
-        output_cost = (total_output_tokens / 1_000_000) * OUTPUT_COST_PER_M
+        input_cost = (total_input_tokens / 1_000_000) * self.INPUT_COST_PER_MILLION
+        output_cost = (total_output_tokens / 1_000_000) * self.OUTPUT_COST_PER_MILLION
         total_cost = input_cost + output_cost
 
         return {

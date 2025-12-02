@@ -7,8 +7,8 @@ import pytest
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from src.core.models import JobPosting
-from src.filters import FilterEngine, JobTracker
+from core.models import JobPosting
+from filters import FilterEngine, JobTracker
 
 
 @pytest.fixture

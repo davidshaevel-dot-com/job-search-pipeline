@@ -70,10 +70,6 @@ class Recommendation(Enum):
         return mapping[grade]
 
 
-# Module-level cache for EvaluationFactor key lookups (populated on first access)
-_EVALUATION_FACTOR_KEY_MAP: Optional[Dict[str, "EvaluationFactor"]] = None
-
-
 class EvaluationFactor(Enum):
     """
     The 8 evaluation factors with their weights.
@@ -97,10 +93,10 @@ class EvaluationFactor(Enum):
     @classmethod
     def _get_key_map(cls) -> Dict[str, "EvaluationFactor"]:
         """Get or build the cached key -> factor lookup map."""
-        global _EVALUATION_FACTOR_KEY_MAP
-        if _EVALUATION_FACTOR_KEY_MAP is None:
-            _EVALUATION_FACTOR_KEY_MAP = {factor.key: factor for factor in cls}
-        return _EVALUATION_FACTOR_KEY_MAP
+        # Cache is set as class attribute after class definition (see below)
+        if cls._KEY_MAP is None:
+            cls._KEY_MAP = {factor.key: factor for factor in cls}
+        return cls._KEY_MAP
 
     @classmethod
     def get_all_keys(cls) -> List[str]:
@@ -130,6 +126,11 @@ class EvaluationFactor(Enum):
     def get_weight(cls, key: str) -> float:
         """Get weight for a factor by key with O(1) lookup."""
         return cls.get_by_key(key).weight
+
+
+# Class-level cache for key lookups - set after class definition to avoid Enum
+# metaclass treating it as an enum member. Populated lazily on first access.
+EvaluationFactor._KEY_MAP: Optional[Dict[str, EvaluationFactor]] = None
 
 
 @dataclass
