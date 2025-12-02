@@ -14,6 +14,17 @@ from typing import Any, Dict, List, Optional
 
 import anthropic
 
+# Local imports
+from core.models import JobPosting
+from .models import (
+    EvaluationFactor,
+    EvaluationResult,
+    FactorScore,
+    Grade,
+    Recommendation,
+)
+from .prompt_builder import PromptBuilder
+
 # Regex pattern to extract JSON from markdown code blocks
 # Matches ```json or ``` followed by content and ending ```
 _MARKDOWN_CODE_BLOCK_PATTERN = re.compile(
@@ -39,16 +50,6 @@ def _slugify(text: str) -> str:
         Safe slug string (e.g., "Acme Corp!!" -> "acme_corp")
     """
     return _SLUGIFY_PATTERN.sub("_", text.lower()).strip("_")
-
-from ..core.models import JobPosting
-from .models import (
-    EvaluationFactor,
-    EvaluationResult,
-    FactorScore,
-    Grade,
-    Recommendation,
-)
-from .prompt_builder import PromptBuilder
 
 logger = logging.getLogger(__name__)
 

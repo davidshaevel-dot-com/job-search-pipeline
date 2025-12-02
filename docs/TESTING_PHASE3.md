@@ -266,7 +266,7 @@ assert estimate["estimated_cost_usd"] > 0
 
 1. **Activate virtual environment:**
    ```bash
-   cd /Users/dshaevel/workspace-ds/job-search-pipeline
+   cd <project-root>  # Navigate to job-search-pipeline directory
    source venv/bin/activate
    ```
 
