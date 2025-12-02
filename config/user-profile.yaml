@@ -1,0 +1,98 @@
+# User Profile Configuration
+# This file contains candidate information used for AI job evaluation.
+# Customize these values to match your skills, preferences, and priorities.
+
+# Target role and experience
+target_role: "Senior DevOps Engineer / Platform Engineer"
+experience_years: 15
+
+# Technical skills (used for skills match scoring)
+key_skills:
+  - AWS
+  - Terraform
+  - Kubernetes
+  - Docker
+  - CI/CD
+  - Python
+  - Infrastructure as Code
+  - Monitoring
+  - Prometheus
+  - Grafana
+  - GitHub Actions
+  - Ansible
+
+# Compensation expectations
+salary_target:
+  min: 150000
+  max: 180000
+  currency: USD
+
+# Location preferences
+location_preference:
+  preferred:
+    - Austin, TX
+    - Remote
+  acceptable:
+    - Texas
+    - Hybrid
+    - United States
+  willing_to_relocate: false
+
+# Work style preferences
+work_style_preference:
+  # Options: remote_only, remote_preferred, hybrid_ok, onsite_ok
+  remote_preference: remote_preferred
+  max_office_days_per_week: 3
+
+# Company preferences
+company_preferences:
+  preferred_stages:
+    - Series A+
+    - Series B+
+    - Profitable
+    - Established
+    - Public
+  avoid_stages:
+    - Pre-seed
+    - Idea stage
+    - Stealth
+  preferred_sizes:
+    - 50-200
+    - 200-500
+    - 500+
+  industries_of_interest:
+    - Tech
+    - Fintech
+    - Climate Tech
+    - SaaS
+    - Enterprise Software
+    - Developer Tools
+
+# Personal priorities (ordered by importance)
+# These help weight the evaluation factors
+priorities:
+  - Technical challenge and growth
+  - Compensation and equity
+  - Work-life balance
+  - Remote flexibility
+  - Company stability
+  - Team culture and collaboration
+  - Learning opportunities
+  - Career advancement path
+
+# Optional: Additional context for AI evaluation
+additional_context: |
+  Looking for a senior-level role where I can:
+  - Lead infrastructure modernization initiatives
+  - Mentor junior engineers
+  - Work with modern cloud-native technologies
+  - Have autonomy and ownership over projects
+  - Contribute to a positive engineering culture
+
+# Optional: Deal breakers (opportunities with these will score lower)
+deal_breakers:
+  - On-call more than 1 week per month
+  - 5 days per week in-office required
+  - No equity or stock options
+  - Salary below 140000 USD
+  - Contract/temp position only
