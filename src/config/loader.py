@@ -15,6 +15,15 @@ import yaml
 class Config:
     """Configuration container."""
     
+    def __getattr__(self, name: str) -> Any:
+        """Allow access to config values as attributes."""
+        if name in self._data:
+            value = self._data[name]
+            if isinstance(value, dict):
+                return Config(value)
+            return value
+        raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+
     def __init__(self, data: Dict[str, Any]):
         """Initialize config with data dictionary."""
         self._data = data
@@ -170,7 +179,12 @@ def load_config(
         if path.exists():
             data = load_yaml_file(path)
             # yaml_key=None means use entire file, otherwise extract the key
-            config_data[config_key] = data if yaml_key is None else data.get(yaml_key, default)
+            if yaml_key is None:
+                config_data[config_key] = data
+            else:
+                if required and yaml_key not in data:
+                    raise ValueError(f"Required key '{yaml_key}' missing in {filename}")
+                config_data[config_key] = data.get(yaml_key, default)
         elif required:
             raise FileNotFoundError(f"Required configuration file not found: {path}")
         else:

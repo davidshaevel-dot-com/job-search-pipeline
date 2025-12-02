@@ -40,7 +40,7 @@ def _slugify(text: str) -> str:
     """
     return _SLUGIFY_PATTERN.sub("_", text.lower()).strip("_")
 
-from core.models import JobPosting
+from ..core.models import JobPosting
 from .models import (
     EvaluationFactor,
     EvaluationResult,
