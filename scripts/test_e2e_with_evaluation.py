@@ -140,7 +140,17 @@ def main() -> int:
             eval_writer = EvaluationWriter()
 
             # Pair jobs with their evaluations
-            jobs_and_evals = list(zip(jobs_to_write, evaluations_to_write))
+            # Fix: Use explicit matching instead of zip to handle missing evaluations (due to errors)
+            eval_map = {(e.company, e.job_title): e for e in evaluations_to_write}
+            jobs_and_evals = []
+            
+            for job in jobs_to_write:
+                key = (job.company, job.title)
+                if key in eval_map:
+                    jobs_and_evals.append((job, eval_map[key]))
+                else:
+                    # Job might have failed evaluation or wasn't evaluated
+                    pass
 
             # Write individual evaluation files
             eval_files = eval_writer.write_evaluations(jobs_and_evals)
@@ -164,8 +174,26 @@ def main() -> int:
         if result.evaluations:
             # Show top jobs
             print("\n📈 Top Evaluated Jobs:")
+            
+            # Recalculate pairs for all evaluations if we only wrote a subset above
+            # (Though in this script context, jobs_to_write and evaluations_to_write 
+            # cover the relevant set). We can reuse jobs_and_evals if it was created.
+            
+            if 'jobs_and_evals' in locals() and jobs_and_evals:
+                pairs_to_sort = jobs_and_evals
+            else:
+                # Fallback if step 5 wasn't run (e.g. if evaluations_to_write was empty but result.evaluations wasn't?)
+                # Actually logic flow says if result.evaluations is not empty, step 5 runs if evaluations_to_write is not empty.
+                # But let's be safe and reconstruct for display using the same logic
+                eval_map = {(e.company, e.job_title): e for e in result.evaluations}
+                pairs_to_sort = []
+                for job in result.jobs:
+                    key = (job.company, job.title)
+                    if key in eval_map:
+                        pairs_to_sort.append((job, eval_map[key]))
+
             sorted_evals = sorted(
-                zip(jobs_to_write, evaluations_to_write),
+                pairs_to_sort,
                 key=lambda x: x[1].overall_score,
                 reverse=True
             )

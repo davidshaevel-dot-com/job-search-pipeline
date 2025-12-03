@@ -258,7 +258,17 @@ Examples:
             print(f"📊 Writing {len(evaluations)} evaluation files...")
 
             eval_writer = EvaluationWriter()
-            jobs_and_evals = list(zip(jobs[:len(evaluations)], evaluations))
+            
+            # Pair jobs with their evaluations
+            # Use explicit matching instead of zip to handle missing evaluations (due to errors)
+            eval_map = {(e.company, e.job_title): e for e in evaluations}
+            jobs_and_evals = []
+            
+            for job in jobs:
+                key = (job.company, job.title)
+                if key in eval_map:
+                    jobs_and_evals.append((job, eval_map[key]))
+            
             eval_files = eval_writer.write_evaluations(jobs_and_evals)
             summary_path = eval_writer.write_summary(jobs_and_evals)
 
@@ -279,9 +289,22 @@ Examples:
         # Print top evaluated jobs if we have evaluations
         if evaluations:
             print("\n📈 Top Evaluated Jobs:")
+            
+            # Use explicitly paired list if available
+            if 'jobs_and_evals' in locals() and jobs_and_evals:
+                pairs_to_sort = jobs_and_evals
+            else:
+                # Reconstruct pairs if needed (fallback)
+                eval_map = {(e.company, e.job_title): e for e in evaluations}
+                pairs_to_sort = []
+                for job in jobs:
+                    key = (job.company, job.title)
+                    if key in eval_map:
+                        pairs_to_sort.append((job, eval_map[key]))
+
             # Sort by score descending
             sorted_evals = sorted(
-                zip(jobs[:len(evaluations)], evaluations),
+                pairs_to_sort,
                 key=lambda x: x[1].overall_score,
                 reverse=True
             )
