@@ -10,9 +10,14 @@ Phase 3 additions:
 - SearchResult dataclass for returning jobs and evaluations together
 """
 
+from __future__ import annotations
+
 import logging
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
+
+if TYPE_CHECKING:
+    from evaluation import EvaluationResult
 
 from adapters import JSearchAdapter
 from config.loader import Config
@@ -36,7 +41,7 @@ class SearchResult:
         stats: Dictionary of search statistics
     """
     jobs: List[JobPosting]
-    evaluations: Optional[List[Any]] = None  # List[EvaluationResult] - Any to avoid circular import
+    evaluations: Optional[List[EvaluationResult]] = None
     evaluation_errors: List[str] = field(default_factory=list)
     stats: Dict[str, Any] = field(default_factory=dict)
 
@@ -317,7 +322,7 @@ class SearchOrchestrator:
 
         return filtered
 
-    def run_search_with_evaluation(self) -> SearchResult:
+    def run_search_with_evaluation(self, limit: Optional[int] = None) -> SearchResult:
         """
         Execute search and evaluate results with AI.
 
@@ -325,10 +330,14 @@ class SearchOrchestrator:
         Runs the standard search, then evaluates each job against
         the 8-factor weighted rubric using Claude API.
 
+        Args:
+            limit: Optional maximum number of jobs to evaluate (for cost control).
+                   If specified, only the first N jobs will be evaluated.
+
         Returns:
             SearchResult containing:
             - jobs: List of discovered and filtered job postings
-            - evaluations: List of EvaluationResult objects (one per job)
+            - evaluations: List of EvaluationResult objects (one per evaluated job)
             - evaluation_errors: List of error messages for failed evaluations
             - stats: Dictionary with search and evaluation statistics
 
@@ -338,16 +347,24 @@ class SearchOrchestrator:
         # Run standard search to get filtered jobs
         jobs = self.run_search()
 
-        # Evaluate jobs
-        evaluations, errors = self._evaluate_jobs(jobs)
+        # Apply limit BEFORE evaluation (cost control)
+        # This ensures we only pay for API calls we actually want
+        jobs_to_evaluate = jobs
+        if limit and len(jobs) > limit:
+            logger.info(f"Limiting evaluation to {limit} of {len(jobs)} jobs (cost control)")
+            jobs_to_evaluate = jobs[:limit]
+
+        # Evaluate jobs (limited set)
+        evaluations, errors = self._evaluate_jobs(jobs_to_evaluate)
 
         # Build statistics
         stats = {
             "jobs_found": len(jobs),
+            "jobs_to_evaluate": len(jobs_to_evaluate),
             "jobs_evaluated": len(evaluations),
             "evaluation_errors": len(errors),
             "evaluation_success_rate": (
-                len(evaluations) / len(jobs) * 100 if jobs else 0
+                len(evaluations) / len(jobs_to_evaluate) * 100 if jobs_to_evaluate else 0
             ),
         }
 

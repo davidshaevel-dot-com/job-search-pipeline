@@ -62,7 +62,10 @@ Thumbs.db
 .coverage
 htmlcov/
 .tox/
-jobs/pipeline/*TEST*
+
+# Generated job pipeline output (created by each run)
+jobs/pipeline/
+!jobs/pipeline/.gitkeep
 
 # Docker
 .dockerignore

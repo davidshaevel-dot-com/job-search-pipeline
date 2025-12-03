@@ -213,15 +213,11 @@ Examples:
             print("🔍 Searching job boards...")
             print("🤖 AI evaluation enabled\n")
 
-            result = orchestrator.run_search_with_evaluation()
+            # Pass limit to orchestrator for cost control
+            # Limit is applied BEFORE evaluation to save API costs
+            result = orchestrator.run_search_with_evaluation(limit=args.limit)
             jobs = result.jobs
             evaluations = result.evaluations or []
-
-            # Apply limit if specified
-            if args.limit and len(jobs) > args.limit:
-                jobs = jobs[:args.limit]
-                evaluations = evaluations[:args.limit] if evaluations else []
-                logger.info(f"Limited to {args.limit} jobs")
 
             # Log evaluation stats
             if result.stats:
