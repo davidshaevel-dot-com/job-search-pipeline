@@ -1,8 +1,8 @@
 # Job Search Automation Pipeline - Implementation Plan
 
 **Created:** November 7, 2025
-**Updated:** November 25, 2025
-**Status:** Phase 2 Complete - Phase 3 (AI Evaluation) Up Next  
+**Updated:** December 2, 2025
+**Status:** Phase 3 Complete - Phase 4 (Organization & Linear Integration) Up Next  
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)  
 **Goal:** Automate job discovery and initial evaluation using background AI agents, GitHub Actions, GCP Cloud Run, and Slack integration
 
@@ -628,26 +628,54 @@ After comprehensive research (see `docs/BEST_JOB_SEARCH_APIS.md`), implementing 
 **Linear Issue:** [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46)
 **Branch:** `david/tt-46-phase2-deduplication-filtering`
 
-### Phase 3: AI Evaluation (Week 2-3)
+### Phase 3: AI Evaluation ✅ COMPLETE (Dec 2, 2025)
 **Goal:** Automated initial evaluation using Claude API
 
 **Tasks:**
-1. ⏳ Integrate Claude API
-2. ⏳ Build evaluation prompt templates
-3. ⏳ Implement rubric application
-4. ⏳ Score calculation and grading
-5. ⏳ Evaluation result storage
-6. ⏳ Confidence scoring
+1. ✅ Integrate Claude API (Claude Sonnet 4.5)
+2. ✅ Build evaluation prompt templates (`PromptBuilder`)
+3. ✅ Implement rubric application (8-factor weighted rubric)
+4. ✅ Score calculation and grading (`EvaluationResult`, `Grade` models)
+5. ✅ Evaluation result storage (`EvaluationWriter`)
+6. ✅ Integration with SearchOrchestrator
 
 **Deliverables:**
-- AI evaluation engine
-- Evaluation result files
-- Scoring and grading system
+- ✅ AI evaluation engine (`AIEvaluator`)
+- ✅ Evaluation result files (individual JSON + summary)
+- ✅ Scoring and grading system
+- ✅ `--evaluate` and `--limit` CLI flags
+- ✅ 64 unit tests with 100% passing
 
 **Linear Issue:** [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48)
+**PRs:** [#8](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/8), [#9](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/9)
 
-### Phase 4: Multi-Board Support (Week 3-4)
+### Phase 4: Organization & Linear Integration (Week 3-4)
+**Goal:** Organize files and create Linear issues
+
+**Note:** Phase renumbering on December 2, 2025 - Organization & Linear moved from Phase 5 to Phase 4 to prioritize file organization before adding more job board sources.
+
+**Tasks:**
+1. ⏳ Implement folder structure manager (active/evaluating/archived/pipeline)
+2. ⏳ File naming convention enforcement
+3. ⏳ Timestamped evaluation summaries (multiple runs per day)
+4. ⏳ Linear API integration
+5. ⏳ Auto-create Linear issues for promising roles (score ≥ 85)
+6. ⏳ Update existing Linear issues if job reposted
+7. ⏳ Archive system for declined opportunities
+
+**Deliverables:**
+- Folder organization system (`FolderManager`)
+- Linear integration (`LinearClient`)
+- Auto-issue creation
+- Archive system
+- Timestamped summaries (`evaluation_summary_HHMMSS.json`)
+
+**Linear Issue:** [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49)
+
+### Phase 5: Multi-Board Support (Week 4-5)
 **Goal:** Support multiple job boards with rate limiting
+
+**Note:** Phase renumbering on December 2, 2025 - Multi-Board moved from Phase 4 to Phase 5.
 
 **Updated Plan (Nov 19, 2025):**
 Based on API research, focusing on **viable APIs** (LinkedIn, Indeed, Glassdoor APIs are deprecated/unavailable):
@@ -677,25 +705,6 @@ Based on API research, focusing on **viable APIs** (LinkedIn, Indeed, Glassdoor 
 - Unified data normalization across different API schemas
 
 **Linear Issue:** [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47)
-
-### Phase 5: Organization & Linear Integration (Week 4)
-**Goal:** Organize files and create Linear issues
-
-**Tasks:**
-1. ✅ Implement folder structure manager
-2. ✅ File naming convention enforcement
-3. ✅ Linear API integration
-4. ✅ Auto-create Linear issues for promising roles
-5. ✅ Update existing Linear issues if job reposted
-6. ✅ Archive system for declined opportunities
-
-**Deliverables:**
-- Folder organization system
-- Linear integration
-- Auto-issue creation
-- Archive system
-
-**Linear Issue:** [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49)
 
 ### Phase 6: Scheduling & Automation (Week 5)
 **Goal:** Scheduled execution, GitHub Actions, GCP, and Slack integration

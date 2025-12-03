@@ -212,9 +212,9 @@ See `docs/DEPLOYMENT.md` for detailed instructions.
 |-------|-------------|--------|-----|
 | **Phase 1** | Foundation - Core infrastructure and JSearch integration | ✅ **COMPLETE** | [PR #2](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/2) |
 | **Phase 2** | Deduplication & Filtering - Remove duplicates and filter unwanted | ✅ **COMPLETE** | [PR #4](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/4) |
-| **Phase 3** | AI Evaluation - Automated evaluation using Claude API | ✅ **COMPLETE** | [PR #8](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/8) |
-| **Phase 4** | Multi-Board Support - Rate limiting and parallel execution | 📋 Planned | - |
-| **Phase 5** | Organization & Linear Integration - Folder structure and auto-issues | 📋 Planned | - |
+| **Phase 3** | AI Evaluation - Automated evaluation using Claude API | ✅ **COMPLETE** | [PR #8](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/8), [PR #9](https://github.com/davidshaevel-dot-com/job-search-pipeline/pull/9) |
+| **Phase 4** | Organization & Linear Integration - Folder structure and auto-issues | 📋 Planned | - |
+| **Phase 5** | Multi-Board Support - Rate limiting and parallel execution | 📋 Planned | - |
 | **Phase 6** | Scheduling & Automation - GitHub Actions, GCP, Slack | 📋 Planned | - |
 | **Phase 7** | Testing & Refinement - Test suite, performance, documentation | 📋 Planned | - |
 
@@ -227,9 +227,13 @@ See `docs/DEPLOYMENT.md` for detailed instructions.
 - `PromptBuilder` for structured evaluation prompts with JSON output
 - `AIEvaluator` with retry logic and error handling
 - User profile configuration (`config/user-profile.yaml`)
-- 50 unit tests (31 new + 19 existing) with 100% passing
-- Three rounds of Gemini code review completed
-- **Next:** Wire evaluator into SearchOrchestrator, add result storage
+- `EvaluationWriter` for structured file output (individual + summary JSON)
+- `SearchOrchestrator.run_search_with_evaluation()` - integrated pipeline
+- `--evaluate` flag in main.py for AI evaluation mode
+- `--limit` flag for cost control (applied BEFORE evaluation)
+- 64 unit tests (45 new + 19 existing) with 100% passing
+- Four rounds of Gemini code review completed (PR #8 and PR #9)
+- **Next:** Phase 4 - Organization & Linear Integration
 
 **Phase 2 Complete (Nov 24, 2025):**
 - FilterEngine with blacklist, criteria, and deduplication filters
@@ -252,11 +256,11 @@ See `PLAN.md` for detailed phase breakdowns and Linear issues.
 **Project:** [Job Search Pipeline Development](https://linear.app/davidshaevel-dot-com/project/job-search-pipeline-development-94abc44631e5)
 
 **Issues:**
-- [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation
-- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering
-- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 3: AI Evaluation
-- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 4: Multi-Board Support
-- [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 5: Organization & Linear Integration
+- [TT-45](https://linear.app/davidshaevel-dot-com/issue/TT-45) - Phase 1: Foundation ✅
+- [TT-46](https://linear.app/davidshaevel-dot-com/issue/TT-46) - Phase 2: Deduplication & Filtering ✅
+- [TT-48](https://linear.app/davidshaevel-dot-com/issue/TT-48) - Phase 3: AI Evaluation ✅
+- [TT-49](https://linear.app/davidshaevel-dot-com/issue/TT-49) - Phase 4: Organization & Linear Integration (was Phase 5)
+- [TT-47](https://linear.app/davidshaevel-dot-com/issue/TT-47) - Phase 5: Multi-Board Support (was Phase 4)
 - [TT-50](https://linear.app/davidshaevel-dot-com/issue/TT-50) - Phase 6: Scheduling & Automation
 - [TT-51](https://linear.app/davidshaevel-dot-com/issue/TT-51) - Phase 7: Testing & Refinement
 
@@ -279,4 +283,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 **Repository:** [davidshaevel-dot-com/job-search-pipeline](https://github.com/davidshaevel-dot-com/job-search-pipeline)
 **Last Updated:** December 2, 2025
-**Status:** Phase 3 Complete - Integration & Storage In Progress
+**Status:** Phase 3 Complete ✅ - Phase 4 (Organization & Linear) Up Next
