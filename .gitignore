@@ -63,6 +63,10 @@ Thumbs.db
 htmlcov/
 .tox/
 
+# Generated job pipeline output (created by each run)
+jobs/pipeline/
+!jobs/pipeline/.gitkeep
+
 # Docker
 .dockerignore
 

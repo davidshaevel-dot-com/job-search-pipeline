@@ -5,18 +5,25 @@ Job Search Pipeline - Main Entry Point
 Executes the job search pipeline by:
 1. Loading configuration
 2. Searching job boards via orchestrator
-3. Writing results to files
-4. Logging summary
+3. Optionally evaluating jobs with AI (Phase 3)
+4. Writing results to files
+5. Logging summary
 
 Usage:
-    # Search all enabled boards
+    # Search all enabled boards (no evaluation)
     python src/main.py
+
+    # Search with AI evaluation
+    python src/main.py --evaluate
+
+    # Limit number of jobs to evaluate (for cost control)
+    python src/main.py --evaluate --limit 5
 
     # Search specific board
     python src/main.py --board JSearch
 
-    # Custom config file
-    python src/main.py --config config/custom-criteria.yaml
+    # Search specific board with evaluation
+    python src/main.py --board JSearch --evaluate
 
     # Debug mode with verbose logging
     python src/main.py --debug
@@ -67,6 +74,7 @@ load_dotenv()
 
 from config.loader import load_config
 from organization.file_writer import FileWriter
+from organization.evaluation_writer import EvaluationWriter
 from search.orchestrator import SearchOrchestrator
 
 
@@ -97,13 +105,20 @@ def print_banner(args: argparse.Namespace) -> None:
         args: Parsed command-line arguments
     """
     print("\n" + "=" * 60)
-    print("Job Search Pipeline - Phase 1 (JSearch via RapidAPI)")
+    if args.evaluate:
+        print("Job Search Pipeline - Phase 3 (Search + AI Evaluation)")
+    else:
+        print("Job Search Pipeline - Phase 1 (Search Only)")
     print("=" * 60)
     print(f"Date/Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     if args.board:
         print(f"Board:     {args.board} (specific board search)")
     else:
         print("Board:     All enabled boards")
+    if args.evaluate:
+        print(f"Evaluate:  Yes (AI-powered job scoring)")
+        if args.limit:
+            print(f"Limit:     {args.limit} jobs max")
     if args.debug:
         print("Log Level: DEBUG")
     print("=" * 60)
@@ -123,7 +138,9 @@ def main() -> int:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  %(prog)s                          Search all enabled boards
+  %(prog)s                          Search all enabled boards (no evaluation)
+  %(prog)s --evaluate               Search with AI evaluation
+  %(prog)s --evaluate --limit 5     Evaluate max 5 jobs (cost control)
   %(prog)s --board JSearch          Search specific board only
   %(prog)s --debug                  Enable debug logging
         """
@@ -137,6 +154,16 @@ Examples:
         "--config-dir",
         type=str,
         help="Configuration directory path (default: config/)",
+    )
+    parser.add_argument(
+        "--evaluate",
+        action="store_true",
+        help="Enable AI-powered job evaluation using Claude API",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        help="Maximum number of jobs to evaluate (for cost control)",
     )
     parser.add_argument(
         "--debug",
@@ -179,15 +206,35 @@ Examples:
         logger.info(f"Enabled boards: {', '.join(enabled_boards)}")
         print(f"Enabled boards: {', '.join(enabled_boards)}\n")
 
-        # Execute search
-        if args.board:
-            logger.info(f"Searching specific board: {args.board}")
-            print(f"🔍 Searching {args.board}...\n")
-            jobs = orchestrator.search_specific_board(args.board)
+        # Execute search (with or without evaluation)
+        if args.evaluate:
+            # Phase 3: Search with AI evaluation
+            logger.info("Running search with AI evaluation...")
+            print("🔍 Searching job boards...")
+            print("🤖 AI evaluation enabled\n")
+
+            # Pass limit to orchestrator for cost control
+            # Limit is applied BEFORE evaluation to save API costs
+            result = orchestrator.run_search_with_evaluation(limit=args.limit)
+            jobs = result.jobs
+            evaluations = result.evaluations or []
+
+            # Log evaluation stats
+            if result.stats:
+                logger.info(f"Search stats: {result.stats}")
+                if result.stats.get('grade_distribution'):
+                    print(f"Grade distribution: {result.stats['grade_distribution']}")
         else:
-            logger.info("Searching all enabled boards...")
-            print("🔍 Searching all enabled boards...\n")
-            jobs = orchestrator.run_search()
+            # Phase 1: Search only (no evaluation)
+            if args.board:
+                logger.info(f"Searching specific board: {args.board}")
+                print(f"🔍 Searching {args.board}...\n")
+                jobs = orchestrator.search_specific_board(args.board)
+            else:
+                logger.info("Searching all enabled boards...")
+                print("🔍 Searching all enabled boards...\n")
+                jobs = orchestrator.run_search()
+            evaluations = []
 
         # Check if any jobs were found
         if not jobs:
@@ -196,24 +243,78 @@ Examples:
             print("   Try adjusting search criteria in config/search-criteria.yaml")
             return 0
 
-        # Write results to files
+        # Write job files
         logger.info(f"Writing {len(jobs)} jobs to files...")
-        print(f"\n📝 Writing {len(jobs)} jobs to files...")
+        print(f"\n📝 Writing {len(jobs)} job files...")
 
         writer = FileWriter()
         output_files = writer.write_jobs(jobs)
 
+        # Write evaluation files if we have evaluations
+        eval_files = []
+        summary_path = None
+        if evaluations:
+            logger.info(f"Writing {len(evaluations)} evaluation files...")
+            print(f"📊 Writing {len(evaluations)} evaluation files...")
+
+            eval_writer = EvaluationWriter()
+            
+            # Pair jobs with their evaluations
+            # Use explicit matching instead of zip to handle missing evaluations (due to errors)
+            eval_map = {(e.company, e.job_title): e for e in evaluations}
+            jobs_and_evals = []
+            
+            for job in jobs:
+                key = (job.company, job.title)
+                if key in eval_map:
+                    jobs_and_evals.append((job, eval_map[key]))
+            
+            eval_files = eval_writer.write_evaluations(jobs_and_evals)
+            summary_path = eval_writer.write_summary(jobs_and_evals)
+
         # Print summary
         print("\n" + "=" * 60)
-        print("✅ SEARCH COMPLETE")
+        print("✅ PIPELINE COMPLETE")
         print("=" * 60)
         print(f"Total jobs found:     {len(jobs)}")
-        print(f"Files created:        {len(output_files)}")
+        print(f"Job files created:    {len(output_files)}")
+        if evaluations:
+            print(f"Jobs evaluated:       {len(evaluations)}")
+            print(f"Eval files created:   {len(eval_files)}")
+            if summary_path:
+                print(f"Summary file:         {summary_path.name}")
         print(f"Output directory:     {writer.base_path}")
         print("=" * 60)
 
+        # Print top evaluated jobs if we have evaluations
+        if evaluations:
+            print("\n📈 Top Evaluated Jobs:")
+            
+            # Use explicitly paired list if available
+            if 'jobs_and_evals' in locals() and jobs_and_evals:
+                pairs_to_sort = jobs_and_evals
+            else:
+                # Reconstruct pairs if needed (fallback)
+                eval_map = {(e.company, e.job_title): e for e in evaluations}
+                pairs_to_sort = []
+                for job in jobs:
+                    key = (job.company, job.title)
+                    if key in eval_map:
+                        pairs_to_sort.append((job, eval_map[key]))
+
+            # Sort by score descending
+            sorted_evals = sorted(
+                pairs_to_sort,
+                key=lambda x: x[1].overall_score,
+                reverse=True
+            )
+            for i, (job, eval_result) in enumerate(sorted_evals[:5], 1):
+                print(f"   {i}. {job.title} at {job.company}")
+                print(f"      Grade: {eval_result.grade.value} ({eval_result.overall_score:.1f})")
+                print(f"      Recommendation: {eval_result.recommendation.value}")
+
         # Print output file paths
-        if output_files:
+        if output_files and not evaluations:
             print("\nCreated files:")
             for file_path in output_files[:10]:  # Show first 10
                 print(f"  - {file_path}")

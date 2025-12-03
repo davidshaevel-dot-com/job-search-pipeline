@@ -4,13 +4,13 @@
 
 search:
   # Keywords - Match your target roles
-  # Tip: Use broad terms here, filter specifically later
+  # Note: JSearch API may timeout with too many keywords. Use 1-2 for reliability.
   keywords:
     - "DevOps Engineer"
     - "Platform Engineer"
-    - "Infrastructure Engineer"
-    - "Site Reliability Engineer"
     - "Cloud Engineer"
+    # - "Infrastructure Engineer"
+    # - "Site Reliability Engineer"
     # Consider adding:
     # - "DevOps Lead"
     # - "Senior DevOps"

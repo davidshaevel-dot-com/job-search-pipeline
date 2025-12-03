@@ -161,10 +161,10 @@ search:
 
   # Salary Range - CRITICAL FILTER
   # Based on Aravo actual: $170K base + 10% bonus
-  # Your target: $150K-$170K
+  # Your target: $150K-$240K
   salary_range:
     min: 150000   # Your minimum acceptable ($150K)
-    max: 200000   # Upper bound (allows for Staff/Lead roles)
+    max: 240000   # Upper bound (allows for Staff/Lead roles)
 
   # Experience Level - Match your seniority
   # You're Senior→Staff level (20+ years experience)
@@ -240,10 +240,10 @@ Your target is **$150K-$170K** based on:
 ```yaml
 salary_range:
   min: 150000
-  max: 200000
+  max: 240000
 ```
 - **Filters out:** Jobs under $150K (too low)
-- **Keeps:** $150K-$200K (your target + room for negotiation)
+- **Keeps:** $150K-$240K (your target + room for negotiation)
 - **Risk:** May filter out good jobs that don't disclose salary
 
 **Option 2: Permissive**
@@ -261,7 +261,7 @@ salary_range:
 # Comment out salary_range entirely
 # salary_range:
 #   min: 150000
-#   max: 200000
+#   max: 240000
 ```
 - **Filters out:** Nothing based on salary
 - **Keeps:** All jobs (you manually review salaries)
@@ -389,7 +389,7 @@ search:
 search:
   salary_range:
     min: 150000
-    max: 200000
+    max: 240000
 
   experience_level:
     - "Senior"
@@ -477,8 +477,8 @@ search:
 ```yaml
 search:
   salary_range:
-    min: 160000  # Only premium roles
-    max: 200000
+    min: 150000  # Only premium roles
+    max: 240000
 
   experience_level:
     - "Senior"
@@ -565,7 +565,7 @@ python src/main.py
 
 # Week 3: Tighten criteria based on Week 2 quality
 # Edit search-criteria-complex.yaml:
-#   salary_range.min: 160000  # Raise minimum
+#   salary_range.min: 150000  # Raise minimum
 python src/main.py
 ```
 
@@ -752,7 +752,7 @@ search:
 search:
   salary_range:
     min: 150000  # Your minimum
-    max: 200000  # Room for negotiation
+    max: 240000  # Room for negotiation
 
   experience_level:
     - "Senior"

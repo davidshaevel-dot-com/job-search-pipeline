@@ -32,8 +32,11 @@ search:
       - "CI/CD"
   
   exclude_companies:
-    - "Zello"
     - "Aravo"
+    - "Base Power"
+    - "Beakon"
+    - "Mapquest"
+    - "Zello"
   
   date_range:
-    posted_within_days: 7  # Only new postings
+    posted_within_days: 14  # Only new postings

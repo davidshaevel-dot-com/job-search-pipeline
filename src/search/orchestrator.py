@@ -4,10 +4,20 @@ Search Orchestrator - Coordinates searches across multiple job boards.
 The orchestrator loads enabled job board adapters from configuration,
 executes searches based on criteria, and aggregates results with
 comprehensive error handling and logging.
+
+Phase 3 additions:
+- Optional AI evaluation of discovered jobs using Claude API
+- SearchResult dataclass for returning jobs and evaluations together
 """
 
+from __future__ import annotations
+
 import logging
-from typing import Dict, List
+from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
+
+if TYPE_CHECKING:
+    from evaluation import EvaluationResult
 
 from adapters import JSearchAdapter
 from config.loader import Config
@@ -15,6 +25,25 @@ from core.models import JobPosting
 from filters import FilterEngine, JobTracker
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class SearchResult:
+    """
+    Result from a search operation.
+
+    Contains both the discovered job postings and optional evaluation results.
+
+    Attributes:
+        jobs: List of discovered and filtered job postings
+        evaluations: Optional list of evaluation results (if evaluate=True)
+        evaluation_errors: List of jobs that failed evaluation (for debugging)
+        stats: Dictionary of search statistics
+    """
+    jobs: List[JobPosting]
+    evaluations: Optional[List[EvaluationResult]] = None
+    evaluation_errors: List[str] = field(default_factory=list)
+    stats: Dict[str, Any] = field(default_factory=dict)
 
 
 class SearchOrchestrator:
@@ -168,6 +197,62 @@ class SearchOrchestrator:
 
         return filtered
 
+    def _evaluate_jobs(
+        self, jobs: List[JobPosting]
+    ) -> tuple[list, list[str]]:
+        """
+        Evaluate jobs using AI evaluator.
+
+        Phase 3: Uses AIEvaluator with Claude API to score jobs against
+        the 8-factor weighted rubric.
+
+        Args:
+            jobs: List of job postings to evaluate
+
+        Returns:
+            Tuple of (evaluation_results, error_messages)
+            - evaluation_results: List of EvaluationResult objects
+            - error_messages: List of error messages for failed evaluations
+        """
+        if not jobs:
+            logger.info("No jobs to evaluate")
+            return [], []
+
+        # Import here to avoid circular imports and only when needed
+        from evaluation import AIEvaluator
+
+        logger.info(f"Evaluating {len(jobs)} job(s) with AI evaluator...")
+
+        # Get user profile from config (loaded from user-profile.yaml)
+        user_profile = self.config.get("user_profile")
+
+        # Initialize evaluator
+        evaluator = AIEvaluator(user_profile=user_profile)
+
+        # Evaluate all jobs
+        evaluations = []
+        errors = []
+
+        for job in jobs:
+            try:
+                result = evaluator.evaluate_job(job)
+                evaluations.append(result)
+                logger.debug(
+                    f"Evaluated '{job.title}' at {job.company}: "
+                    f"{result.grade.value} ({result.overall_score:.1f})"
+                )
+            except Exception as e:
+                error_msg = f"Failed to evaluate '{job.title}' at {job.company}: {e}"
+                logger.error(error_msg)
+                errors.append(error_msg)
+
+        logger.info(
+            f"Evaluation complete: {len(evaluations)} succeeded, "
+            f"{len(errors)} failed"
+        )
+
+        return evaluations, errors
+
     def run_search(self) -> List[JobPosting]:
         """
         Execute search across all enabled job boards.
@@ -236,6 +321,73 @@ class SearchOrchestrator:
         filtered = self._filter_and_track_jobs(all_results)
 
         return filtered
+
+    def run_search_with_evaluation(self, limit: Optional[int] = None) -> SearchResult:
+        """
+        Execute search and evaluate results with AI.
+
+        Phase 3: Combines job discovery with AI-powered evaluation.
+        Runs the standard search, then evaluates each job against
+        the 8-factor weighted rubric using Claude API.
+
+        Args:
+            limit: Optional maximum number of jobs to evaluate (for cost control).
+                   If specified, only the first N jobs will be evaluated.
+
+        Returns:
+            SearchResult containing:
+            - jobs: List of discovered and filtered job postings
+            - evaluations: List of EvaluationResult objects (one per evaluated job)
+            - evaluation_errors: List of error messages for failed evaluations
+            - stats: Dictionary with search and evaluation statistics
+
+        Raises:
+            RuntimeError: If no adapters are available to search
+        """
+        # Run standard search to get filtered jobs
+        jobs = self.run_search()
+
+        # Apply limit BEFORE evaluation (cost control)
+        # This ensures we only pay for API calls we actually want
+        jobs_to_evaluate = jobs
+        if limit and len(jobs) > limit:
+            logger.info(f"Limiting evaluation to {limit} of {len(jobs)} jobs (cost control)")
+            jobs_to_evaluate = jobs[:limit]
+
+        # Evaluate jobs (limited set)
+        evaluations, errors = self._evaluate_jobs(jobs_to_evaluate)
+
+        # Build statistics
+        stats = {
+            "jobs_found": len(jobs),
+            "jobs_to_evaluate": len(jobs_to_evaluate),
+            "jobs_evaluated": len(evaluations),
+            "evaluation_errors": len(errors),
+            "evaluation_success_rate": (
+                len(evaluations) / len(jobs_to_evaluate) * 100 if jobs_to_evaluate else 0
+            ),
+        }
+
+        # Add grade distribution if we have evaluations
+        if evaluations:
+            grade_counts: Dict[str, int] = {}
+            for eval_result in evaluations:
+                grade = eval_result.grade.value
+                grade_counts[grade] = grade_counts.get(grade, 0) + 1
+            stats["grade_distribution"] = grade_counts
+
+        logger.info(
+            f"Search with evaluation complete: {stats['jobs_found']} jobs, "
+            f"{stats['jobs_evaluated']} evaluated "
+            f"({stats['evaluation_success_rate']:.1f}% success rate)"
+        )
+
+        return SearchResult(
+            jobs=jobs,
+            evaluations=evaluations,
+            evaluation_errors=errors,
+            stats=stats,
+        )
 
     def search_specific_board(self, board_name: str) -> List[JobPosting]:
         """
