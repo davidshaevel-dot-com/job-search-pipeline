@@ -40,7 +40,7 @@ jobs/
 ├── active/              # Currently pursuing
 │   └── {company_name}/
 ├── evaluating/          # Under evaluation
-│   └── {week}/
+│   └── {YYYY-week-WW}/  # e.g., 2025-week-49
 │       └── {company_name}/
 ├── archived/            # Not pursuing or completed
 │   └── {company_name}/

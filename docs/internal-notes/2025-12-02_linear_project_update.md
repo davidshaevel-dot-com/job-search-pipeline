@@ -21,7 +21,7 @@
 - `--limit` flag for cost control (applied BEFORE evaluation)
 - End-to-end testing with real JSearch data
 
-**Code Quality Improvements:**
+**Code Quality Improvements (from PR #9):**
 - Fixed `.gitignore` to ignore generated pipeline files
 - Applied `--limit` BEFORE evaluation (saves API costs)
 - Added forward reference type hints with `TYPE_CHECKING`
